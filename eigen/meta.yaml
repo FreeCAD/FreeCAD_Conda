@@ -1,0 +1,19 @@
+package:
+  name: eigen
+  version: 3.3
+
+build:
+  string: beta1
+
+source:
+  fn: 3.3-beta1.tar.bz2
+  url: http://bitbucket.org/eigen/eigen/get/3.3-beta1.tar.bz2
+
+
+requirements:
+  build:
+    - cmake
+  
+about:
+  home: http://eigen.tuxfamily.org/
+  license: MPL2

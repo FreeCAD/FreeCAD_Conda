@@ -1,0 +1,31 @@
+package:
+    name: freecad
+    version: 0.17
+
+build:
+    number: 4
+
+source:
+    git_url: https://github.com/FreeCAD/FreeCAD
+
+requirements:
+    build:
+        - python
+        - cmake
+        - eigen 3.3
+        - swig
+        - shiboken
+        - pyside
+        - coin
+        - pivy
+        - boost 1.60.0
+        - oce                   # dlr-sc
+    run:
+        - python
+        - pyside
+        - pivy
+        - boost 1.60.0
+        - coin
+        - oce                   # dlr-sc
+about:
+    summary: freecad

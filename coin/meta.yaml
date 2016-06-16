@@ -1,0 +1,20 @@
+package:
+  name: coin
+  version: 4.0.0
+
+build:
+  string: cmake
+  number: 0
+
+source:
+  hg_url: https://bitbucket.org/Coin3D/coin
+  hg_tag: CMake
+
+
+requirements:
+  build:
+    - mercurial
+    - cmake
+
+about:
+  summary: coin3d

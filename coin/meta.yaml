@@ -11,10 +11,10 @@ source:
   # clone manually to make the build and place the recipe in
   # coin/packageing/conda
 
-  #hg_url: https://bitbucket.org/Coin3D/coin
-  #hg_tag: CMake
+  hg_url: https://bitbucket.org/Coin3D/coin/CMake
+  # hg_tag: CMake
 
-  path: ../../
+  # path: ../../
 
 
 

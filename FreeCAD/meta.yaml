@@ -18,15 +18,16 @@ requirements:
         - shiboken
         - pyside
         - coin
-        # - pivy
+        - pivy
         - boost 1.60.0
         - oce                   # dlr-sc
-    # run:
-        # - python
-        # - pyside
-        # - pivy
-        # - boost 1.60.0
-        # - coin
-        # - oce                   # dlr-sc
+        - qt
+    run:
+        - python
+        - pyside
+        - pivy
+        - boost 1.60.0
+        - coin
+        - oce                   # dlr-sc
 about:
     summary: freecad

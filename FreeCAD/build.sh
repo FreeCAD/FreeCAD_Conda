@@ -5,8 +5,7 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
       .
-
-      # -DBUILD_FEM_NETGEN=YES \
+      # -DBUILD_FEM_NETGEN=NO \
       # -DBUILD_ARCH=NO \
       # -DBUILD_ASSEMBLY=NO \
       # -DBUILD_COMPLETE=NO \
@@ -17,13 +16,13 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       # -DBUILD_IDF=NO \
       # -DBUILD_IMAGE=NO \
       # -DBUILD_IMPORT=NO \
-      # -DBUILD_INSPECTION=YES \
+      # -DBUILD_INSPECTION=NO \
       # -DBUILD_JTREADER=NO \
       # -DBUILD_MATERIAL=NO \
       # -DBUILD_MESH=NO \
       # -DBUILD_MESH_PART=NO \
       # -DBUILD_OPENSCAD=NO \
-      # -DBUILD_PART=YES \
+      # -DBUILD_PART=NO \
       # -DBUILD_PART_DESIGN=NO \
       # -DBUILD_PATH=NO \
       # -DBUILD_POINTS=NO \

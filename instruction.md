@@ -11,7 +11,7 @@
 ## CREATE A NEW ENV
 
 - type in terminal: __initConda__ (now the "conda" command should be available)
-- create an env: __conda create -n__ <env-name> python=3.5 # with <env-name> is the name of the env, eg. fc_test
+- create an env: __conda create -n env-name python=3.5__ # with <env-name> is the name of the env, eg. fc_test
     (it will install some packages, but I think most of them are available within miniconda, so it will only link this packages to the env)
 - at the end of this process a short statement is printed how to activate the new env.: source activate <env-name>
 - now you have a minimal setup of python (only packages in this env are available)

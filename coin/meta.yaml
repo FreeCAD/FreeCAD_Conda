@@ -7,8 +7,15 @@ build:
   number: 0
 
 source:
-  hg_url: https://bitbucket.org/Coin3D/coin
-  hg_tag: CMake
+  # not working with conda right now
+  # clone manually to make the build and place the recipe in
+  # coin/packageing/conda
+
+  #hg_url: https://bitbucket.org/Coin3D/coin
+  #hg_tag: CMake
+
+  path: ../../
+
 
 
 requirements:

@@ -43,4 +43,8 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       # -DBUILD_WEB=NO .
 
 make install -j4
+
+mkdir $PREFIX/bin -p
+ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
+ln -s ../lib/freecad/bin/FreeCADCmd $PREFIX/bin/FreeCADCmd
 rm ${PREFIX}/doc -r     # smaller size of package!

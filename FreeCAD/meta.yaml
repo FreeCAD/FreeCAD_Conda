@@ -6,7 +6,11 @@ build:
     number: 4
 
 source:
-    git_url: https://github.com/FreeCAD/FreeCAD
+    # git_url: https://github.com/FreeCAD/FreeCAD
+    # git_tag: master
+
+    # for python 3
+    git_url: https://github.com/looooo/FreeCAD
     git_tag: master
 
 requirements:
@@ -24,6 +28,8 @@ requirements:
         - qt
     run:
         - python
+        - numpy
+        - matplotlib
         - pyside
         - pivy
         - boost 1.60.0

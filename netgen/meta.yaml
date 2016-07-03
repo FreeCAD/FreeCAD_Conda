@@ -1,0 +1,23 @@
+package:
+  name: netgen
+  version: 6.0.0
+
+build:
+  number: 0
+
+source:
+  git_url: http://git.code.sf.net/p/netgen-mesher/git
+  git_tag: master
+
+  patches:
+    - netgen.patch
+
+requirements:
+  build:
+    - cmake
+    - python
+  run:
+    - python 
+
+about:
+  summary: netgen

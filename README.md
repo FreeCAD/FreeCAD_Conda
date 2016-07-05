@@ -6,6 +6,7 @@
 - [x] understand how anaconda builds packages
 - [x] create a main freecad conda repo
 - [ ] insert all the recipes
+- [ ] plugins
 
 
 ## install conda

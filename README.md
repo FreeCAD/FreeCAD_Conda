@@ -2,10 +2,10 @@
 
 ## TODO
 
-- download latest source code before installation
-- understand how anaconda builds packages
-- create a main freecad conda repo
-- insert all the recipes
+-[x] download latest source code before installation
+-[x] understand how anaconda builds packages
+-[x] create a main freecad conda repo
+-[ ] insert all the recipes
 
 
 ## install conda
@@ -15,9 +15,13 @@ download conda...
 conda install freecad
 
 ## dependencies
-- boost
-- coin
-- pyside
+-[ ] boost
+-[ ] coin
+-[ ] pyside
+-[ ] shiboken
+-[ ] netgen
+-[ ] smesh
+-[ ] occt
 
 ## build a package
 ```shell

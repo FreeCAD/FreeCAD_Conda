@@ -1,12 +1,147 @@
-From 74063f8c071454159b0f443637ab4837460e858c Mon Sep 17 00:00:00 2001
+From aecc65a83ce824e09e4c2a7e29a9d90d4efb7077 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 3 Jul 2016 23:55:23 +0200
-Subject: [PATCH 1/3] cmake fix: not use togl if USE_Gui = FALSE
+Subject: [PATCH] patch: compile with conda
 
 ---
- ng/CMakeLists.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ libsrc/occ/Partition_Inter2d.hxx | 9 ++++++---
+ libsrc/occ/Partition_Inter3d.hxx | 8 ++++----
+ libsrc/occ/Partition_Loop.hxx    | 2 +-
+ libsrc/occ/Partition_Loop2d.hxx  | 2 +-
+ libsrc/occ/Partition_Loop3d.hxx  | 7 +++++--
+ libsrc/occ/Partition_Spliter.hxx | 5 +++--
+ ng/CMakeLists.txt                | 2 +-
+ nglib/CMakeLists.txt             | 5 ++++-
+ python/__init__.py               | 6 +++++-
+ 9 files changed, 30 insertions(+), 16 deletions(-)
 
+diff --git a/libsrc/occ/Partition_Inter2d.hxx b/libsrc/occ/Partition_Inter2d.hxx
+index cfd4a9a..4b2106b 100644
+--- a/libsrc/occ/Partition_Inter2d.hxx
++++ b/libsrc/occ/Partition_Inter2d.hxx
+@@ -28,7 +28,7 @@
+ #define _Partition_Inter2d_HeaderFile
+ 
+ #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#include <Handle_BRepAlgo_AsDes.hxx>
++#include <BRepAlgo_AsDes.hxx>
+ #endif
+ #ifndef _Standard_Real_HeaderFile
+ #include <Standard_Real.hxx>
+@@ -36,11 +36,14 @@
+ #ifndef _Standard_Boolean_HeaderFile
+ #include <Standard_Boolean.hxx>
+ #endif
++#ifndef _TopTools_MapOfShape_HeaderFile
++#include <TopTools_MapOfShape.hxx>
++#endif
+ class BRepAlgo_AsDes;
+ class TopoDS_Face;
+-class TopTools_MapOfShape;
++// class TopTools_MapOfShape;
+ class TopoDS_Vertex;
+-class TopTools_ListOfShape;
++// class TopTools_ListOfShape;
+ class TopoDS_Edge;
+ 
+ 
+diff --git a/libsrc/occ/Partition_Inter3d.hxx b/libsrc/occ/Partition_Inter3d.hxx
+index d8be2c5..851131c 100644
+--- a/libsrc/occ/Partition_Inter3d.hxx
++++ b/libsrc/occ/Partition_Inter3d.hxx
+@@ -28,7 +28,7 @@
+ #define _Partition_Inter3d_HeaderFile
+ 
+ #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#include <Handle_BRepAlgo_AsDes.hxx>
++#include <BRepAlgo_AsDes.hxx>
+ #endif
+ #ifndef _TopTools_DataMapOfShapeListOfShape_HeaderFile
+ #include <TopTools_DataMapOfShapeListOfShape.hxx>
+@@ -43,10 +43,10 @@
+ #include <Standard_Boolean.hxx>
+ #endif
+ class BRepAlgo_AsDes;
+-class TopTools_ListOfShape;
+-class TopTools_DataMapOfShapeShape;
++// class TopTools_ListOfShape;
++// class TopTools_DataMapOfShapeShape;
+ class TopoDS_Face;
+-class TopTools_MapOfShape;
++// class TopTools_MapOfShape;
+ class TopoDS_Shape;
+ class TopoDS_Vertex;
+ class TopoDS_Edge;
+diff --git a/libsrc/occ/Partition_Loop.hxx b/libsrc/occ/Partition_Loop.hxx
+index 56e05e2..9896ecd 100644
+--- a/libsrc/occ/Partition_Loop.hxx
++++ b/libsrc/occ/Partition_Loop.hxx
+@@ -38,7 +38,7 @@
+ #endif
+ class TopoDS_Face;
+ class TopoDS_Edge;
+-class TopTools_ListOfShape;
++// class TopTools_ListOfShape;
+ 
+ 
+ #ifndef _Standard_HeaderFile
+diff --git a/libsrc/occ/Partition_Loop2d.hxx b/libsrc/occ/Partition_Loop2d.hxx
+index bdf1c25..895ab21 100644
+--- a/libsrc/occ/Partition_Loop2d.hxx
++++ b/libsrc/occ/Partition_Loop2d.hxx
+@@ -24,7 +24,7 @@
+ #endif
+ class TopoDS_Face;
+ class TopoDS_Edge;
+-class TopTools_ListOfShape;
++// class TopTools_ListOfShape;
+ class BRepAlgo_Image;
+ 
+ 
+diff --git a/libsrc/occ/Partition_Loop3d.hxx b/libsrc/occ/Partition_Loop3d.hxx
+index 52abd11..5de5b9e 100644
+--- a/libsrc/occ/Partition_Loop3d.hxx
++++ b/libsrc/occ/Partition_Loop3d.hxx
+@@ -22,9 +22,12 @@
+ #ifndef _Standard_Real_HeaderFile
+ #include <Standard_Real.hxx>
+ #endif
++// #include <TopTools_ShapeMapHasher.hxx>
++// #include <TopTools_OrientedShapeMapHasher.hxx>
++#include <TopTools_MapOfOrientedShape.hxx>
+ class TopoDS_Shape;
+-class TopTools_ListOfShape;
+-class TopTools_MapOfOrientedShape;
++// class TopTools_ListOfShape;
++// class TopTools_MapOfOrientedShape;
+ class TopoDS_Edge;
+ class TopoDS_Face;
+ class gp_Vec;
+diff --git a/libsrc/occ/Partition_Spliter.hxx b/libsrc/occ/Partition_Spliter.hxx
+index f29917a..a734bfa 100644
+--- a/libsrc/occ/Partition_Spliter.hxx
++++ b/libsrc/occ/Partition_Spliter.hxx
+@@ -29,7 +29,7 @@
+ #include <TopTools_DataMapOfShapeShape.hxx>
+ #endif
+ #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#include <Handle_BRepAlgo_AsDes.hxx>
++#include <BRepAlgo_AsDes.hxx>
+ #endif
+ #ifndef _BRepAlgo_Image_HeaderFile
+ #include <BRepAlgo_Image.hxx>
+@@ -43,9 +43,10 @@
+ #ifndef _Standard_Boolean_HeaderFile
+ #include <Standard_Boolean.hxx>
+ #endif
++#include <TopTools_ShapeMapHasher.hxx>
+ class BRepAlgo_AsDes;
+ class TopoDS_Shape;
+-class TopTools_ListOfShape;
++// class TopTools_ListOfShape;
+ class TopoDS_Edge;
+ 
+ 
 diff --git a/ng/CMakeLists.txt b/ng/CMakeLists.txt
 index 354851a..1070f61 100644
 --- a/ng/CMakeLists.txt
@@ -26,24 +161,11 @@ index 354851a..1070f61 100644
 -add_subdirectory(Togl2.1)
  install(FILES drawing.tcl DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
  
--- 
-2.7.4
-
-
-From ac887710ce4a5ffe87cd79c2c10ad879d31314a9 Mon Sep 17 00:00:00 2001
-From: looooo <sppedflyer@gmail.com>
-Date: Mon, 4 Jul 2016 00:04:45 +0200
-Subject: [PATCH 2/3] not link visual stuff when building netgen without gui
-
----
- nglib/CMakeLists.txt | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
 diff --git a/nglib/CMakeLists.txt b/nglib/CMakeLists.txt
-index f172f7e..08be658 100644
+index f172f7e..803f610 100644
 --- a/nglib/CMakeLists.txt
 +++ b/nglib/CMakeLists.txt
-@@ -22,7 +22,9 @@ endif(WIN32)
+@@ -22,7 +22,10 @@ endif(WIN32)
  
  add_library(nglib SHARED nglib.cpp ${nglib_objects})
  if(NOT WIN32)
@@ -51,34 +173,28 @@ index f172f7e..08be658 100644
 +    target_link_libraries( nglib mesh stl interface geom2d csg stl visual)
 +    if(USE_GUI)
 +        target_link_libraries(nglib stlvis geom2dvis csgvis)
- endif(NOT WIN32)
- 
- target_link_libraries( nglib ${OCC_LIBRARIES} ${MPI_CXX_LIBRARIES} ${OPENGL_LIBRARIES} ${TK_LIBRARY} ${TCL_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${X11_Xmu_LIB} ${JPEG_LIBRARIES} ${MKL_LIBRARIES} ${ZLIB_LIBRARIES} ${OCC_LIBRARIES} )
--- 
-2.7.4
-
-
-From 63f5d0ed835535e34c5bc4f8f61050f83cec4fba Mon Sep 17 00:00:00 2001
-From: looooo <sppedflyer@gmail.com>
-Date: Mon, 4 Jul 2016 00:06:23 +0200
-Subject: [PATCH 3/3] close the if
-
----
- nglib/CMakeLists.txt | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/nglib/CMakeLists.txt b/nglib/CMakeLists.txt
-index 08be658..803f610 100644
---- a/nglib/CMakeLists.txt
-+++ b/nglib/CMakeLists.txt
-@@ -25,6 +25,7 @@ if(NOT WIN32)
-     target_link_libraries( nglib mesh stl interface geom2d csg stl visual)
-     if(USE_GUI)
-         target_link_libraries(nglib stlvis geom2dvis csgvis)
 +    endif(USE_GUI)
  endif(NOT WIN32)
  
  target_link_libraries( nglib ${OCC_LIBRARIES} ${MPI_CXX_LIBRARIES} ${OPENGL_LIBRARIES} ${TK_LIBRARY} ${TCL_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${X11_Xmu_LIB} ${JPEG_LIBRARIES} ${MKL_LIBRARIES} ${ZLIB_LIBRARIES} ${OCC_LIBRARIES} )
+diff --git a/python/__init__.py b/python/__init__.py
+index 1db0197..de1c81b 100644
+--- a/python/__init__.py
++++ b/python/__init__.py
+@@ -1,8 +1,12 @@
+ from os import environ
++import os
+ from sys import path
+ from sys import platform as __platform
+ if __platform.startswith('linux'):
+-    path.append(environ['NETGENDIR']+'/../lib')
++    try:
++        path.append(environ['NETGENDIR']+'/../lib')
++    except KeyError:
++        path.append(os.path.dirname(__file__) + '/../../..')
+ if __platform.startswith('win'):
+     path.append(environ['NETGENDIR'])
+ if __platform.startswith('darwin'):
 -- 
 2.7.4
 

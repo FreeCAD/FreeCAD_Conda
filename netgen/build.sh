@@ -6,9 +6,11 @@ export PYTHONPATH=$SP_DIR
 echo "set PYTHONPATH to: $PYTHONPATH"
 echo "------------------------------------------------"
 
-cmake -DUSE_GUI=OFF \
-      -DCMAKE_INSTALL_PREFIX=$PREFIX \
-      -DINSTALL_DIR=$PREFIX/lib/netgen \
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DINSTALL_DIR=$PREFIX \
+      -DUSE_OCC=ON \
+      -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
+      -OCC_LIBRARY_DIR=$PREFIX/lib \
       .
 make -j4
 make install

@@ -27,9 +27,8 @@ at the end this file should look like this:
 ```
 channels:
   - spyder-ide
-  - dlr-sc
-  - looooo
   - defaults
+  - freecad
 ```
 
  - the channels hosting this libraries:

@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 4
+    number: 5
 
 source:
     # git_url: https://github.com/FreeCAD/FreeCAD
@@ -24,8 +24,9 @@ requirements:
         - coin
         - pivy
         - boost 1.60.0
-        - oce                   # dlr-sc
+        - occt
         - qt
+        - netgen
     run:
         - python
         - numpy
@@ -34,6 +35,7 @@ requirements:
         - pivy
         - boost 1.60.0
         - coin
-        - oce                   # dlr-sc
+        - occt
+        - netgen
 about:
     summary: freecad

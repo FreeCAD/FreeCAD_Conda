@@ -1,1 +1,2 @@
-cp ${SRC_DIR}/* ${PREFIX}/lib/freecad/Mod/FCGear/ -r -p
+mkdir ${PREFIX}/Mod/FCGear/ -p
+cp ${SRC_DIR}/* ${PREFIX}/Mod/FCGear/ -r -p

@@ -1,0 +1,19 @@
+package:
+  name: freecad_glider
+  version: 0.0.1
+
+build:
+  number: 0
+
+source:
+  git_url: https://github.com/looooo/freecad_glider
+  
+requirements:
+  run:
+    - freecad
+    - numpy
+    - openglider
+    - pivy
+
+about:
+  summary: a glider modul

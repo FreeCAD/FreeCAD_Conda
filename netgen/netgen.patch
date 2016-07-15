@@ -1,189 +1,287 @@
-From aecc65a83ce824e09e4c2a7e29a9d90d4efb7077 Mon Sep 17 00:00:00 2001
+From eea90fd427290f31e81f30f0a4f5c4f93f3a5dba Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
-Date: Sun, 3 Jul 2016 23:55:23 +0200
-Subject: [PATCH] patch: compile with conda
+Date: Fri, 15 Jul 2016 20:17:15 +0200
+Subject: [PATCH] apply patches from vejmarie:
+ https://github.com/vejmarie/netgen_5.3.1_occt7/commit/16ab467772e468417cf2251052ae29dab525327a
 
 ---
- libsrc/occ/Partition_Inter2d.hxx | 9 ++++++---
- libsrc/occ/Partition_Inter3d.hxx | 8 ++++----
- libsrc/occ/Partition_Loop.hxx    | 2 +-
- libsrc/occ/Partition_Loop2d.hxx  | 2 +-
- libsrc/occ/Partition_Loop3d.hxx  | 7 +++++--
- libsrc/occ/Partition_Spliter.hxx | 5 +++--
- ng/CMakeLists.txt                | 2 +-
- nglib/CMakeLists.txt             | 5 ++++-
- python/__init__.py               | 6 +++++-
- 9 files changed, 30 insertions(+), 16 deletions(-)
+ libsrc/occ/Partition_Inter2d.hxx | 22 ++++++++++++++++++----
+ libsrc/occ/Partition_Inter3d.hxx | 23 ++++++++++++++++++-----
+ libsrc/occ/Partition_Loop.hxx    |  7 ++++++-
+ libsrc/occ/Partition_Loop2d.cxx  |  2 ++
+ libsrc/occ/Partition_Loop2d.hxx  |  9 ++++++++-
+ libsrc/occ/Partition_Loop3d.hxx  | 19 +++++++++++++++++--
+ libsrc/occ/Partition_Spliter.hxx | 20 +++++++++++++++++---
+ libsrc/occ/occgeom.cpp           | 16 +++++++++++++++-
+ python/__init__.py               |  6 +++++-
+ 9 files changed, 106 insertions(+), 18 deletions(-)
 
 diff --git a/libsrc/occ/Partition_Inter2d.hxx b/libsrc/occ/Partition_Inter2d.hxx
-index cfd4a9a..4b2106b 100644
+index cfd4a9a..c018bac 100644
 --- a/libsrc/occ/Partition_Inter2d.hxx
 +++ b/libsrc/occ/Partition_Inter2d.hxx
-@@ -28,7 +28,7 @@
+@@ -27,9 +27,19 @@
+ #ifndef _Partition_Inter2d_HeaderFile
  #define _Partition_Inter2d_HeaderFile
  
- #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#ifndef _Handle_BRepAlgo_AsDes_HeaderFile
 -#include <Handle_BRepAlgo_AsDes.hxx>
-+#include <BRepAlgo_AsDes.hxx>
++#ifndef _Standard_Version_HeaderFile
++   #include <Standard_Version.hxx>
  #endif
++
++#if OCC_VERSION_HEX < 0x070000
++   #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
++      #include <Handle_BRepAlgo_AsDes.hxx>
++   #endif
++#else
++   #include <BRepAlgo_AsDes.hxx>
++   #include <TopTools_MapOfShape.hxx>
++#endif
++
  #ifndef _Standard_Real_HeaderFile
  #include <Standard_Real.hxx>
-@@ -36,11 +36,14 @@
- #ifndef _Standard_Boolean_HeaderFile
- #include <Standard_Boolean.hxx>
  #endif
-+#ifndef _TopTools_MapOfShape_HeaderFile
-+#include <TopTools_MapOfShape.hxx>
-+#endif
+@@ -38,9 +48,13 @@
+ #endif
  class BRepAlgo_AsDes;
  class TopoDS_Face;
 -class TopTools_MapOfShape;
-+// class TopTools_MapOfShape;
++
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_MapOfShape;
++   class TopTools_ListOfShape;
++#endif
++
  class TopoDS_Vertex;
 -class TopTools_ListOfShape;
-+// class TopTools_ListOfShape;
  class TopoDS_Edge;
  
  
 diff --git a/libsrc/occ/Partition_Inter3d.hxx b/libsrc/occ/Partition_Inter3d.hxx
-index d8be2c5..851131c 100644
+index d8be2c5..93af077 100644
 --- a/libsrc/occ/Partition_Inter3d.hxx
 +++ b/libsrc/occ/Partition_Inter3d.hxx
-@@ -28,7 +28,7 @@
+@@ -27,8 +27,17 @@
+ #ifndef _Partition_Inter3d_HeaderFile
  #define _Partition_Inter3d_HeaderFile
  
- #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#ifndef _Handle_BRepAlgo_AsDes_HeaderFile
 -#include <Handle_BRepAlgo_AsDes.hxx>
-+#include <BRepAlgo_AsDes.hxx>
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
++
++#if OCC_VERSION_HEX < 0x070000
++   #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
++      #include <Handle_BRepAlgo_AsDes.hxx>
++   #endif
++#else
++   #include <BRepAlgo_AsDes.hxx>
++   #include <TopTools_DataMapOfShapeShape.hxx>
  #endif
  #ifndef _TopTools_DataMapOfShapeListOfShape_HeaderFile
  #include <TopTools_DataMapOfShapeListOfShape.hxx>
-@@ -43,10 +43,10 @@
+@@ -42,11 +51,15 @@
+ #ifndef _Standard_Boolean_HeaderFile
  #include <Standard_Boolean.hxx>
  #endif
++
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_ListOfShape;
++   class TopTools_DataMapOfShapeShape;
++   class TopTools_MapOfShape;
++#endif
++
  class BRepAlgo_AsDes;
 -class TopTools_ListOfShape;
 -class TopTools_DataMapOfShapeShape;
-+// class TopTools_ListOfShape;
-+// class TopTools_DataMapOfShapeShape;
  class TopoDS_Face;
 -class TopTools_MapOfShape;
-+// class TopTools_MapOfShape;
  class TopoDS_Shape;
  class TopoDS_Vertex;
  class TopoDS_Edge;
 diff --git a/libsrc/occ/Partition_Loop.hxx b/libsrc/occ/Partition_Loop.hxx
-index 56e05e2..9896ecd 100644
+index 56e05e2..94cdfa3 100644
 --- a/libsrc/occ/Partition_Loop.hxx
 +++ b/libsrc/occ/Partition_Loop.hxx
-@@ -38,7 +38,7 @@
+@@ -36,9 +36,14 @@
+ #ifndef _TopTools_DataMapOfShapeListOfShape_HeaderFile
+ #include <TopTools_DataMapOfShapeListOfShape.hxx>
  #endif
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
  class TopoDS_Face;
  class TopoDS_Edge;
 -class TopTools_ListOfShape;
-+// class TopTools_ListOfShape;
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_ListOfShape;
++#endif
  
  
  #ifndef _Standard_HeaderFile
+diff --git a/libsrc/occ/Partition_Loop2d.cxx b/libsrc/occ/Partition_Loop2d.cxx
+index 81e484c..1baf152 100644
+--- a/libsrc/occ/Partition_Loop2d.cxx
++++ b/libsrc/occ/Partition_Loop2d.cxx
+@@ -52,6 +52,8 @@
+ #include <gp_Pnt.hxx>
+ #include <gp_Pnt2d.hxx>
+ 
++#define PI 3.14159265358979323846
++
+ //=======================================================================
+ //function : Partition_Loop2d
+ //purpose  :
 diff --git a/libsrc/occ/Partition_Loop2d.hxx b/libsrc/occ/Partition_Loop2d.hxx
-index bdf1c25..895ab21 100644
+index bdf1c25..d68c6c3 100644
 --- a/libsrc/occ/Partition_Loop2d.hxx
 +++ b/libsrc/occ/Partition_Loop2d.hxx
-@@ -24,7 +24,7 @@
+@@ -22,9 +22,16 @@
+ #ifndef _TopTools_MapOfShape_HeaderFile
+ #include <TopTools_MapOfShape.hxx>
  #endif
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
++
++
  class TopoDS_Face;
  class TopoDS_Edge;
 -class TopTools_ListOfShape;
-+// class TopTools_ListOfShape;
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_ListOfShape;
++#endif
  class BRepAlgo_Image;
  
  
 diff --git a/libsrc/occ/Partition_Loop3d.hxx b/libsrc/occ/Partition_Loop3d.hxx
-index 52abd11..5de5b9e 100644
+index 52abd11..e171669 100644
 --- a/libsrc/occ/Partition_Loop3d.hxx
 +++ b/libsrc/occ/Partition_Loop3d.hxx
-@@ -22,9 +22,12 @@
+@@ -22,9 +22,24 @@
  #ifndef _Standard_Real_HeaderFile
  #include <Standard_Real.hxx>
  #endif
-+// #include <TopTools_ShapeMapHasher.hxx>
-+// #include <TopTools_OrientedShapeMapHasher.hxx>
-+#include <TopTools_MapOfOrientedShape.hxx>
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
++
++#if OCC_VERSION_HEX < 0x070000
++#else
++   #include <TopTools_ShapeMapHasher.hxx>
++   #include <TopTools_OrientedShapeMapHasher.hxx>
++   #include <TopTools_MapOfOrientedShape.hxx>
++#endif
++
  class TopoDS_Shape;
 -class TopTools_ListOfShape;
 -class TopTools_MapOfOrientedShape;
-+// class TopTools_ListOfShape;
-+// class TopTools_MapOfOrientedShape;
++
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_ListOfShape;
++   class TopTools_MapOfOrientedShape;
++#endif
++
  class TopoDS_Edge;
  class TopoDS_Face;
  class gp_Vec;
 diff --git a/libsrc/occ/Partition_Spliter.hxx b/libsrc/occ/Partition_Spliter.hxx
-index f29917a..a734bfa 100644
+index f29917a..e75e989 100644
 --- a/libsrc/occ/Partition_Spliter.hxx
 +++ b/libsrc/occ/Partition_Spliter.hxx
-@@ -29,7 +29,7 @@
+@@ -10,6 +10,10 @@
+ #ifndef _Partition_Spliter_HeaderFile
+ #define _Partition_Spliter_HeaderFile
+ 
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
++
+ #ifndef _TopAbs_ShapeEnum_HeaderFile
+ #include <TopAbs_ShapeEnum.hxx>
+ #endif
+@@ -28,9 +32,16 @@
+ #ifndef _TopTools_DataMapOfShapeShape_HeaderFile
  #include <TopTools_DataMapOfShapeShape.hxx>
  #endif
- #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
+-#ifndef _Handle_BRepAlgo_AsDes_HeaderFile
 -#include <Handle_BRepAlgo_AsDes.hxx>
-+#include <BRepAlgo_AsDes.hxx>
++
++#if OCC_VERSION_HEX < 0x070000
++   #ifndef _Handle_BRepAlgo_AsDes_HeaderFile
++      #include <Handle_BRepAlgo_AsDes.hxx>
++   #endif
++#else
++   #include <BRepAlgo_AsDes.hxx>
++   #include <TopTools_MapOfShape.hxx>
  #endif
++
  #ifndef _BRepAlgo_Image_HeaderFile
  #include <BRepAlgo_Image.hxx>
-@@ -43,9 +43,10 @@
- #ifndef _Standard_Boolean_HeaderFile
- #include <Standard_Boolean.hxx>
  #endif
-+#include <TopTools_ShapeMapHasher.hxx>
+@@ -45,7 +56,10 @@
+ #endif
  class BRepAlgo_AsDes;
  class TopoDS_Shape;
 -class TopTools_ListOfShape;
-+// class TopTools_ListOfShape;
++
++#if OCC_VERSION_HEX < 0x070000
++   class TopTools_ListOfShape;
++#endif
  class TopoDS_Edge;
  
  
-diff --git a/ng/CMakeLists.txt b/ng/CMakeLists.txt
-index 354851a..1070f61 100644
---- a/ng/CMakeLists.txt
-+++ b/ng/CMakeLists.txt
-@@ -18,6 +18,7 @@ if(USE_GUI)
-         set_target_properties(netgen PROPERTIES OUTPUT_NAME netgen)
-     endif(APPLE)
+diff --git a/libsrc/occ/occgeom.cpp b/libsrc/occ/occgeom.cpp
+index f2527d9..fe297cc 100644
+--- a/libsrc/occ/occgeom.cpp
++++ b/libsrc/occ/occgeom.cpp
+@@ -8,14 +8,24 @@
+ #include "ShapeAnalysis_CheckSmallFace.hxx"
+ #include "ShapeAnalysis_DataMapOfShapeListOfReal.hxx"
+ #include "ShapeAnalysis_Surface.hxx"
+-#include "BRepAlgoAPI_Fuse.hxx"
++
+ #include "BRepCheck_Analyzer.hxx"
+ #include "BRepLib.hxx"
+ #include "ShapeBuild_ReShape.hxx"
+ #include "ShapeFix.hxx"
+ #include "ShapeFix_FixSmallFace.hxx"
+ #include "Partition_Spliter.hxx"
++#include "BRepAlgoAPI_Fuse.hxx"
  
-+    add_subdirectory(Togl2.1)
- endif(USE_GUI)
++#ifndef _Standard_Version_HeaderFile
++#include <Standard_Version.hxx>
++#endif
++
++#if OCC_VERSION_HEX < 0x070000
++#else
++   #include "StlTransfer.hxx"
++   #include "TopoDS_Iterator.hxx"
++#endif
  
- if(USE_PYTHON)
-@@ -39,6 +40,5 @@ install(FILES
-     occgeom.tcl acisgeom.tcl netgen.ocf
-     DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
+ namespace netgen
+ {
+@@ -938,7 +948,11 @@ namespace netgen
+    void OCCGeometry :: CalcBoundingBox ()
+    {
+       Bnd_Box bb;
++#if OCC_VERSION_HEX < 0x070000
+       BRepBndLib::Add (shape, bb);
++#else
++      BRepBndLib::Add ((const TopoDS_Shape) shape, bb,(Standard_Boolean)true);
++#endif
  
--add_subdirectory(Togl2.1)
- install(FILES drawing.tcl DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
- 
-diff --git a/nglib/CMakeLists.txt b/nglib/CMakeLists.txt
-index f172f7e..803f610 100644
---- a/nglib/CMakeLists.txt
-+++ b/nglib/CMakeLists.txt
-@@ -22,7 +22,10 @@ endif(WIN32)
- 
- add_library(nglib SHARED nglib.cpp ${nglib_objects})
- if(NOT WIN32)
--      target_link_libraries( nglib mesh stlvis stl geom2dvis interface geom2d csg stl visual csgvis )
-+    target_link_libraries( nglib mesh stl interface geom2d csg stl visual)
-+    if(USE_GUI)
-+        target_link_libraries(nglib stlvis geom2dvis csgvis)
-+    endif(USE_GUI)
- endif(NOT WIN32)
- 
- target_link_libraries( nglib ${OCC_LIBRARIES} ${MPI_CXX_LIBRARIES} ${OPENGL_LIBRARIES} ${TK_LIBRARY} ${TCL_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${X11_Xmu_LIB} ${JPEG_LIBRARIES} ${MKL_LIBRARIES} ${ZLIB_LIBRARIES} ${OCC_LIBRARIES} )
+       double x1,y1,z1,x2,y2,z2;
+       bb.Get (x1,y1,z1,x2,y2,z2);
 diff --git a/python/__init__.py b/python/__init__.py
-index 1db0197..de1c81b 100644
+index 1db0197..77a7b5c 100644
 --- a/python/__init__.py
 +++ b/python/__init__.py
 @@ -1,8 +1,12 @@
- from os import environ
 +import os
+ from os import environ
  from sys import path
  from sys import platform as __platform
  if __platform.startswith('linux'):

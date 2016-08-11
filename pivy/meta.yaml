@@ -1,9 +1,9 @@
 package:
   name: pivy
-  version: 0.5.0
+  version: 0.6.0
 
 build:
-  number: 2
+  number: 0
 
 source:
   git_url: https://github.com/looooo/pivy

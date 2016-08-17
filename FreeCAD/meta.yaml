@@ -6,16 +6,20 @@ build:
     number: 5
 
 source:
-    # git_url: https://github.com/FreeCAD/FreeCAD
-    # git_tag: master
+    git_url: https://github.com/FreeCAD/FreeCAD
+    git_tag: master
 
     # for python 3
-    git_url: https://github.com/looooo/FreeCAD
-    git_tag: master
+    # git_url: https://github.com/looooo/FreeCAD
+    # git_tag: master
+
+    patches:
+        - occ_cmake.patch
 
 requirements:
     build:
         - python
+        - matplotlib
         - cmake
         - eigen 3.3
         - swig
@@ -27,6 +31,8 @@ requirements:
         - occt
         - qt
         - netgen
+        - libmed
+        - hdf5
     run:
         - python
         - numpy

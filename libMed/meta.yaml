@@ -1,0 +1,19 @@
+package:
+  name: libmed
+  version: 3.1.0
+
+build:
+  number: 0
+
+source:
+  git_url: https://github.com/vejmarie/libMED.git
+  git_tag: master
+
+
+requirements:
+  build:
+    - cmake
+    - hdf5
+
+about:
+  summary: libmed

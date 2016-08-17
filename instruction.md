@@ -26,9 +26,10 @@ at the end this file should look like this:
 
 ```
 channels:
-  - spyder-ide
-  - defaults
   - freecad
+  - spyder-ide
+  - conda-forge
+  - defaults
 ```
 
  - the channels hosting this libraries:

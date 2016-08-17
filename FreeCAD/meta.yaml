@@ -15,6 +15,7 @@ source:
 
     patches:
         - occ_cmake.patch
+        - netgen_message.patch
 
 requirements:
     build:

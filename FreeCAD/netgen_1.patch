@@ -1,0 +1,287 @@
+From 870e955efc67cdd22712126961be01e73ea49383 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Wed, 17 Aug 2016 13:29:54 +0200
+Subject: [PATCH 1/2] netgen 6 shared pointer
+
+---
+ cMake/FindNETGEN.cmake                             |  6 +++
+ .../src/NETGENPlugin/NETGENPlugin_Mesher.cpp       | 43 +++++++++++++++++-----
+ .../NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp   |  6 ++-
+ 3 files changed, 45 insertions(+), 10 deletions(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 877a4b7..21c100b 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -46,6 +46,10 @@ ELSE(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+ ENDIF(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
++MESSAGE( STATUS "NETGEN_INCLUDEDIR ${NETGEN_INCLUDEDIR}")
++MESSAGE( STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
++MESSAGE( STATUS "NETGENDATA ${NETGENDATA}")
++
+ FIND_PATH(NETGEN_DIR_include NAMES mydefs.hpp     PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/include)
+ FIND_PATH(NETGEN_DIR_csg     NAMES csg.hpp        PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/csg)
+ FIND_PATH(NETGEN_DIR_gen     NAMES array.hpp      PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/general)
+@@ -81,6 +85,8 @@ IF(NGLIB_INCLUDE_DIR AND NGLIB_LIBRARIES)
+       ${NETGEN_DIR_occ} ${NETGEN_DIR_stlgeom})
+     LIST(REMOVE_DUPLICATES NETGEN_INCLUDE_DIRS)
+     MESSAGE(STATUS "Found NETGEN version ${NETGEN_VERSION}")
++    MESSAGE(STATUS "NGLIB_LIBRARIES ${NGLIB_LIBRARIES}")
++    MESSAGE(STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
+     LIST(APPEND NETGEN_DEFINITIONS -DNETGEN_VERSION=${NETGEN_VERSION})
+ ELSE()
+     SET(NETGEN_FOUND FALSE)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index b33ca15..342c2da 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -2501,7 +2501,10 @@ bool NETGENPlugin_Mesher::Compute()
+     try
+     {
+       OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+       err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+       err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2589,7 +2592,11 @@ bool NETGENPlugin_Mesher::Compute()
+         //OCCSetLocalMeshSize(intOccgeo, *_ngMesh); it deletes _ngMesh->localH
+ 
+         // let netgen create a temporary mesh
+-#if NETGEN_VERSION > 4
++
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
++        err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+ #else
+         netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, startWith, endWith, optstr);
+@@ -2602,7 +2609,10 @@ bool NETGENPlugin_Mesher::Compute()
+ 
+         // compute mesh on internal edges
+         startWith = endWith = netgen::MESHCONST_MESHEDGES;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
++        err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, startWith, endWith, optstr);
+@@ -2643,7 +2653,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2753,7 +2766,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo,mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2855,7 +2871,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2887,7 +2906,10 @@ bool NETGENPlugin_Mesher::Compute()
+         try
+         {
+           OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh)
++        err = netgen::OCCGenerateMesh(occgeo, std::shared_ptr<netgen::Mesh>(_ngMesh), mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -3109,7 +3131,10 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+ #endif
+   int startWith = netgen::MESHCONST_ANALYSE;
+   int endWith   = netgen::MESHCONST_MESHEDGES;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, mparams, startWith, endWith);
+ #else
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, startWith, endWith, optstr);
+@@ -3118,7 +3143,7 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+   if(netgen::multithread.terminate)
+     return false;
+ 
+-  ngLib.setMesh(( Ng_Mesh*) ngMesh );
++  ngLib.setMesh(( Ng_Mesh*) ngMesh.get() );
+   if (err) {
+     if ( SMESH_subMesh* sm = _mesh->GetSubMeshContaining( _shape ))
+       sm->GetComputeError().reset( new SMESH_ComputeError( COMPERR_ALGO_FAILED ));
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+index 9b6beec..ec548b8 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+@@ -47,6 +47,7 @@
+ #include <utilities.h>
+ 
+ #include <list>
++#include <memory>
+ #include <vector>
+ #include <limits>
+ 
+@@ -474,7 +475,10 @@ bool NETGENPlugin_NETGEN_2D_ONLY::Compute(SMESH_Mesh&         aMesh,
+       try {
+         OCC_CATCH_SIGNALS;
+ 
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
++        err = netgen::OCCGenerateMesh(occgeom, mesh_ptr, netgen::mparam, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeom, ngMesh, netgen::mparam, startWith, endWith);
+ #else
+         char *optstr = 0;
+-- 
+2.7.4
+
+
+From 090a58dd821a7693375d034e5a39c155d6e6a37c Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Wed, 17 Aug 2016 22:12:09 +0200
+Subject: [PATCH 2/2] fix
+
+---
+ cMake/FindNETGEN.cmake                                   | 16 ++++++++++------
+ .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp | 14 +++++++-------
+ 2 files changed, 17 insertions(+), 13 deletions(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 21c100b..dbb5b02 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -37,8 +37,14 @@ IF(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+     ENDIF(NOT NETGENDATA)
+ 
+ ELSE(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+-    FIND_PATH(NGLIB_INCLUDE_DIR NAMES nglib.h PATHS ${NETGEN_INCLUDEDIR} /usr/include)
+-    FIND_LIBRARY(NGLIB_LIBRARIES nglib PATHS ${NETGEN_LIBDIR} /usr/lib /usr/local/lib)
++    FIND_PATH(NGLIB_INCLUDE_DIR NAMES nglib.h PATHS ${NETGEN_INCLUDEDIR})
++    FIND_LIBRARY(NGLIB_LIBRARIES nglib PATHS ${NETGEN_LIBDIR})
++    FIND_LIBRARY(NGLIB_LIBMESH mesh ${NGLIB_PREFIX}/lib)
++    FIND_LIBRARY(NGLIB_LIBOCC occ ${NGLIB_PREFIX}/lib)
++    FIND_LIBRARY(NGLIB_LIBINTERFACE interface ${NGLIB_PREFIX}/lib)
++    FIND_LIBRARY(NGLIB_LIBGEOM geom2d ${NGLIB_PREFIX}/lib)
++    SET(NGLIB_LIBRARIES ${NGLIB_LIBNGLIB} ${NGLIB_LIBMESH}
++                        ${NGLIB_LIBOCC} ${NGLIB_LIBINTERFACE} ${NGLIB_LIBGEOM})
+ 
+     IF(NOT NETGENDATA)
+         SET(NETGENDATA /usr/share/netgen/libsrc)
+@@ -46,10 +52,6 @@ ELSE(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+ ENDIF(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+-MESSAGE( STATUS "NETGEN_INCLUDEDIR ${NETGEN_INCLUDEDIR}")
+-MESSAGE( STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
+-MESSAGE( STATUS "NETGENDATA ${NETGENDATA}")
+-
+ FIND_PATH(NETGEN_DIR_include NAMES mydefs.hpp     PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/include)
+ FIND_PATH(NETGEN_DIR_csg     NAMES csg.hpp        PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/csg)
+ FIND_PATH(NETGEN_DIR_gen     NAMES array.hpp      PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/general)
+@@ -87,6 +89,8 @@ IF(NGLIB_INCLUDE_DIR AND NGLIB_LIBRARIES)
+     MESSAGE(STATUS "Found NETGEN version ${NETGEN_VERSION}")
+     MESSAGE(STATUS "NGLIB_LIBRARIES ${NGLIB_LIBRARIES}")
+     MESSAGE(STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
++    MESSAGE(STATUS "NETGEN_INCLUDE_DIRS ${NETGEN_INCLUDE_DIRS}")
++    MESSAGE(STATUS "NETGEN_DEFINITIONS ${NETGEN_DEFINITIONS}")
+     LIST(APPEND NETGEN_DEFINITIONS -DNETGEN_VERSION=${NETGEN_VERSION})
+ ELSE()
+     SET(NETGEN_FOUND FALSE)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index 342c2da..362e231 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -2610,7 +2610,6 @@ bool NETGENPlugin_Mesher::Compute()
+         // compute mesh on internal edges
+         startWith = endWith = netgen::MESHCONST_MESHEDGES;
+ #if NETGEN_VERSION >=6
+-        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
+         err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+@@ -2632,7 +2631,7 @@ bool NETGENPlugin_Mesher::Compute()
+       err = ( err || !comment.empty() );
+ 
+ #if NETGEN_VERSION > 5
+-      tmpNgMesh.reset();
++      nglib::Ng_DeleteMesh((nglib::Ng_Mesh*)tmpNgMesh);
+ #else
+       nglib::Ng_DeleteMesh((nglib::Ng_Mesh*)tmpNgMesh);
+ #endif
+@@ -2907,8 +2906,8 @@ bool NETGENPlugin_Mesher::Compute()
+         {
+           OCC_CATCH_SIGNALS;
+ #if NETGEN_VERSION >=6
+-        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh)
+-        err = netgen::OCCGenerateMesh(occgeo, std::shared_ptr<netgen::Mesh>(_ngMesh), mparams, startWith, endWith);
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+@@ -3133,7 +3132,7 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+   int endWith   = netgen::MESHCONST_MESHEDGES;
+ #if NETGEN_VERSION >=6
+         std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
+-        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++        int err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, mparams, startWith, endWith);
+ #else
+@@ -4014,7 +4013,7 @@ NETGENPlugin_NetgenLibWrapper::NETGENPlugin_NetgenLibWrapper()
+ NETGENPlugin_NetgenLibWrapper::~NETGENPlugin_NetgenLibWrapper()
+ {
+ #if NETGEN_VERSION > 5
+-  _ngMesh.reset();
++  Ng_DeleteMesh( _ngMesh );
+ #else
+   Ng_DeleteMesh( _ngMesh );
+ #endif
+@@ -4038,7 +4037,8 @@ void NETGENPlugin_NetgenLibWrapper::setMesh( Ng_Mesh* mesh )
+ {
+   if ( _ngMesh )
+ #if NETGEN_VERSION > 5
+-    _ngMesh.reset(mesh);
++    Ng_DeleteMesh( _ngMesh );
++  _ngMesh = mesh;
+ #else
+     Ng_DeleteMesh( _ngMesh );
+   _ngMesh = mesh;
+-- 
+2.7.4
+

@@ -3,12 +3,13 @@ mkdir $PREFIX/lib/freecad -p
 VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
-      -DNGLIB_PREFIX=$PREFIX \
+      -DNETGENDATA=$PREFIX/include/netgen/libsrc \
       -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
+      -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen \
       -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
-      -DBUILD_FEM_NETGEN=YES \
+      # -DBUILD_FEM_NETGEN=YES \
       -DBUILD_ARCH=YES \
       -DBUILD_ASSEMBLY=YES \
       -DBUILD_COMPLETE=YES \

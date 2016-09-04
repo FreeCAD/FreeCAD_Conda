@@ -1,0 +1,27 @@
+package:
+  name: pyside
+  version: 1.2.4
+
+source:
+  path: ../
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake     [unix]
+    - qt        [unix]
+    - libpng    [linux]
+    - shiboken  [unix]
+    - python
+  run:
+    - qt        [unix]
+    - shiboken  [unix]
+    - libpng    [linux]
+    - python
+    - python.app  [osx]
+
+about:
+  home: https://pypi.python.org/pypi/PySide
+  license: LGPL

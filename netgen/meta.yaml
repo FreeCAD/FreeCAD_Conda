@@ -3,15 +3,11 @@ package:
   version: 6.1
 
 build:
-  number: 1
+  number: 2
 
 source:
-  git_url: http://git.code.sf.net/p/netgen-mesher/git
+  git_url: https://github.com/looooo/netgen
   git_tag: master
-
-  patches:
-    - netgen.patch
-    - freecad.patch
 
 requirements:
   build:

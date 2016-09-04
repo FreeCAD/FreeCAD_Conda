@@ -4,14 +4,14 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DNETGENDATA=$PREFIX/include/netgen/libsrc \
-      -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
-      -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen \
+      -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen/nglib \
+      -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen/nglib \
       -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
-      # -DBUILD_FEM_NETGEN=YES \
+      -DBUILD_FEM_NETGEN=YES \
       -DBUILD_ARCH=YES \
-      -DBUILD_ASSEMBLY=YES \
+      -DBUILD_ASSEMBLY=NO \
       -DBUILD_COMPLETE=YES \
       -DBUILD_DRAFT=YES \
       -DBUILD_DRAWING=YES \
@@ -44,7 +44,8 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_VR=NO \
       -DBUILD_WEB=YES .
 
-make install  > output.txt 2>&1
+make -j2 2>&1 | tee output.txt
+make install
 # mkdir $PREFIX/bin -p
 # ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
 # ln -s ../lib/freecad/bin/FreeCADCmd $PREFIX/bin/FreeCADCmd

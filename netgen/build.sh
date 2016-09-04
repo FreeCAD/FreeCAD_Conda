@@ -13,16 +13,11 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -OCC_LIBRARY_DIR=$PREFIX/lib \
       -DUSE_PYTHON=OFF \
       .
-make -j4 > output.txt
+make -j4 2>&1 | tee output.txt
 make install 
 
 mkdir ${PREFIX}/include/netgen
 
 
 rsync -avm --include='*.h*' -f 'hide,! */' . ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/nglib/*.h ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/libsrc/include/*.hpp ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/libsrc/general/*.hpp ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/libsrc/gprim/*.hpp ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/libsrc/geom2d/*.hpp ${PREFIX}/include/netgen
-# cp -rf ${SRC_DIR}/libsrc/geom2d/*.hpp ${PREFIX}/include/netgen
+# find . -name "*.h*" -type f -exec cp {} ${PREFIX}/include/netgen \;

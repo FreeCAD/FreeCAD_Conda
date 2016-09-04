@@ -1,0 +1,1063 @@
+From e11f36e9fdee8ad631f3624a6d50e9d00d6207d6 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:04:06 +0200
+Subject: [PATCH 01/15] occ cmake patch
+
+---
+ cMake/FindOpenCasCade.cmake | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index fbcc262..d7bd7c4 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -6,6 +6,13 @@
+ # OCC_LIBRARY_DIR    - where the OCC library directory can be found
+ # OCC_LIBRARIES      - Link this to use OCC
+ # OCC_OCAF_LIBRARIES - Link this to use OCC OCAF framework
++if(TRUE)
++	set(OCC_FOUND TRUE)
++	set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include/opencascade)
++	set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/lib)
++	set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
++	set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
++else(True)
+ 
+ # First try to find OpenCASCADE Community Edition
+ if(NOT DEFINED OCE_DIR)
+@@ -142,3 +149,5 @@ if(OCC_FOUND)
+ else(OCC_FOUND)
+   #message(SEND_ERROR "Neither OpenCASCADE Community Edition nor OpenCasCade were found: will not build CAD modules!")
+ endif(OCC_FOUND)
++
++endif(True)
+\ No newline at end of file
+-- 
+2.7.4
+
+
+From a3a276becbe2962e637d1f38710aac86ffcd3d54 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:09:58 +0200
+Subject: [PATCH 02/15] occ_cmake
+
+---
+ cMake/FindOpenCasCade.cmake | 275 ++++++++++++++++++++++----------------------
+ 1 file changed, 137 insertions(+), 138 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index d7bd7c4..7b763c2 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -6,148 +6,147 @@
+ # OCC_LIBRARY_DIR    - where the OCC library directory can be found
+ # OCC_LIBRARIES      - Link this to use OCC
+ # OCC_OCAF_LIBRARIES - Link this to use OCC OCAF framework
+-if(TRUE)
+-	set(OCC_FOUND TRUE)
+-	set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include/opencascade)
+-	set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+-	set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+-	set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+-else(True)
++set(OCC_FOUND TRUE)
++set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include/opencascade)
++set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/lib)
++set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
++set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+ 
+-# First try to find OpenCASCADE Community Edition
+-if(NOT DEFINED OCE_DIR)
+-  # Check for OSX needs to come first because UNIX evaluates to true on OSX
+-  if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+-    if(DEFINED MACPORTS_PREFIX)
+-      find_package(OCE QUIET HINTS ${MACPORTS_PREFIX}/Library/Frameworks)
+-    elseif(DEFINED HOMEBREW_PREFIX)
+-      find_package(OCE QUIET HINTS ${HOMEBREW_PREFIX}/Cellar/oce/*)
+-    endif()
+-  elseif(UNIX)
+-    set(OCE_DIR "/usr/local/share/cmake/")
+-  elseif(WIN32)
+-    set(OCE_DIR "c:/OCE-0.4.0/share/cmake")
+-  endif()
+-endif()
+ 
+-find_package(OCE QUIET)
+-if(OCE_FOUND)
+-  message(STATUS "-- OpenCASCADE Community Edition has been found.")
+-  # Disable this define. For more details see bug #0001872
+-  #add_definitions (-DHAVE_CONFIG_H)
+-  set(OCC_INCLUDE_DIR ${OCE_INCLUDE_DIRS})
+-  #set(OCC_LIBRARY_DIR ${OCE_LIBRARY_DIR})
+-else(OCE_FOUND) #look for OpenCASCADE
+-  if(WIN32)
+-    if(CYGWIN OR MINGW)
+-    FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
+-        /usr/include/opencascade
+-        /usr/local/include/opencascade
+-        /opt/opencascade/include
+-        /opt/opencascade/inc
+-      )
+-      FIND_LIBRARY(OCC_LIBRARY TKernel
+-        /usr/lib
+-        /usr/local/lib
+-        /opt/opencascade/lib
+-      )
+-    else(CYGWIN OR MINGW)
+-    FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
+-        "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\OCC\\2;Installation Path]/include"
+-      )
+-      FIND_LIBRARY(OCC_LIBRARY TKernel
+-        "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\OCC\\2;Installation Path]/lib"
+-      )
+-    endif(CYGWIN OR MINGW)
+-  else(WIN32)
+-    FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
+-      /usr/include/opencascade
+-      /usr/local/include/opencascade
+-      /opt/opencascade/include
+-      /opt/opencascade/inc
+-    )
+-    FIND_LIBRARY(OCC_LIBRARY TKernel
+-      /usr/lib
+-      /usr/local/lib
+-      /opt/opencascade/lib
+-    )
+-  endif(WIN32)
+-  if(OCC_LIBRARY)
+-    GET_FILENAME_COMPONENT(OCC_LIBRARY_DIR ${OCC_LIBRARY} PATH)
+-    IF(NOT OCC_INCLUDE_DIR)
+-      FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
+-        ${OCC_LIBRARY_DIR}/../inc
+-      )
+-    ENDIF()
+-  endif(OCC_LIBRARY)
+-endif(OCE_FOUND)
++# # First try to find OpenCASCADE Community Edition
++# if(NOT DEFINED OCE_DIR)
++#   # Check for OSX needs to come first because UNIX evaluates to true on OSX
++#   if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
++#     if(DEFINED MACPORTS_PREFIX)
++#       find_package(OCE QUIET HINTS ${MACPORTS_PREFIX}/Library/Frameworks)
++#     elseif(DEFINED HOMEBREW_PREFIX)
++#       find_package(OCE QUIET HINTS ${HOMEBREW_PREFIX}/Cellar/oce/*)
++#     endif()
++#   elseif(UNIX)
++#     set(OCE_DIR "/usr/local/share/cmake/")
++#   elseif(WIN32)
++#     set(OCE_DIR "c:/OCE-0.4.0/share/cmake")
++#   endif()
++# endif()
+ 
+-if(OCC_INCLUDE_DIR)
+-  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAJOR
+-    REGEX "#define OCC_VERSION_MAJOR.*"
+-  )
+-  string(REGEX MATCH "[0-9]+" OCC_MAJOR ${OCC_MAJOR})
+-  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MINOR
+-    REGEX "#define OCC_VERSION_MINOR.*"
+-  )
+-  string(REGEX MATCH "[0-9]+" OCC_MINOR ${OCC_MINOR})
+-  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAINT
+-    REGEX "#define OCC_VERSION_MAINTENANCE.*"
+-  )
+-  string(REGEX MATCH "[0-9]+" OCC_MAINT ${OCC_MAINT})
++# find_package(OCE QUIET)
++# if(OCE_FOUND)
++#   message(STATUS "-- OpenCASCADE Community Edition has been found.")
++#   # Disable this define. For more details see bug #0001872
++#   #add_definitions (-DHAVE_CONFIG_H)
++#   set(OCC_INCLUDE_DIR ${OCE_INCLUDE_DIRS})
++#   #set(OCC_LIBRARY_DIR ${OCE_LIBRARY_DIR})
++# else(OCE_FOUND) #look for OpenCASCADE
++#   if(WIN32)
++#     if(CYGWIN OR MINGW)
++#     FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
++#         /usr/include/opencascade
++#         /usr/local/include/opencascade
++#         /opt/opencascade/include
++#         /opt/opencascade/inc
++#       )
++#       FIND_LIBRARY(OCC_LIBRARY TKernel
++#         /usr/lib
++#         /usr/local/lib
++#         /opt/opencascade/lib
++#       )
++#     else(CYGWIN OR MINGW)
++#     FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
++#         "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\OCC\\2;Installation Path]/include"
++#       )
++#       FIND_LIBRARY(OCC_LIBRARY TKernel
++#         "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\OCC\\2;Installation Path]/lib"
++#       )
++#     endif(CYGWIN OR MINGW)
++#   else(WIN32)
++#     FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
++#       /usr/include/opencascade
++#       /usr/local/include/opencascade
++#       /opt/opencascade/include
++#       /opt/opencascade/inc
++#     )
++#     FIND_LIBRARY(OCC_LIBRARY TKernel
++#       /usr/lib
++#       /usr/local/lib
++#       /opt/opencascade/lib
++#     )
++#   endif(WIN32)
++#   if(OCC_LIBRARY)
++#     GET_FILENAME_COMPONENT(OCC_LIBRARY_DIR ${OCC_LIBRARY} PATH)
++#     IF(NOT OCC_INCLUDE_DIR)
++#       FIND_PATH(OCC_INCLUDE_DIR Standard_Version.hxx
++#         ${OCC_LIBRARY_DIR}/../inc
++#       )
++#     ENDIF()
++#   endif(OCC_LIBRARY)
++# endif(OCE_FOUND)
+ 
+-  set(OCC_VERSION_STRING "${OCC_MAJOR}.${OCC_MINOR}.${OCC_MAINT}")
+-endif(OCC_INCLUDE_DIR)
++# if(OCC_INCLUDE_DIR)
++#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAJOR
++#     REGEX "#define OCC_VERSION_MAJOR.*"
++#   )
++#   string(REGEX MATCH "[0-9]+" OCC_MAJOR ${OCC_MAJOR})
++#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MINOR
++#     REGEX "#define OCC_VERSION_MINOR.*"
++#   )
++#   string(REGEX MATCH "[0-9]+" OCC_MINOR ${OCC_MINOR})
++#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAINT
++#     REGEX "#define OCC_VERSION_MAINTENANCE.*"
++#   )
++#   string(REGEX MATCH "[0-9]+" OCC_MAINT ${OCC_MAINT})
+ 
+-# handle the QUIETLY and REQUIRED arguments and set OCC_FOUND to TRUE if
+-# all listed variables are TRUE
+-include(FindPackageHandleStandardArgs)
+-FIND_PACKAGE_HANDLE_STANDARD_ARGS(OCC REQUIRED_VARS OCC_INCLUDE_DIR VERSION_VAR OCC_VERSION_STRING)
++#   set(OCC_VERSION_STRING "${OCC_MAJOR}.${OCC_MINOR}.${OCC_MAINT}")
++# endif(OCC_INCLUDE_DIR)
+ 
+-if(OCC_FOUND)
+-  set(OCC_LIBRARIES
+-    TKFillet
+-    TKMesh
+-    TKernel
+-    TKG2d
+-    TKG3d
+-    TKMath
+-    TKIGES
+-    TKSTL
+-    TKShHealing
+-    TKXSBase
+-    TKBin
+-    TKBool
+-    TKBO
+-    TKCDF
+-    TKBRep
+-    TKTopAlgo
+-    TKGeomAlgo
+-    TKGeomBase
+-    TKOffset
+-    TKPrim
+-    TKSTEP
+-    TKSTEPBase
+-    TKSTEPAttr
+-    TKHLR
+-    TKFeat
+-  )
+-  set(OCC_OCAF_LIBRARIES
+-    TKCAF
+-    TKXCAF
+-    TKLCAF
+-    TKXDESTEP
+-    TKXDEIGES
+-    TKMeshVS
+-  )
+-  if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-    list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
+-  endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-  message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
+-  message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
+-  message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
+-else(OCC_FOUND)
+-  #message(SEND_ERROR "Neither OpenCASCADE Community Edition nor OpenCasCade were found: will not build CAD modules!")
+-endif(OCC_FOUND)
++# # handle the QUIETLY and REQUIRED arguments and set OCC_FOUND to TRUE if
++# # all listed variables are TRUE
++# include(FindPackageHandleStandardArgs)
++# FIND_PACKAGE_HANDLE_STANDARD_ARGS(OCC REQUIRED_VARS OCC_INCLUDE_DIR VERSION_VAR OCC_VERSION_STRING)
+ 
+-endif(True)
+\ No newline at end of file
++# if(OCC_FOUND)
++#   set(OCC_LIBRARIES
++#     TKFillet
++#     TKMesh
++#     TKernel
++#     TKG2d
++#     TKG3d
++#     TKMath
++#     TKIGES
++#     TKSTL
++#     TKShHealing
++#     TKXSBase
++#     TKBin
++#     TKBool
++#     TKBO
++#     TKCDF
++#     TKBRep
++#     TKTopAlgo
++#     TKGeomAlgo
++#     TKGeomBase
++#     TKOffset
++#     TKPrim
++#     TKSTEP
++#     TKSTEPBase
++#     TKSTEPAttr
++#     TKHLR
++#     TKFeat
++#   )
++#   set(OCC_OCAF_LIBRARIES
++#     TKCAF
++#     TKXCAF
++#     TKLCAF
++#     TKXDESTEP
++#     TKXDEIGES
++#     TKMeshVS
++#   )
++#   if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++#     list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
++#   endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++#   message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
++#   message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
++#   message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
++# else(OCC_FOUND)
++#   #message(SEND_ERROR "Neither OpenCASCADE Community Edition nor OpenCasCade were found: will not build CAD modules!")
++# endif(OCC_FOUND)
++
++# endif(True)
+-- 
+2.7.4
+
+
+From 865d06b7f2929f7ff88cc87859d5cec1ea3c5d77 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:40:11 +0200
+Subject: [PATCH 03/15] patch
+
+---
+ cMake/FindOpenCasCade.cmake | 92 ++++++++++++++++++++++-----------------------
+ 1 file changed, 45 insertions(+), 47 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index 7b763c2..2bb42af 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -103,50 +103,48 @@ set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+ # include(FindPackageHandleStandardArgs)
+ # FIND_PACKAGE_HANDLE_STANDARD_ARGS(OCC REQUIRED_VARS OCC_INCLUDE_DIR VERSION_VAR OCC_VERSION_STRING)
+ 
+-# if(OCC_FOUND)
+-#   set(OCC_LIBRARIES
+-#     TKFillet
+-#     TKMesh
+-#     TKernel
+-#     TKG2d
+-#     TKG3d
+-#     TKMath
+-#     TKIGES
+-#     TKSTL
+-#     TKShHealing
+-#     TKXSBase
+-#     TKBin
+-#     TKBool
+-#     TKBO
+-#     TKCDF
+-#     TKBRep
+-#     TKTopAlgo
+-#     TKGeomAlgo
+-#     TKGeomBase
+-#     TKOffset
+-#     TKPrim
+-#     TKSTEP
+-#     TKSTEPBase
+-#     TKSTEPAttr
+-#     TKHLR
+-#     TKFeat
+-#   )
+-#   set(OCC_OCAF_LIBRARIES
+-#     TKCAF
+-#     TKXCAF
+-#     TKLCAF
+-#     TKXDESTEP
+-#     TKXDEIGES
+-#     TKMeshVS
+-#   )
+-#   if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-#     list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
+-#   endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-#   message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
+-#   message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
+-#   message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
+-# else(OCC_FOUND)
+-#   #message(SEND_ERROR "Neither OpenCASCADE Community Edition nor OpenCasCade were found: will not build CAD modules!")
+-# endif(OCC_FOUND)
+-
+-# endif(True)
++if(OCC_FOUND)
++  set(OCC_LIBRARIES
++    TKFillet
++    TKMesh
++    TKernel
++    TKG2d
++    TKG3d
++    TKMath
++    TKIGES
++    TKSTL
++    TKShHealing
++    TKXSBase
++    TKBin
++    TKBool
++    TKBO
++    TKCDF
++    TKBRep
++    TKTopAlgo
++    TKGeomAlgo
++    TKGeomBase
++    TKOffset
++    TKPrim
++    TKSTEP
++    TKSTEPBase
++    TKSTEPAttr
++    TKHLR
++    TKFeat
++  )
++  set(OCC_OCAF_LIBRARIES
++    TKCAF
++    TKXCAF
++    TKLCAF
++    TKXDESTEP
++    TKXDEIGES
++    TKMeshVS
++  )
++  if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++    list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
++  endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++  message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
++  message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
++  message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
++else(OCC_FOUND)
++  #message(SEND_ERROR "Neither OpenCASCADE Community Edition nor OpenCasCade were found: will not build CAD modules!")
++endif(OCC_FOUND)
+-- 
+2.7.4
+
+
+From 3ecca5923bf67e1b68ff6cce4d16cf014e131977 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:42:06 +0200
+Subject: [PATCH 04/15] patch
+
+---
+ cMake/FindOpenCasCade.cmake | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index 2bb42af..e353b1b 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -7,10 +7,10 @@
+ # OCC_LIBRARIES      - Link this to use OCC
+ # OCC_OCAF_LIBRARIES - Link this to use OCC OCAF framework
+ set(OCC_FOUND TRUE)
+-set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include/opencascade)
+-set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+-set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+-set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
++set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/../include/opencascade)
++set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
++set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/../lib)
++set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/../lib)
+ 
+ 
+ # # First try to find OpenCASCADE Community Edition
+-- 
+2.7.4
+
+
+From 1fd19061275935ab4fb570d5836ea1eb34ee4d25 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:47:24 +0200
+Subject: [PATCH 05/15] patch
+
+---
+ cMake/FindOpenCasCade.cmake | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index e353b1b..2bb42af 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -7,10 +7,10 @@
+ # OCC_LIBRARIES      - Link this to use OCC
+ # OCC_OCAF_LIBRARIES - Link this to use OCC OCAF framework
+ set(OCC_FOUND TRUE)
+-set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/../include/opencascade)
+-set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
+-set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/../lib)
+-set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/../lib)
++set(OCC_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include/opencascade)
++set(OCC_LIBRARY_DIR ${CMAKE_INSTALL_PREFIX}/lib)
++set(OCC_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
++set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+ 
+ 
+ # # First try to find OpenCASCADE Community Edition
+-- 
+2.7.4
+
+
+From 4bbdbb6ad5b368eddf908dfb0b07dd2dd5f90936 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:57:19 +0200
+Subject: [PATCH 06/15] patch
+
+---
+ cMake/FindOpenCasCade.cmake | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index 2bb42af..2daf0c2 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -139,9 +139,9 @@ if(OCC_FOUND)
+     TKXDEIGES
+     TKMeshVS
+   )
+-  if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-    list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
+-  endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++  # if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++  #   list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
++  # endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+   message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
+   message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
+   message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
+-- 
+2.7.4
+
+
+From e84cc3a18f0a36295fc063480f88753ade1fafc5 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Tue, 16 Aug 2016 15:59:54 +0200
+Subject: [PATCH 07/15] patch
+
+---
+ cMake/FindOpenCasCade.cmake | 44 ++++++++++++++++++++++----------------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
+
+diff --git a/cMake/FindOpenCasCade.cmake b/cMake/FindOpenCasCade.cmake
+index 2daf0c2..ff46bd5 100644
+--- a/cMake/FindOpenCasCade.cmake
++++ b/cMake/FindOpenCasCade.cmake
+@@ -81,27 +81,27 @@ set(OCC_OCAF_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
+ #   endif(OCC_LIBRARY)
+ # endif(OCE_FOUND)
+ 
+-# if(OCC_INCLUDE_DIR)
+-#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAJOR
+-#     REGEX "#define OCC_VERSION_MAJOR.*"
+-#   )
+-#   string(REGEX MATCH "[0-9]+" OCC_MAJOR ${OCC_MAJOR})
+-#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MINOR
+-#     REGEX "#define OCC_VERSION_MINOR.*"
+-#   )
+-#   string(REGEX MATCH "[0-9]+" OCC_MINOR ${OCC_MINOR})
+-#   file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAINT
+-#     REGEX "#define OCC_VERSION_MAINTENANCE.*"
+-#   )
+-#   string(REGEX MATCH "[0-9]+" OCC_MAINT ${OCC_MAINT})
++if(OCC_INCLUDE_DIR)
++  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAJOR
++    REGEX "#define OCC_VERSION_MAJOR.*"
++  )
++  string(REGEX MATCH "[0-9]+" OCC_MAJOR ${OCC_MAJOR})
++  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MINOR
++    REGEX "#define OCC_VERSION_MINOR.*"
++  )
++  string(REGEX MATCH "[0-9]+" OCC_MINOR ${OCC_MINOR})
++  file(STRINGS ${OCC_INCLUDE_DIR}/Standard_Version.hxx OCC_MAINT
++    REGEX "#define OCC_VERSION_MAINTENANCE.*"
++  )
++  string(REGEX MATCH "[0-9]+" OCC_MAINT ${OCC_MAINT})
+ 
+-#   set(OCC_VERSION_STRING "${OCC_MAJOR}.${OCC_MINOR}.${OCC_MAINT}")
+-# endif(OCC_INCLUDE_DIR)
++  set(OCC_VERSION_STRING "${OCC_MAJOR}.${OCC_MINOR}.${OCC_MAINT}")
++endif(OCC_INCLUDE_DIR)
+ 
+-# # handle the QUIETLY and REQUIRED arguments and set OCC_FOUND to TRUE if
+-# # all listed variables are TRUE
+-# include(FindPackageHandleStandardArgs)
+-# FIND_PACKAGE_HANDLE_STANDARD_ARGS(OCC REQUIRED_VARS OCC_INCLUDE_DIR VERSION_VAR OCC_VERSION_STRING)
++# handle the QUIETLY and REQUIRED arguments and set OCC_FOUND to TRUE if
++# all listed variables are TRUE
++include(FindPackageHandleStandardArgs)
++FIND_PACKAGE_HANDLE_STANDARD_ARGS(OCC REQUIRED_VARS OCC_INCLUDE_DIR VERSION_VAR OCC_VERSION_STRING)
+ 
+ if(OCC_FOUND)
+   set(OCC_LIBRARIES
+@@ -139,9 +139,9 @@ if(OCC_FOUND)
+     TKXDEIGES
+     TKMeshVS
+   )
+-  # if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+-  #   list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
+-  # endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++  if(OCC_VERSION_STRING VERSION_LESS 6.7.3)
++    list(APPEND OCC_OCAF_LIBRARIES TKAdvTools)
++  endif(OCC_VERSION_STRING VERSION_LESS 6.7.3)
+   message(STATUS "-- Found OCE/OpenCASCADE version: ${OCC_VERSION_STRING}")
+   message(STATUS "-- OCE/OpenCASCADE include directory: ${OCC_INCLUDE_DIR}")
+   message(STATUS "-- OCE/OpenCASCADE shared libraries directory: ${OCC_LIBRARY_DIR}")
+-- 
+2.7.4
+
+
+From bbd8fb67db5633c0190d4daaf555329b681df8fd Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Wed, 17 Aug 2016 13:29:54 +0200
+Subject: [PATCH 08/15] netgen 6 shared pointer
+
+---
+ cMake/FindNETGEN.cmake                             |  6 +++
+ .../src/NETGENPlugin/NETGENPlugin_Mesher.cpp       | 43 +++++++++++++++++-----
+ .../NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp   |  6 ++-
+ 3 files changed, 45 insertions(+), 10 deletions(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 3bdc832..e150625 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -82,6 +82,10 @@ ELSE(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+ ENDIF(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
++MESSAGE( STATUS "NETGEN_INCLUDEDIR ${NETGEN_INCLUDEDIR}")
++MESSAGE( STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
++MESSAGE( STATUS "NETGENDATA ${NETGENDATA}")
++
+ FIND_PATH(NETGEN_DIR_include NAMES mydefs.hpp     PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/include)
+ FIND_PATH(NETGEN_DIR_csg     NAMES csg.hpp        PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/csg)
+ FIND_PATH(NETGEN_DIR_gen     NAMES array.hpp      PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/general)
+@@ -117,6 +121,8 @@ IF(NGLIB_INCLUDE_DIR AND NGLIB_LIBRARIES)
+       ${NETGEN_DIR_occ} ${NETGEN_DIR_stlgeom})
+     LIST(REMOVE_DUPLICATES NETGEN_INCLUDE_DIRS)
+     MESSAGE(STATUS "Found NETGEN version ${NETGEN_VERSION}")
++    MESSAGE(STATUS "NGLIB_LIBRARIES ${NGLIB_LIBRARIES}")
++    MESSAGE(STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
+     LIST(APPEND NETGEN_DEFINITIONS -DNETGEN_VERSION=${NETGEN_VERSION})
+ ELSE()
+     SET(NETGEN_FOUND FALSE)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index b33ca15..342c2da 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -2501,7 +2501,10 @@ bool NETGENPlugin_Mesher::Compute()
+     try
+     {
+       OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+       err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+       err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2589,7 +2592,11 @@ bool NETGENPlugin_Mesher::Compute()
+         //OCCSetLocalMeshSize(intOccgeo, *_ngMesh); it deletes _ngMesh->localH
+ 
+         // let netgen create a temporary mesh
+-#if NETGEN_VERSION > 4
++
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
++        err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+ #else
+         netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, startWith, endWith, optstr);
+@@ -2602,7 +2609,10 @@ bool NETGENPlugin_Mesher::Compute()
+ 
+         // compute mesh on internal edges
+         startWith = endWith = netgen::MESHCONST_MESHEDGES;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
++        err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, startWith, endWith, optstr);
+@@ -2643,7 +2653,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2753,7 +2766,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo,mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2855,7 +2871,10 @@ bool NETGENPlugin_Mesher::Compute()
+       try
+       {
+         OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+         err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -2887,7 +2906,10 @@ bool NETGENPlugin_Mesher::Compute()
+         try
+         {
+           OCC_CATCH_SIGNALS;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh)
++        err = netgen::OCCGenerateMesh(occgeo, std::shared_ptr<netgen::Mesh>(_ngMesh), mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, startWith, endWith, optstr);
+@@ -3109,7 +3131,10 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+ #endif
+   int startWith = netgen::MESHCONST_ANALYSE;
+   int endWith   = netgen::MESHCONST_MESHEDGES;
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++#elif NETGEN_VERSION > 4
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, mparams, startWith, endWith);
+ #else
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, startWith, endWith, optstr);
+@@ -3118,7 +3143,7 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+   if(netgen::multithread.terminate)
+     return false;
+ 
+-  ngLib.setMesh(( Ng_Mesh*) ngMesh );
++  ngLib.setMesh(( Ng_Mesh*) ngMesh.get() );
+   if (err) {
+     if ( SMESH_subMesh* sm = _mesh->GetSubMeshContaining( _shape ))
+       sm->GetComputeError().reset( new SMESH_ComputeError( COMPERR_ALGO_FAILED ));
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+index 9b6beec..ec548b8 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+@@ -47,6 +47,7 @@
+ #include <utilities.h>
+ 
+ #include <list>
++#include <memory>
+ #include <vector>
+ #include <limits>
+ 
+@@ -474,7 +475,10 @@ bool NETGENPlugin_NETGEN_2D_ONLY::Compute(SMESH_Mesh&         aMesh,
+       try {
+         OCC_CATCH_SIGNALS;
+ 
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++        std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
++        err = netgen::OCCGenerateMesh(occgeom, mesh_ptr, netgen::mparam, startWith, endWith);
++#elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(occgeom, ngMesh, netgen::mparam, startWith, endWith);
+ #else
+         char *optstr = 0;
+-- 
+2.7.4
+
+
+From d2fd5884e85051d6a2eb0417ebfdcc33544adc91 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Wed, 17 Aug 2016 22:12:09 +0200
+Subject: [PATCH 09/15] fix
+
+---
+ cMake/FindNETGEN.cmake                                     |  6 ++----
+ .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp   | 14 +++++++-------
+ 2 files changed, 9 insertions(+), 11 deletions(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index e150625..69fa526 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -82,10 +82,6 @@ ELSE(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+ ENDIF(DEFINED MACPORTS_PREFIX OR DEFINED HOMEBREW_PREFIX)
+ 
+-MESSAGE( STATUS "NETGEN_INCLUDEDIR ${NETGEN_INCLUDEDIR}")
+-MESSAGE( STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
+-MESSAGE( STATUS "NETGENDATA ${NETGENDATA}")
+-
+ FIND_PATH(NETGEN_DIR_include NAMES mydefs.hpp     PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/include)
+ FIND_PATH(NETGEN_DIR_csg     NAMES csg.hpp        PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/csg)
+ FIND_PATH(NETGEN_DIR_gen     NAMES array.hpp      PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/general)
+@@ -123,6 +119,8 @@ IF(NGLIB_INCLUDE_DIR AND NGLIB_LIBRARIES)
+     MESSAGE(STATUS "Found NETGEN version ${NETGEN_VERSION}")
+     MESSAGE(STATUS "NGLIB_LIBRARIES ${NGLIB_LIBRARIES}")
+     MESSAGE(STATUS "NGLIB_INCLUDE_DIR ${NGLIB_INCLUDE_DIR}")
++    MESSAGE(STATUS "NETGEN_INCLUDE_DIRS ${NETGEN_INCLUDE_DIRS}")
++    MESSAGE(STATUS "NETGEN_DEFINITIONS ${NETGEN_DEFINITIONS}")
+     LIST(APPEND NETGEN_DEFINITIONS -DNETGEN_VERSION=${NETGEN_VERSION})
+ ELSE()
+     SET(NETGEN_FOUND FALSE)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index 342c2da..362e231 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -2610,7 +2610,6 @@ bool NETGENPlugin_Mesher::Compute()
+         // compute mesh on internal edges
+         startWith = endWith = netgen::MESHCONST_MESHEDGES;
+ #if NETGEN_VERSION >=6
+-        std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh);
+         err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+         err = netgen::OCCGenerateMesh(intOccgeo, tmpNgMesh, mparams, startWith, endWith);
+@@ -2632,7 +2631,7 @@ bool NETGENPlugin_Mesher::Compute()
+       err = ( err || !comment.empty() );
+ 
+ #if NETGEN_VERSION > 5
+-      tmpNgMesh.reset();
++      nglib::Ng_DeleteMesh((nglib::Ng_Mesh*)tmpNgMesh);
+ #else
+       nglib::Ng_DeleteMesh((nglib::Ng_Mesh*)tmpNgMesh);
+ #endif
+@@ -2907,8 +2906,8 @@ bool NETGENPlugin_Mesher::Compute()
+         {
+           OCC_CATCH_SIGNALS;
+ #if NETGEN_VERSION >=6
+-        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh)
+-        err = netgen::OCCGenerateMesh(occgeo, std::shared_ptr<netgen::Mesh>(_ngMesh), mparams, startWith, endWith);
++        std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh);
++        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+           err = netgen::OCCGenerateMesh(occgeo, _ngMesh, mparams, startWith, endWith);
+ #else
+@@ -3133,7 +3132,7 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+   int endWith   = netgen::MESHCONST_MESHEDGES;
+ #if NETGEN_VERSION >=6
+         std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
+-        err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
++        int err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+   int err = netgen::OCCGenerateMesh(occgeo, ngMesh, mparams, startWith, endWith);
+ #else
+@@ -4014,7 +4013,7 @@ NETGENPlugin_NetgenLibWrapper::NETGENPlugin_NetgenLibWrapper()
+ NETGENPlugin_NetgenLibWrapper::~NETGENPlugin_NetgenLibWrapper()
+ {
+ #if NETGEN_VERSION > 5
+-  _ngMesh.reset();
++  Ng_DeleteMesh( _ngMesh );
+ #else
+   Ng_DeleteMesh( _ngMesh );
+ #endif
+@@ -4038,7 +4037,8 @@ void NETGENPlugin_NetgenLibWrapper::setMesh( Ng_Mesh* mesh )
+ {
+   if ( _ngMesh )
+ #if NETGEN_VERSION > 5
+-    _ngMesh.reset(mesh);
++    Ng_DeleteMesh( _ngMesh );
++  _ngMesh = mesh;
+ #else
+     Ng_DeleteMesh( _ngMesh );
+   _ngMesh = mesh;
+-- 
+2.7.4
+
+
+From 64d385ec69a9c59756fef08246f06db941722509 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 16:41:49 +0200
+Subject: [PATCH 10/15] some messages for cmake
+
+---
+ cMake/FindNETGEN.cmake | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 69fa526..5cacffa 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -92,6 +92,8 @@ FIND_PATH(NETGEN_DIR_mesh    NAMES meshing.hpp    PATHS ${NETGEN_INCLUDEDIR} ${N
+ FIND_PATH(NETGEN_DIR_occ     NAMES occgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/occ)
+ FIND_PATH(NETGEN_DIR_stlgeom NAMES stlgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/stlgeom)
+ 
++MESSAGE(NETGEN_DIR_include)
++
+ IF(NOT NGLIB_INCLUDE_DIR AND NOT NETGEN_DIR_include)
+     MESSAGE(STATUS "Cannot find NETGEN header files.")
+ ELSE()
+-- 
+2.7.4
+
+
+From 08a9be6f6665206df64799f61d956c746467cfe2 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 16:42:34 +0200
+Subject: [PATCH 11/15] messages for cmake
+
+---
+ cMake/FindNETGEN.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 5cacffa..3a4987f 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -92,7 +92,7 @@ FIND_PATH(NETGEN_DIR_mesh    NAMES meshing.hpp    PATHS ${NETGEN_INCLUDEDIR} ${N
+ FIND_PATH(NETGEN_DIR_occ     NAMES occgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/occ)
+ FIND_PATH(NETGEN_DIR_stlgeom NAMES stlgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/stlgeom)
+ 
+-MESSAGE(NETGEN_DIR_include)
++MESSAGE(ERROR NETGEN_DIR_include)
+ 
+ IF(NOT NGLIB_INCLUDE_DIR AND NOT NETGEN_DIR_include)
+     MESSAGE(STATUS "Cannot find NETGEN header files.")
+-- 
+2.7.4
+
+
+From 397acc80793d234c0b431d18f9085f3b28175a93 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 16:45:42 +0200
+Subject: [PATCH 12/15] netgen patch
+
+---
+ cMake/FindNETGEN.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index 3a4987f..383e799 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -92,7 +92,7 @@ FIND_PATH(NETGEN_DIR_mesh    NAMES meshing.hpp    PATHS ${NETGEN_INCLUDEDIR} ${N
+ FIND_PATH(NETGEN_DIR_occ     NAMES occgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/occ)
+ FIND_PATH(NETGEN_DIR_stlgeom NAMES stlgeom.hpp    PATHS ${NETGEN_INCLUDEDIR} ${NGLIB_INCLUDE_DIR} ${NETGENDATA}/stlgeom)
+ 
+-MESSAGE(ERROR NETGEN_DIR_include)
++MESSAGE(WARNING NETGEN_DIR_include)
+ 
+ IF(NOT NGLIB_INCLUDE_DIR AND NOT NETGEN_DIR_include)
+     MESSAGE(STATUS "Cannot find NETGEN header files.")
+-- 
+2.7.4
+
+
+From c31d2345d1fd67732c29e9373f2df210065d3fcd Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 17:33:22 +0200
+Subject: [PATCH 13/15] OCCGENERATEMESH
+
+---
+ .../salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp        | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+index d4600a1..8d7bf03 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+@@ -75,6 +75,8 @@ namespace nglib {
+ #include <nglib.h>
+ }
+ namespace netgen {
++#if NETGEN_VERSION > 5
++  DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&, int, int);
+ #if NETGEN_VERSION > 4
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, Mesh*&, MeshingParameters&, int, int);
+ #else
+@@ -470,7 +472,10 @@ bool NETGENPlugin_NETGEN_3D::compute(SMESH_Mesh&                     aMesh,
+   {
+     OCC_CATCH_SIGNALS;
+ 
+-#if NETGEN_VERSION > 4
++#if NETGEN_VERSION >=6
++    std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh);
++    err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, netgen::mparam, startWith, endWith);
++#elif NETGEN_VERSION > 4
+     ngMesh->CalcLocalH(netgen::mparam.grading);
+     err = netgen::OCCGenerateMesh(occgeo, ngMesh, netgen::mparam, startWith, endWith);
+ #else
+-- 
+2.7.4
+
+
+From 6db791352b2de6228a03201be9de5714e3d40eb0 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 17:54:05 +0200
+Subject: [PATCH 14/15] netgen
+
+---
+ src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+index 8d7bf03..f53751d 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+@@ -77,7 +77,7 @@ namespace nglib {
+ namespace netgen {
+ #if NETGEN_VERSION > 5
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&, int, int);
+-#if NETGEN_VERSION > 4
++#elif NETGEN_VERSION > 4
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, Mesh*&, MeshingParameters&, int, int);
+ #else
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, Mesh*&, int, int, char*);
+-- 
+2.7.4
+
+
+From b4addd9cc66f0291dbd72972b1df886c610e4eb1 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 4 Sep 2016 20:53:18 +0200
+Subject: [PATCH 15/15] netgen
+
+---
+ src/Mod/Fem/App/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/Mod/Fem/App/CMakeLists.txt b/src/Mod/Fem/App/CMakeLists.txt
+index 89989fb..2c129e3 100755
+--- a/src/Mod/Fem/App/CMakeLists.txt
++++ b/src/Mod/Fem/App/CMakeLists.txt
+@@ -22,6 +22,7 @@ include_directories(
+     ${XercesC_INCLUDE_DIRS}
+     ${SMESH_INCLUDE_DIR}
+     ${VTK_INCLUDE_DIR}
++    ${NETGEN_INCLUDE_DIRS}
+ )
+ 
+ link_directories(${OCC_LIBRARY_DIR})
+-- 
+2.7.4
+

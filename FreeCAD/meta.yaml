@@ -27,6 +27,7 @@ requirements:
         - swig
         - shiboken
         - pyside
+        - pyside-tools
         - coin
         - pivy
         - boost 1.60.0
@@ -35,6 +36,7 @@ requirements:
         - netgen
         - libmed
         - hdf5
+        - xerces-c
     run:
         - python
         - numpy

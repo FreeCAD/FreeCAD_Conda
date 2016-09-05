@@ -27,7 +27,6 @@ at the end this file should look like this:
 ```
 channels:
   - freecad
-  - omnia
   - conda-forge
   - defaults
 ```

@@ -47,5 +47,7 @@ requirements:
         - coin
         - occt
         - netgen
+        - vtk
+        - libmed
 about:
     summary: freecad

@@ -10,8 +10,10 @@ source:
 
 requirements:
   build:
+    - python
     - cmake
     - freetype
+    - vtk 7.0.0
   run:
 
 about:

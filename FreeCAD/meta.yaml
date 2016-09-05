@@ -16,7 +16,7 @@ source:
     patches:
         # - occ_cmake.patch
         # - netgen_1.patch
-        - all.patch
+        - all.patch1
 
 requirements:
     build:

@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 6
+    number: 7
 
 source:
     git_url: https://github.com/FreeCAD/FreeCAD
@@ -21,7 +21,6 @@ source:
 requirements:
     build:
         - python
-        - matplotlib
         - cmake
         - eigen 3.3
         - swig
@@ -35,6 +34,7 @@ requirements:
         - qt
         - netgen
         - libmed
+        - vtk
         - hdf5
         - xerces-c
     run:

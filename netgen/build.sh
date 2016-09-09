@@ -6,12 +6,14 @@ export PYTHONPATH=$SP_DIR
 echo "set PYTHONPATH to: $PYTHONPATH"
 echo "------------------------------------------------"
 
-cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+cmake -DCMAKE_BUILD_TYPE=Debug \
+	  -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DINSTALL_DIR=$PREFIX \
       -DUSE_OCC=ON \
+      -DUSE_PYTHON=OFF \
+      -DUSE_GUI=ON \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -OCC_LIBRARY_DIR=$PREFIX/lib \
-      -DUSE_PYTHON=OFF \
       .
 make -j4 2>&1 | tee output.txt
 make install 

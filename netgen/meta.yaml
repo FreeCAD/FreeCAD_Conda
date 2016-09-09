@@ -3,7 +3,7 @@ package:
   version: 6.1
 
 build:
-  number: 2
+  number: 3
 
 source:
   git_url: https://github.com/looooo/netgen
@@ -12,10 +12,11 @@ source:
 requirements:
   build:
     - cmake
-    - python
     - occt
+    - tk
   run:
-    - python 
+    - occt
+    - tk
 
 about:
   summary: netgen

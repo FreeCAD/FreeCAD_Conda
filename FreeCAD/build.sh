@@ -1,6 +1,6 @@
 mkdir $PREFIX/lib/freecad -p
 
-VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
+VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DNETGENDATA=$PREFIX/include/netgen/libsrc \

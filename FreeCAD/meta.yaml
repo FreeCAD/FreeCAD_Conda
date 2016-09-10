@@ -29,7 +29,7 @@ requirements:
         - pyside-tools
         - coin
         - pivy
-        - boost 1.60.0
+        - boost 1.61.0
         - occt
         - qt
         - netgen
@@ -49,5 +49,6 @@ requirements:
         - netgen
         - vtk
         - libmed
+        - xerces-c
 about:
     summary: freecad

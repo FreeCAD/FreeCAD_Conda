@@ -6,6 +6,10 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Debug \
       -DNETGENDATA=$PREFIX/include/netgen/libsrc \
       -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen/nglib \
       -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen/nglib \
+      -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
+      -DOCC_LIBRARY_DIR=$PREFIX/lib \
+      -DOCC_LIBRARIES=$PREFIX/lib CACHE PATH \
+      -DOCC_OCAF_LIBRARIES=$PREFIX/lib CACHE PATH \
       -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
@@ -44,7 +48,7 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Debug \
       -DBUILD_VR=NO \
       -DBUILD_WEB=YES .
 
-make -j2 2>&1 | tee output.txt
+make -j4 2>&1 | tee output.txt
 make install
 # mkdir $PREFIX/bin -p
 # ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad

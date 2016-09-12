@@ -48,7 +48,7 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Debug \
       -DBUILD_VR=NO \
       -DBUILD_WEB=YES .
 
-make -j4 2>&1 | tee output.txt
+make -j3 2>&1 | tee output.txt
 make install
 # mkdir $PREFIX/bin -p
 # ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad

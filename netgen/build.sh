@@ -6,7 +6,7 @@ export PYTHONPATH=$SP_DIR
 echo "set PYTHONPATH to: $PYTHONPATH"
 echo "------------------------------------------------"
 
-cmake -DCMAKE_BUILD_TYPE=Debug \
+cmake -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DINSTALL_DIR=$PREFIX \
       -DUSE_OCC=ON \

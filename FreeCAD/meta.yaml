@@ -37,6 +37,7 @@ requirements:
         - vtk
         - hdf5
         - xerces-c
+        - libuuid
     run:
         - python
         - numpy

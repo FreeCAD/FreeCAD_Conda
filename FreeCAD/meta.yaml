@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 8
+    number: 9
 
 source:
     git_url: https://github.com/looooo/FreeCAD
@@ -31,13 +31,12 @@ requirements:
         - pivy
         - boost 1.60.0
         - occt
-        - qt
+        - qt 4.8.7 0
         - netgen
         - libmed
         - vtk
         - hdf5
         - xerces-c
-        - libuuid
     run:
         - python
         - numpy

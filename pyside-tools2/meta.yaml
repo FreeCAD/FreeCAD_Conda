@@ -1,0 +1,32 @@
+package:
+  name: pyside-tools
+  version: 0.2.15
+
+source:
+  git_url:  http://codereview.qt-project.org/pyside/pyside-tools
+  git_tag: dev
+
+
+requirements:
+  build:
+    - cmake
+    - qt 5.6.0
+    - python
+    - pyside2
+  run:
+    - qt 5.6.0
+    - python
+    - pyside2
+
+build:
+  number: 0
+
+#test:
+#  commands:
+#    - shiboken --help
+#  imports:
+#    - shiboken
+
+about:
+    home: https://github.com/PySide/Tools
+    license: LGPL

@@ -1,0 +1,1 @@
+from pysideuic import compileUi

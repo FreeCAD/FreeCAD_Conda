@@ -29,7 +29,7 @@ requirements:
         - pyside-tools
         - coin
         - pivy
-        - boost 1.60.0
+        - boost
         - occt
         - qt 4.8.7 0
         - netgen
@@ -43,7 +43,7 @@ requirements:
         - matplotlib
         - pyside
         - pivy
-        - boost 1.60.0
+        - boost
         - coin
         - occt
         - netgen

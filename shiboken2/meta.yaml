@@ -3,7 +3,7 @@ package:
   version: 0.0.0
 
 source:
-  git_url:  http://codereview.qt-project.org/pyside/shiboken
+  git_url: http://codereview.qt-project.org/pyside/shiboken
   git_tag: dev
 
 requirements:
@@ -18,11 +18,11 @@ requirements:
 build:
   number: 0
 
-#test:
-#  commands:
-#    - shiboken --help
-#  imports:
-#    - shiboken
+test:
+  commands:
+    - shiboken2 --help
+  imports:
+    - shiboken2
 
 about:
     home: https://github.com/PySide/Shiboken

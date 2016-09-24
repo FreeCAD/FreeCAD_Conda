@@ -39,3 +39,10 @@ channels:
 - start freecad: FreeCAD
 
 If you had freecad previously on your machine this will maybe work. otherwise there will be errors about missing libraries. Please report this and search if the missing packages are available on anaconda.org.
+
+
+# BUILD instruction:
+to build on debain jessie install the following files:
+- freeglut3.dev (opengl stufff)
+- g++
+- sudo ln -s /usr/lib/x64... /usr/lib64/ (has to be done!)

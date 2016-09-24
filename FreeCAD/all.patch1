@@ -1,7 +1,7 @@
 From 2265941527ffd9b1b29510d794b5091911803ef2 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:04:06 +0200
-Subject: [PATCH 01/25] occ cmake patch
+Subject: [PATCH 01/26] occ cmake patch
 
 ---
  cMake/FindOpenCasCade.cmake | 9 +++++++++
@@ -39,7 +39,7 @@ index fbcc262..d7bd7c4 100644
 From 02314191698efc3d4cc41d2b32fe1b04d161e149 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:09:58 +0200
-Subject: [PATCH 02/25] occ_cmake
+Subject: [PATCH 02/26] occ_cmake
 
 ---
  cMake/FindOpenCasCade.cmake | 275 ++++++++++++++++++++++----------------------
@@ -343,7 +343,7 @@ index d7bd7c4..7b763c2 100644
 From 4024c6dd22b89faa63e699d7b6542a7922bdbfbb Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:40:11 +0200
-Subject: [PATCH 03/25] patch
+Subject: [PATCH 03/26] patch
 
 ---
  cMake/FindOpenCasCade.cmake | 92 ++++++++++++++++++++++-----------------------
@@ -456,7 +456,7 @@ index 7b763c2..2bb42af 100644
 From 39920d0b7f11ecbb8d8decb34519c4f4524a64b4 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:42:06 +0200
-Subject: [PATCH 04/25] patch
+Subject: [PATCH 04/26] patch
 
 ---
  cMake/FindOpenCasCade.cmake | 8 ++++----
@@ -488,7 +488,7 @@ index 2bb42af..e353b1b 100644
 From 7e9e03dae0731c56652dc8d34b48c9fdeb77b3af Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:47:24 +0200
-Subject: [PATCH 05/25] patch
+Subject: [PATCH 05/26] patch
 
 ---
  cMake/FindOpenCasCade.cmake | 8 ++++----
@@ -520,7 +520,7 @@ index e353b1b..2bb42af 100644
 From 2d657cfc990e97310f3f42244bd57fd7c1ec1951 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:57:19 +0200
-Subject: [PATCH 06/25] patch
+Subject: [PATCH 06/26] patch
 
 ---
  cMake/FindOpenCasCade.cmake | 6 +++---
@@ -550,7 +550,7 @@ index 2bb42af..2daf0c2 100644
 From 9948635c3a5fb53a95bd5490b58582cabb9ef686 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 16 Aug 2016 15:59:54 +0200
-Subject: [PATCH 07/25] patch
+Subject: [PATCH 07/26] patch
 
 ---
  cMake/FindOpenCasCade.cmake | 44 ++++++++++++++++++++++----------------------
@@ -627,7 +627,7 @@ index 2daf0c2..ff46bd5 100644
 From ba877bb0d117205944adace2cd3f7c666b05a889 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Wed, 17 Aug 2016 13:29:54 +0200
-Subject: [PATCH 08/25] netgen 6 shared pointer
+Subject: [PATCH 08/26] netgen 6 shared pointer
 
 ---
  cMake/FindNETGEN.cmake                             |  6 +++
@@ -800,7 +800,7 @@ index 9b6beec..ec548b8 100644
 From d095495f93d017a5c90f7bcfe8a19fc3e217f307 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Wed, 17 Aug 2016 22:12:09 +0200
-Subject: [PATCH 09/25] fix
+Subject: [PATCH 09/26] fix
 
 ---
  cMake/FindNETGEN.cmake                                     |  6 ++----
@@ -898,7 +898,7 @@ index 342c2da..362e231 100644
 From 7e059ea4e17d50dcea0ce7d40bfc5e5069dfcdfd Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 16:41:49 +0200
-Subject: [PATCH 10/25] some messages for cmake
+Subject: [PATCH 10/26] some messages for cmake
 
 ---
  cMake/FindNETGEN.cmake | 2 ++
@@ -924,7 +924,7 @@ index 69fa526..5cacffa 100644
 From f9c46c505b7bc48465acb617aadbdedddc837d32 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 16:42:34 +0200
-Subject: [PATCH 11/25] messages for cmake
+Subject: [PATCH 11/26] messages for cmake
 
 ---
  cMake/FindNETGEN.cmake | 2 +-
@@ -950,7 +950,7 @@ index 5cacffa..3a4987f 100644
 From ddf25ed452c1776e073a366ac8f323a432943275 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 16:45:42 +0200
-Subject: [PATCH 12/25] netgen patch
+Subject: [PATCH 12/26] netgen patch
 
 ---
  cMake/FindNETGEN.cmake | 2 +-
@@ -976,7 +976,7 @@ index 3a4987f..383e799 100644
 From 7411f71210fd6af1090166cf086c3e62472b9b9f Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 17:33:22 +0200
-Subject: [PATCH 13/25] OCCGENERATEMESH
+Subject: [PATCH 13/26] OCCGENERATEMESH
 
 ---
  .../salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp        | 7 ++++++-
@@ -1014,7 +1014,7 @@ index d4600a1..8d7bf03 100644
 From 8b7520f5ecd55683985f6a4698a00ac117d6b814 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 17:54:05 +0200
-Subject: [PATCH 14/25] netgen
+Subject: [PATCH 14/26] netgen
 
 ---
  src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp | 2 +-
@@ -1040,7 +1040,7 @@ index 8d7bf03..f53751d 100644
 From 8c3e75ddc08354ad41ab28e1a50300675b5f270c Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Sun, 4 Sep 2016 20:53:18 +0200
-Subject: [PATCH 15/25] netgen
+Subject: [PATCH 15/26] netgen
 
 ---
  src/Mod/Fem/App/CMakeLists.txt | 1 +
@@ -1065,7 +1065,7 @@ index 89989fb..2c129e3 100755
 From 613e684c599631ff878f9dd44c8f98a7ec30bc32 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Mon, 5 Sep 2016 21:24:40 +0200
-Subject: [PATCH 16/25] netgen: shared_ptr prevent from deletion
+Subject: [PATCH 16/26] netgen: shared_ptr prevent from deletion
 
 ---
  .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp   | 14 +++++++-------
@@ -1173,7 +1173,7 @@ index f53751d..c20531f 100644
 From 35d655b6545f78859760224e63625ef49313f667 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 6 Sep 2016 12:37:19 +0200
-Subject: [PATCH 17/25] netgen_tests
+Subject: [PATCH 17/26] netgen_tests
 
 ---
  .../src/NETGENPlugin/NETGENPlugin_Mesher.cpp           | 18 +++++++++++-------
@@ -1322,7 +1322,7 @@ index c20531f..f53751d 100644
 From c2d766d3ce719a4f57055be1b159faa1e1c6b538 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 6 Sep 2016 16:37:44 +0200
-Subject: [PATCH 18/25] tests
+Subject: [PATCH 18/26] tests
 
 ---
  src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp   | 6 +-----
@@ -1389,7 +1389,7 @@ index b50ab64..4ddc4c4 100644
 From 44b64bd58ca780dac2a45bd098f5285d8a5a7be1 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 6 Sep 2016 19:56:42 +0200
-Subject: [PATCH 19/25] netgen additions
+Subject: [PATCH 19/26] netgen additions
 
 ---
  .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp     | 12 ++++++------
@@ -1474,7 +1474,7 @@ index f53751d..dba48fb 100644
 From 95ab7e6943771dd4541438037c10ba6143e17752 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 6 Sep 2016 21:13:09 +0200
-Subject: [PATCH 20/25] netgen bla
+Subject: [PATCH 20/26] netgen bla
 
 ---
  src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp | 4 ----
@@ -1503,7 +1503,7 @@ index 1c204fc..4c9d2fd 100644
 From fe747402bb179c04ff436ff5b947d9ebaf38bf3d Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Tue, 6 Sep 2016 22:32:31 +0200
-Subject: [PATCH 21/25] netgen
+Subject: [PATCH 21/26] netgen
 
 ---
  src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp | 2 +-
@@ -1529,7 +1529,7 @@ index 4c9d2fd..c9df2d1 100644
 From 868abccab172390e4e4113df943932d57fd34eb5 Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Wed, 7 Sep 2016 05:49:48 +0200
-Subject: [PATCH 22/25] checks
+Subject: [PATCH 22/26] checks
 
 ---
  .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp     | 12 ++++++++++++
@@ -1607,7 +1607,7 @@ index c9df2d1..5105a77 100644
 From 45f66a54735ded3da0161ebaa7bc3e0da2505f8c Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Wed, 7 Sep 2016 09:01:45 +0200
-Subject: [PATCH 23/25] messages
+Subject: [PATCH 23/26] messages
 
 ---
  .../salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp  | 8 +++++++-
@@ -1681,7 +1681,7 @@ index 4ddc4c4..dd93e6b 100644
 From 97a5ca2ea9855622d9a4f2b71eb417bcc8033b3e Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Wed, 7 Sep 2016 15:06:23 +0200
-Subject: [PATCH 24/25] occ_manual_path
+Subject: [PATCH 24/26] occ_manual_path
 
 ---
  cMake/FindOpenCasCade.cmake | 148 +++++++++++++++++++++++---------------------
@@ -1868,7 +1868,7 @@ index ff46bd5..dc1c38b 100644
 From 49f43cd61fa95dfbfa6b35e35e6788ef2ec15b7e Mon Sep 17 00:00:00 2001
 From: looooo <sppedflyer@gmail.com>
 Date: Fri, 9 Sep 2016 16:28:15 +0200
-Subject: [PATCH 25/25] cerr
+Subject: [PATCH 25/26] cerr
 
 ---
  .../src/NETGENPlugin/NETGENPlugin_Mesher.cpp       | 22 +++++++++++++++-------
@@ -1984,6 +1984,84 @@ index dba48fb..687a0a8 100644
  #if NETGEN_VERSION >=6
      std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh,  [](netgen::Mesh*){});
      err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, netgen::mparam, startWith, endWith);
+-- 
+2.7.4
+
+
+From 9bc9f9137e780de06bb772770c40bc4a9cd99711 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sat, 10 Sep 2016 19:24:31 +0200
+Subject: [PATCH 26/26] some further netgen tests
+
+---
+ .../salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp     | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index 8c1cf68..89e0520 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -2503,6 +2503,7 @@ bool NETGENPlugin_Mesher::Compute()
+       OCC_CATCH_SIGNALS;
+ std::cerr << "1. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -2597,6 +2598,7 @@ std::cerr << "1. impl of OCCGenerateMesh in mesher" << std::endl;
+ 
+ std::cerr << "2. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++        tmpNgMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(tmpNgMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(intOccgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -2661,6 +2663,8 @@ std::cerr << "3. impl of OCCGenerateMesh in mesher" << std::endl;
+ 
+ std::cerr << "4. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -2777,6 +2781,8 @@ std::cerr << "4. impl of OCCGenerateMesh in mesher" << std::endl;
+ 
+ std::cerr << "5. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(occgeo,mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -2885,6 +2891,8 @@ std::cerr << "5. impl of OCCGenerateMesh in mesher" << std::endl;
+ 
+ std::cerr << "6. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -2923,6 +2931,8 @@ std::cerr << "6. impl of OCCGenerateMesh in mesher" << std::endl;
+ 
+ std::cerr << "7. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(_ngMesh,  [](netgen::Mesh*){});
+         err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
+@@ -3147,6 +3157,8 @@ bool NETGENPlugin_Mesher::Evaluate(MapShapeNbElems& aResMap)
+ 
+ std::cerr << "8. impl of OCCGenerateMesh in mesher" << std::endl;
+ #if NETGEN_VERSION >=6
++
++        _ngMesh = new netgen::Mesh();
+         std::shared_ptr<netgen::Mesh> mesh_ptr(ngMesh,  [](netgen::Mesh*){});
+         int err = netgen::OCCGenerateMesh(occgeo, mesh_ptr, mparams, startWith, endWith);
+ #elif NETGEN_VERSION > 4
 -- 
 2.7.4
 

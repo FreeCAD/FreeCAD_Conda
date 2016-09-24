@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 mkdir build
 cd build
 cmake \
@@ -9,7 +10,7 @@ cmake \
     -DQT_QMAKE_EXECUTABLE=$PREFIX/bin/qmake \
     -DPYTHON_EXECUTABLE=$PYTHON \
     -DLIB_INSTALL_DIR=$PREFIX/lib \
-    -DUSE_PYTHON3=TRUE \
+    -DUSE_PYTHON_VERSION=$(expr $CONDA_PY / 10) \
     ..
 make VERBOSE=0
 make install -j2

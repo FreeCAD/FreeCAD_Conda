@@ -50,5 +50,6 @@ requirements:
         - vtk
         - libmed
         - xerces-c
+        - qt 4.8.7 0
 about:
     summary: freecad

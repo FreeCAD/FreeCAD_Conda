@@ -3,8 +3,8 @@ package:
   version: 4.0.0
 
 build:
-  string: cmake
-  number: 0
+  string: cmake_2
+  number: 1
 
 source:
   # not working with conda right now
@@ -15,10 +15,6 @@ source:
 
   # hg_url: https://bitbucket.org/Coin3D/coin
   # hg_tag: CMake
-
-requirements:
-  build:
-    - cmake
 
 about:
   summary: coin3d

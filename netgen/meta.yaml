@@ -12,10 +12,10 @@ source:
 requirements:
   build:
     - occt
-    - tk
+    - tk 8.6
   run:
     - occt
-    - tk
+    - tk 8.6
 
 about:
   summary: netgen

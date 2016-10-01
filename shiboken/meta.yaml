@@ -4,12 +4,15 @@ package:
 
 source:
   git_url: https://github.com/PySide/Shiboken
-  git_tag: 1.2.4
+  git_tag: master
+
+  patches:
+
 
 requirements:
   build:
     - cmake
-    - qt
+    - qt >=4
     - python
   run:
     - qt
@@ -18,11 +21,11 @@ requirements:
 build:
   number: 1
 
-#test:
-#  commands:
-#    - shiboken --help
-#  imports:
-#    - shiboken
+test:
+ commands:
+   - shiboken --help
+ imports:
+   - shiboken
 
 about:
     home: https://github.com/PySide/Shiboken

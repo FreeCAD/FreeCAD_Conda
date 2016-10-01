@@ -10,9 +10,8 @@ source:
 
 requirements:
   build:
-    - cmake
-    - qt <5
     - python
+    - qt <5
     - libxslt
   run:
     - qt

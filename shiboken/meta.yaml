@@ -13,6 +13,7 @@ requirements:
     - cmake
     - qt <5
     - python
+    - libxslt
   run:
     - qt
     - python

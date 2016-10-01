@@ -9,6 +9,7 @@ cmake \
     -DQT_QMAKE_EXECUTABLE=$PREFIX/bin/qmake \
     -DPYTHON_EXECUTABLE=$PYTHON \
     -DLIB_INSTALL_DIR=$PREFIX/lib \
+    -DUSE_PYTHON3=$PY3K \
     ..
 make VERBOSE=2
 make install -j2

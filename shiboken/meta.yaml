@@ -4,6 +4,9 @@ package:
 
 source:
   git_url: https://github.com/PySide/Shiboken
+  
+  patch:
+    - cmake.patch
 
 requirements:
   build:

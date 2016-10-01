@@ -10,7 +10,7 @@ cmake \
     -DLIB_INSTALL_DIR=$PREFIX/lib \
     -DShiboken_DIR=$PREFIX \
     ..
-make
+make -j4
 make install
 
 exit 0

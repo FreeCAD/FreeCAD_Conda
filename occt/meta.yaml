@@ -10,6 +10,7 @@ source:
 
 requirements:
   build:
+    - ninja       [win]
     - python
     - freetype
     - vtk 7.0.0

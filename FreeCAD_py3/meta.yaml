@@ -14,7 +14,6 @@ requirements:
         - python
         - eigen 3.3
         - swig
-        - shiboken
         - pyside
         - pyside-tools
         - coin
@@ -27,6 +26,7 @@ requirements:
         - vtk 7.0.0
         - hdf5
         - xerces-c
+        - matplotlib
     run:
         - python
         - numpy

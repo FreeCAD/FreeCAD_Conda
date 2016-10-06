@@ -1,9 +1,9 @@
 package:
-    name: freecad
+    name: freecad_py3
     version: 0.17
 
 build:
-    number: 10
+    number: 0
 
 source:
     git_url: https://github.com/looooo/FreeCAD

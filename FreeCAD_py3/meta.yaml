@@ -1,9 +1,9 @@
 package:
-    name: freecad
+    name: freecad_py3
     version: 0.17
 
 build:
-    number: 10
+    number: 0
 
 source:
     git_url: https://github.com/looooo/FreeCAD
@@ -11,6 +11,7 @@ source:
 
 requirements:
     build:
+        - cmake
         - python
         - eigen 3.3
         - swig
@@ -27,6 +28,7 @@ requirements:
         - vtk 7.0.0
         - hdf5
         - xerces-c
+        - matplotlib
     run:
         - python
         - numpy

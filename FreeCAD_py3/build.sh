@@ -1,3 +1,5 @@
+set > variables.txt #write all enviroment stuff into this
+
 mkdir $PREFIX/lib/freecad -p
 
 VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \

@@ -3,11 +3,11 @@ package:
     version: 0.17
 
 build:
-    number: 10
+    number: 0
 
 source:
     git_url: https://github.com/looooo/FreeCAD
-    git_tag: netgen6.1_py3
+    git_tag: py3-20-rebased
 
 requirements:
     build:

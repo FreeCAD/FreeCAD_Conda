@@ -26,8 +26,7 @@ eval "$(register-python-argcomplete conda)"
 
 ## list all enviroments
 conda info --envs
-
-
+conda env list
 
 
 # BUILD instruction:

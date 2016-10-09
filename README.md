@@ -2,11 +2,10 @@
 
 ## TODO
 
-- [x] download latest source code before installation
-- [x] understand how anaconda builds packages
-- [x] create a main freecad conda repo
-- [ ] insert all the recipes
-- [ ] plugins
+- create a freecad build enviroment (there are missing some enviromentvariabvles -> libuuid error)
+- occt to conda-forge
+- build netgen with python3
+- update eigen3.3 once it is released, or better use the conda-forge one
 
 
 ## install conda
@@ -16,13 +15,9 @@ download conda...
 conda install freecad
 
 ## dependencies
-- [ ] boost
-- [ ] coin
-- [ ] pyside
-- [ ] shiboken
-- [ ] netgen
-- [ ] smesh
-- [ ] occt
+- [x] coin
+- [x] netgen
+- [x] occt
 
 ## build a package
 ```shell

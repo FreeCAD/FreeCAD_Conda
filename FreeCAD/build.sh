@@ -1,5 +1,6 @@
 mkdir $PREFIX/lib/freecad -p
 
+set >/home/fc_builder/Desktop/var.txt
 VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \

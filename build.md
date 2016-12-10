@@ -28,6 +28,9 @@ eval "$(register-python-argcomplete conda)"
 conda info --envs
 conda env list
 
+## set enviroment variables
+http://stackoverflow.com/questions/31598963/how-to-set-specific-environment-variables-when-activating-conda-environment
+
 
 # BUILD instruction:
 ## to build on debain jessie install the following files: (not working right now!)

@@ -5,6 +5,9 @@
 # create package
 [instruction](http://docs.anaconda.org/using.html)
 
+# remove enviroment
+conda remove --name flowers --all
+
 ## files
 - [meta.yaml](http://conda.pydata.org/docs/building/meta-yaml.html)
 - build.sh (linux, mac)
@@ -17,9 +20,6 @@ conda build .
 ## uploading
 at the end of the build process the upload command is printed...
 
-## enviroment variables
-- [env_var](http://conda.pydata.org/docs/building/environment-vars.html)
-
 # autocomplete:
 conda install argcomplete
 eval "$(register-python-argcomplete conda)"
@@ -28,12 +28,21 @@ eval "$(register-python-argcomplete conda)"
 conda info --envs
 conda env list
 
+## enviroment variables
+- [env_var](http://conda.pydata.org/docs/building/environment-vars.html)
+
 ## set enviroment variables
 http://stackoverflow.com/questions/31598963/how-to-set-specific-environment-variables-when-activating-conda-environment
+http://conda.pydata.org/docs/using/envs.html#saved-environment-variables
 
+## export enviroment
+```
+conda env export > environment.yml
+```
+http://conda.pydata.org/docs/using/envs.html#share-an-environment
 
 # BUILD instruction:
-## to build on debain jessie install the following files: (not working right now!)
+## to build on debian jessie install the following files: (not working right now!)
 - freeglut3.dev (opengl stufff)
 - g++
 - sudo ln -s /usr/lib/x64... /usr/lib64/ (has to be done!)

@@ -40,3 +40,6 @@ conda info --envs
 - sudo apt-get install build-essential xorg-dev freeglut3.dev g++ cmake
 - sudo ln -s /usr/lib/x64... /usr/lib64/ (has to be done!)
 - sudo apt-get remove tcl tk tcl8.* tk8.* libtcl* libtk*
+
+#remember:
+- use gcc4.8 to avoid boost conflicts!!!

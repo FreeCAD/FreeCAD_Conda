@@ -1,0 +1,14 @@
+package:
+  name: coin
+  version: 4.0.0
+
+build:
+  string: cmake_3
+  number: 1
+
+source:
+  fn: coin.tar.gz
+  url: https://bitbucket.org/Coin3D/coin/get/CMake.tar.gz
+
+about:
+  summary: coin3d

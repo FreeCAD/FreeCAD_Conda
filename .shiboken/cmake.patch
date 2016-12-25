@@ -1,0 +1,25 @@
+From 7bcaa56cf8ae5c112ed466b96aee63dd752549be Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Sun, 2 Oct 2016 00:25:03 +0200
+Subject: [PATCH] patch
+
+---
+ cmake/Modules/FindPython3Libs.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/Modules/FindPython3Libs.cmake b/cmake/Modules/FindPython3Libs.cmake
+index 20a82ba..4f1e102 100644
+--- a/cmake/Modules/FindPython3Libs.cmake
++++ b/cmake/Modules/FindPython3Libs.cmake
+@@ -27,7 +27,7 @@ INCLUDE(CMakeFindFrameworks)
+ # Search for the python framework on Apple.
+ # CMAKE_FIND_FRAMEWORKS(Python)
+ 
+-FOREACH(_CURRENT_VERSION 3.4 3.3 3.2 3.1 3.0)
++FOREACH(_CURRENT_VERSION 3.5 3.4 3.3 3.2 3.1 3.0)
+   IF(_CURRENT_VERSION GREATER 3.1)
+       SET(_32FLAGS "m" "u" "mu" "dm" "du" "dmu" "")
+   ELSE()
+-- 
+2.7.4
+

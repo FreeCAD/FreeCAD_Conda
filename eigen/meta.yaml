@@ -3,11 +3,11 @@ package:
   version: 3.3
 
 build:
-  string: rc1
+  number: 0
 
 source:
-  fn: 3.3-rc1.tar.bz2
-  url: http://bitbucket.org/eigen/eigen/get/3.3-rc1.tar.bz2
+  fn: eigen3.3.tar.bz2
+  url: http://bitbucket.org/eigen/eigen/get/3.3.0.tar.gz
 
 
 requirements:

@@ -1,5 +1,6 @@
 mkdir $PREFIX/lib/freecad -p
 
+set >/home/fc_builder/Desktop/var.txt
 VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
@@ -9,6 +10,7 @@ VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Release \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \
       -DOCC_LIBRARIES=$PREFIX/lib CACHE PATH \
+      -DFREECAD_USE_OCC_VARIANT="Official Version" \
       -DOCC_OCAF_LIBRARIES=$PREFIX/lib CACHE PATH \
       -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \

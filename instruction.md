@@ -6,7 +6,7 @@
 - if you do not want anaconda to be the default python open the ~/.bashrc and edit the new line:
     -from this: __export PATH="path_to_anaconda/bin:$PATH"__
     -to this: __alias initConda='export PATH="path_to_anaconda/bin:$PATH" '__
-    this way anaconda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
+    this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
 
 
 
@@ -40,3 +40,23 @@ channels:
 - start freecad: FreeCAD
 
 Most likely there will be some library linking errors... If you encounter one of these, pleasecreate a new issue at: https://github.com/looooo/FreeCAD_Conda/issues
+
+
+##TESTING AND DEBUGGING
+This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is nice, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction:
+
+
+- git clone https://github.com/looooo/FreeCAD_Conda # this branch
+- git checkout develop
+- go to FreeCAD_Conda/FreeCAD/build.sh and modify the FREECAD_SOURCE Variable at the top of the document
+
+- in the terminal go to FreeCAD_Conda/FreeCAD/
+- conda build . --python=3.5  # or 2.7
+
+when you have an error you can go to the build directory something like
+~/miniconda3/conda-bld/FreeCAD_123423342/work
+- source activate . # to activate the build enviroment
+- make # to build again
+
+you can also use the --dirty flag but this will run cmake again, so there are more things getting rebuild
+in the build directory you can also use cmake-gui.

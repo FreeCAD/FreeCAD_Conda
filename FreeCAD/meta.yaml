@@ -26,7 +26,7 @@ requirements:
         - boost
         - occt
         - qt 4.8.7 0
-        - netgen 6.1
+        - netgen
         - libmed
         - vtk 7.0.0
         - hdf5
@@ -40,7 +40,7 @@ requirements:
         - boost
         - coin
         - occt
-        - netgen 6.1
+        - netgen
         - vtk 7.0.0
         - libmed
         - xerces-c

@@ -51,3 +51,6 @@ http://conda.pydata.org/docs/using/envs.html#share-an-environment
 - sudo apt-get install build-essential xorg-dev freeglut3.dev g++ cmake
 - sudo ln -s /usr/lib/x86_64-linux-gnu/ /usr/lib64 (has to be done!)
 - sudo apt-get remove tcl tk tcl8.6 libtcl8.6
+
+#remember:
+- use gcc4.8 to avoid boost conflicts!!!

@@ -1,6 +1,6 @@
 package:
-  name: pyside-tools
-  version: 0.2.15
+  name: pyside2-tools
+  version: 0.0.0
 
 source:
   git_url:  http://codereview.qt-project.org/pyside/pyside-tools

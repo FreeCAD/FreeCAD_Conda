@@ -23,12 +23,12 @@ requirements:
         - pyside-tools
         - coin
         - pivy
-        - boost
+        - boost 1.62.0
         - occt
-        - qt 4.8.7 0
+        - qt 4.8.7 6
         - netgen
         - libmed
-        - vtk 7.0.0
+        - vtk 7.1.0
         - hdf5
         - xerces-c
     run:
@@ -37,13 +37,13 @@ requirements:
         - matplotlib
         - pyside
         - pivy
-        - boost
+        - boost 1.62.0
         - coin
         - occt
         - netgen
-        - vtk 7.0.0
+        - vtk 7.1.0
         - libmed
         - xerces-c
-        - qt 4.8.7 0
+        - qt 4.8.7 6
 about:
     summary: freecad

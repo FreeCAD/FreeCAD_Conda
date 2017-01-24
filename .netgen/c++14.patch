@@ -1,0 +1,25 @@
+From 405cb55b5ac8d5189246b40a0a8187f5d4189744 Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Mon, 5 Dec 2016 14:03:39 +0100
+Subject: [PATCH] change c++14 to c++y1
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 13e30bb..9a24a7a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -135,7 +135,7 @@ if(WIN32)
+ else(WIN32)
+     # build shared libraries
+     set(NG_LIB_TYPE SHARED)
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
+ endif(WIN32)
+ if(APPLE)
+ #    set(MACOSX_BUNDLE ON)
+-- 
+1.9.1
+

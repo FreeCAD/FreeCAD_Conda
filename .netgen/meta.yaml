@@ -1,21 +1,36 @@
 package:
   name: netgen
-  version: 6.1
+  version: 6.0
 
 build:
-  number: 5
+  number: 6
 
 source:
-  git_url: https://github.com/looooo/netgen
-  git_tag: master
+  fn: netgen.tar.gz
+  url: https://github.com/looooo/netgen/archive/6.0.0-conda-pybind.tar.gz
+  sha256: 6d8ee2ea3d744a761b838a2d6a691f971de6ef3d1f8f8c1c26de4c39a8b7c809
+
+  patches:
+    - c++14.patch
 
 requirements:
   build:
+    - cmake
+    - python
     - occt
-    - tk 8.6
+    - pybind11
   run:
     - occt
-    - tk 8.6
 
 about:
-  summary: netgen
+  home: https://sourceforge.net/projects/netgen-mesher/
+  license: LGPL
+  license_family: LGPL
+  summary: this is netgen
+  description: NETGEN is an automatic 3d tetrahedral mesh generator.
+               It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
+               STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files.
+               NETGEN contains modules for mesh optimization and hierarchical mesh refinement.
+               Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows. 
+  doc_url: http://www.hpfem.jku.at/netgen/
+  dev_url: https://sourceforge.net/projects/netgen-mesher/

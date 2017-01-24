@@ -21,6 +21,7 @@ requirements:
     - pybind11
   run:
     - occt
+    - python
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/

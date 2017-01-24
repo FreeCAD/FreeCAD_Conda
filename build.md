@@ -54,3 +54,8 @@ http://conda.pydata.org/docs/using/envs.html#share-an-environment
 
 #remember:
 - use gcc4.8 to avoid boost conflicts!!!
+
+#encrypted home directory:
+this makes problems with building because the resulting path-length gets too long. The solution is to make a temporary build dir, e.g. mkdir /tmp/fcbuild and then append --croot /tmp/fcbuild to your conda build command.
+https://github.com/conda/conda-build/issues/1331
+https://forum.freecadweb.org/viewtopic.php?f=10&t=12534&start=280#p155440

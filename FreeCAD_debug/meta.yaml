@@ -1,0 +1,46 @@
+package:
+    name: freecad
+    version: 0.17
+
+build:
+    number: 0
+    name: py_3
+
+    patches:
+        # - none
+
+requirements:
+    build:
+        - python
+        - cmake
+        - eigen 3.3
+        - swig
+        - shiboken
+        - pyside
+        - pyside-tools
+        - coin
+        - pivy
+        - boost 1.62.0
+        - occt
+        - qt 4.8.7 0
+        - netgen
+        - libmed
+        - vtk 7.1.0
+        - hdf5
+        - xerces-c
+    run:
+        - python
+        - numpy
+        - matplotlib
+        - pyside
+        - pivy
+        - boost 1.62.0
+        - coin
+        - occt
+        - netgen
+        - vtk 7.1.0
+        - libmed
+        - xerces-c
+        - qt 4.8.7 0
+about:
+    summary: freecad

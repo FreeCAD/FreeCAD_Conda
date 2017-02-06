@@ -11,36 +11,37 @@ build:
 
 requirements:
     build:
-        - python
         - cmake
-        - eigen 3.3
         - swig
         - shiboken
-        - pyside
-        - pyside-tools
+        - eigen 3.3
+        - hdf5
+        - boost-cpp 1.63.0 2
+        - python
+        - matplotlib
         - coin
         - pivy
-        - boost 1.62.0
+        - qt 4.8.7 6
+        - pyside
+        - pyside-tools
         - occt
-        - qt 4.8.7 0
         - netgen
-        - libmed
         - vtk 7.1.0
-        - hdf5
+        - libmed
         - xerces-c
     run:
+        - boost-cpp 1.63.0 2
         - python
         - numpy
         - matplotlib
-        - pyside
-        - pivy
-        - boost 1.62.0
         - coin
+        - pivy
+        - qt 4.8.7 6
+        - pyside
         - occt
         - netgen
         - vtk 7.1.0
         - libmed
         - xerces-c
-        - qt 4.8.7 0
 about:
     summary: freecad

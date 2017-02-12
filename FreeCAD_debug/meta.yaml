@@ -21,7 +21,7 @@ requirements:
         - matplotlib
         - coin
         - pivy
-        - qt 4.8.7 6
+        - qt 4.8.7 7
         - pyside
         - pyside-tools
         - occt
@@ -36,7 +36,7 @@ requirements:
         - matplotlib
         - coin
         - pivy
-        - qt 4.8.7 6
+        - qt 4.8.7 7
         - pyside
         - occt
         - netgen

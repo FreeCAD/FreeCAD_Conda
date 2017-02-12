@@ -3,11 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 11
-
-source:
-    git_url: https://github.com/FreeCAD/FreeCAD
-    git_tag: master
+    number: 0
 
     patches:
         # - none
@@ -19,12 +15,12 @@ requirements:
         - shiboken
         - eigen 3.3
         - hdf5
-        - boost-cpp 1.63.0 2
+        - boost-cpp 1.63.0
         - python
         - matplotlib
         - coin
         - pivy
-        - qt 4.8.7 6
+        - qt 4.8.7 7
         - pyside
         - pyside-tools
         - occt
@@ -33,13 +29,13 @@ requirements:
         - libmed
         - xerces-c
     run:
-        - boost-cpp 1.63.0 2
+        - boost-cpp 1.63.0
         - python
         - numpy
         - matplotlib
         - coin
         - pivy
-        - qt 4.8.7 6
+        - qt 4.8.7 7
         - pyside
         - occt
         - netgen
@@ -48,3 +44,4 @@ requirements:
         - xerces-c
 about:
     summary: freecad
+

@@ -5,6 +5,10 @@ package:
 build:
     number: 0
 
+source:
+    git_url: https://github.com/FreeCAD/FreeCAD
+    git_tag: master
+
     patches:
         # - none
 

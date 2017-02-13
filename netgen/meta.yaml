@@ -5,13 +5,15 @@ package:
 build:
   number: 6
 
-source:
-  fn: netgen.tar.gz
-  url: https://github.com/looooo/netgen/archive/6.0.0-conda-pybind.tar.gz
-  sha256: 6d8ee2ea3d744a761b838a2d6a691f971de6ef3d1f8f8c1c26de4c39a8b7c809
+# source:
+#   fn: netgen.tar.gz
+#   url: https://github.com/looooo/netgen/archive/6.0.0-conda-pybind.tar.gz
+#   sha256: 6d8ee2ea3d744a761b838a2d6a691f971de6ef3d1f8f8c1c26de4c39a8b7c809
 
-  patches:
-    - c++14.patch
+source:
+    git_url: https://github.com/looooo/netgen
+    git_tag: netgen6.2
+
 
 requirements:
   build:
@@ -19,9 +21,13 @@ requirements:
     - python
     - occt
     - pybind11
+    - tk
+    - tcl
   run:
     - occt
     - python
+    - tk
+    - tcl
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/

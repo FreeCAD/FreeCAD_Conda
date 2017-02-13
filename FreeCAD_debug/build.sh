@@ -1,9 +1,9 @@
 FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (modyfy to your needs)
-BUILD_FULL=true                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
+BUILD_FULL=true                   # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
 
 
 if [ "$BUILD_FULL" = true ] ; then
-    VERBOSE=1 cmake -DCMAKE_BUILD_TYPE=Debug \
+    cmake -DCMAKE_BUILD_TYPE=Debug \
           -DCMAKE_INSTALL_PREFIX=$PREFIX \
           -DCMAKE_PREFIX_PATH=$PREFIX \
           -DNETGENDATA=$PREFIX/include/netgen/libsrc \

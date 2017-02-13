@@ -22,12 +22,10 @@ requirements:
     - occt
     - pybind11
     - tk
-    - tcl
   run:
     - occt
     - python
     - tk
-    - tcl
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/

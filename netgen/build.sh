@@ -26,5 +26,5 @@ make install
 mkdir ${PREFIX}/include/netgen
 
 rsync -avm --include='*.h*' -f 'hide,! */' .. ${PREFIX}/include/netgen
-cp ${PREFIX}/include/netgen/build/config.h ${PREFIX}/include/netgen/mydefs.hpp
+cp ${PREFIX}/include/netgen/build/netgen/config.h ${PREFIX}/include/netgen/config.h
 rm ${PREFIX}/include/netgen/build -r

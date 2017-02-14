@@ -1,9 +1,9 @@
 package:
   name: netgen
-  version: 6.0
+  version: 6.2
 
 build:
-  number: 6
+  number: 0
 
 # source:
 #   fn: netgen.tar.gz

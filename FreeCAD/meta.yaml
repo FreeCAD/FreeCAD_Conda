@@ -6,8 +6,8 @@ build:
     number: 1
 
 source:
-    git_url: https://github.com/FreeCAD/FreeCAD
-    git_tag: master
+    git_url: https://github.com/looooo/FreeCAD
+    git_tag: py3-21
 
     patches:
         # - none

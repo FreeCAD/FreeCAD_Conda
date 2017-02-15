@@ -3,7 +3,8 @@ package:
   version: 1.2.4
 
 source:
-  git_url: https://github.com/PySide/Shiboken
+  fn: shiboken.tar.gz
+  url: https://github.com/pyside/Shiboken/archive/1.2.4.tar.gz
   
   patches:
     - cmake.patch

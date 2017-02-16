@@ -12,7 +12,6 @@ requirements:
     build:
         - cmake
         - swig
-        - shiboken
         - eigen 3.3
         - hdf5
         - boost-cpp 1.63.0 2

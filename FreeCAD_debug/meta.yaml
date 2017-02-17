@@ -12,7 +12,7 @@ requirements:
     build:
         - cmake
         - swig
-        - eigen 3.3
+        - eigen
         - hdf5
         - boost-cpp 1.63.0 2
         - python

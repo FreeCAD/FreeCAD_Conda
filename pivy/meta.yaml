@@ -3,7 +3,7 @@ package:
   version: 0.6.0
 
 build:
-  number: 1
+  number: 2
 
 source:
   git_url: https://github.com/looooo/pivy
@@ -12,10 +12,10 @@ requirements:
   build:
     - python
     - swig
-    - coin
+    - coin3d
   run:
     - python
-    - coin
+    - coin3d
 
 about:
   summary: python buindings to coin

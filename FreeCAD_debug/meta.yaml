@@ -17,7 +17,7 @@ requirements:
         - boost-cpp 1.63.0 2
         - python
         - matplotlib
-        - coin
+        - coin3d
         - pivy
         - qt 4.8.7 7
         - pyside
@@ -32,7 +32,7 @@ requirements:
         - python
         - numpy
         - matplotlib
-        - coin
+        - coin3d
         - pivy
         - qt 4.8.7 7
         - pyside

@@ -1,5 +1,5 @@
 FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (modyfy to your needs)
-BUILD_FULL=true                   # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
+BUILD_FULL=true                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
 
 
 if [ "$BUILD_FULL" = true ] ; then
@@ -19,10 +19,10 @@ if [ "$BUILD_FULL" = true ] ; then
           -DPYTHON_EXECUTABLE=$PYTHON \
           -DBUILD_FEM_NETGEN=ON \
           -DBUILD_ARCH=ON \
-          -DBUILD_ASSEMBLY=NO \
+          -DBUILD_ASSEMBLY=OFF \
           -DBUILD_COMPLETE=ON \
           -DBUILD_DRAFT=ON \
-          -DBUILD_DRAWING=ON \
+          -DBUILD_DRAWING=OFF \
           -DBUILD_FEM=ON \
           -DBUILD_GUI=YES \
           -DBUILD_IDF=ON \
@@ -49,13 +49,13 @@ if [ "$BUILD_FULL" = true ] ; then
           -DBUILD_START=ON \
           -DBUILD_TEMPLATE=ON \
           -DBUILD_TEST=ON \
-          -DBUILD_VR=NO \
+          -DBUILD_VR=OFF \
           -DBUILD_WEB=ON \
           -DBUILD_TECHDRAW=ON ${FREECAD_SOURCE}
 fi
 
-make -j5 2>&1 | tee output.txt
-make install -j5
+make -j4 2>&1 | tee output.txt
+make install -j4
 # mkdir $PREFIX/bin -p
 # ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
 # ln -s ../lib/freecad/bin/FreeCADCmd $PREFIX/bin/FreeCADCmd

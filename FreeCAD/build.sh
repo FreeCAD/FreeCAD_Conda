@@ -50,7 +50,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_VR=NO \
       -DBUILD_WEB=YES .
 
-make -j3 2>&1 | tee output.txt
+make -j4 2>&1 | tee output.txt
 make install
 # mkdir $PREFIX/bin -p
 # ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad

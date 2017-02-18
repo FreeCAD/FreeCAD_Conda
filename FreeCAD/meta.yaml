@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 1
+    number: 2
 
 source:
     git_url: https://github.com/looooo/FreeCAD
@@ -16,13 +16,12 @@ requirements:
     build:
         - cmake
         - swig
-        - shiboken
-        - eigen 3.3
+        - eigen
         - hdf5
-        - boost-cpp 1.63.0
+        - boost-cpp 1.63.0 2
         - python
         - matplotlib
-        - coin
+        - coin3d
         - pivy
         - qt 4.8.7 7
         - pyside
@@ -33,11 +32,11 @@ requirements:
         - libmed
         - xerces-c
     run:
-        - boost-cpp 1.63.0
+        - boost-cpp 1.63.0 2
         - python
         - numpy
         - matplotlib
-        - coin
+        - coin3d
         - pivy
         - qt 4.8.7 7
         - pyside

@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 2
+    number: 4
 
 source:
     git_url: https://github.com/looooo/FreeCAD
@@ -11,6 +11,10 @@ source:
 
     patches:
         # - none
+
+    track_features:
+        - vc14                                # [win and py35]
+        - occt7.1.0
 
 requirements:
     build:

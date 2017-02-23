@@ -62,9 +62,9 @@ This section is for testing new branches, or your own implementations/additions 
 
 
 - git clone https://github.com/looooo/FreeCAD_Conda # this branch
-- go to *FreeCAD_Conda/FreeCAD_debug/build.sh* and modify the FREECAD_SOURCE Variable at the top of the document
+- go to *FreeCAD_Conda/.FreeCAD_debug/build.sh* and modify the FREECAD_SOURCE Variable at the top of the document
 
-- in the terminal go to *FreeCAD_Conda/FreeCAD_debug/*
+- in the terminal go to *FreeCAD_Conda/.FreeCAD_debug/*
 - ```conda build . --python=3.5  # or 2.7```
 
 when you have an error you can go to the build directory something like

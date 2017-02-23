@@ -1,9 +1,9 @@
 package:
-  name: netgen
-  version: 6.2
+    name: netgen
+    version: 6.2
 
 build:
-  number: 0
+    number: 1
 
 # source:
 #   fn: netgen.tar.gz
@@ -14,28 +14,31 @@ source:
     git_url: https://github.com/looooo/netgen
     git_tag: netgen6.2
 
+    track_features:
+        - vc14                                # [win and py35]
+        - occt7.1.0
 
 requirements:
-  build:
-    - cmake
-    - python
-    - occt
-    - pybind11
-    - tk
-  run:
-    - occt
-    - python
-    - tk
+    build:
+        - cmake
+        - python
+        - occt
+        - pybind11
+        - tk
+    run:
+        - occt
+        - python
+        - tk
 
 about:
-  home: https://sourceforge.net/projects/netgen-mesher/
-  license: LGPL
-  license_family: LGPL
-  summary: this is netgen
-  description: NETGEN is an automatic 3d tetrahedral mesh generator.
-               It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
-               STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files.
-               NETGEN contains modules for mesh optimization and hierarchical mesh refinement.
-               Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows. 
-  doc_url: http://www.hpfem.jku.at/netgen/
-  dev_url: https://sourceforge.net/projects/netgen-mesher/
+    home: https://sourceforge.net/projects/netgen-mesher/
+    license: LGPL
+    license_family: LGPL
+    summary: this is netgen
+    description: NETGEN is an automatic 3d tetrahedral mesh generator.
+                 It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
+                 STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files.
+                 NETGEN contains modules for mesh optimization and hierarchical mesh refinement.
+                 Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows. 
+    doc_url: http://www.hpfem.jku.at/netgen/
+    dev_url: https://sourceforge.net/projects/netgen-mesher/

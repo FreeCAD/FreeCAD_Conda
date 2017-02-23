@@ -1,7 +1,7 @@
 # Building FreeCAD and dependencies with conda
 
 With conda only the most general dependencies are used from the system. Therefor nearly all dependencies of FreeCAD have to be build.
-Conda-Forge is a github-organization containing many dependencies of FreeCAD. This decrease the list of packages we have to care about.
+Conda-Forge is a github-organization containing many dependencies of FreeCAD. With this channel added to the condarc channels section the number of packages we have to maintain for freecad is not that high. Packages which are not part of conda-forge are:
 
 - coin3d
 - netgen
@@ -9,6 +9,8 @@ Conda-Forge is a github-organization containing many dependencies of FreeCAD. Th
 - pyside-tools
 
 Packages are currently build with a virtual machine running ubuntu-14.04. Building them needs a virgin enviroment.
+Instead of using a virtual machine, it's also possible to use docker.
+
 
 ## Build packages for FreeCAD with docker
 
@@ -49,11 +51,43 @@ Once this is setup we can use this container to use for packages
 ```
 cd FreeCAD_Conda/fc_conda_docker
 docker build -t fc_conda_docker .
+
 ```
 sudo docker run -v ~/projects/:/projects:ro -i -t --name freecad fc_conda_docker /bin/bash
+
 ```
+----->
+# TESTING AND DEBUGGING FreeCAD with dependencies from conda
+This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is nice, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction:
 
 
+- git clone https://github.com/looooo/FreeCAD_Conda # this branch
+- go to *FreeCAD_Conda/FreeCAD_debug/build.sh* and modify the FREECAD_SOURCE Variable at the top of the document
+
+- in the terminal go to *FreeCAD_Conda/FreeCAD_debug/*
+- ```conda build . --python=3.5  # or 2.7```
+
+when you have an error you can go to the build directory something like
+~/miniconda3/conda-bld/FreeCAD_123423342/work
+- ```source activate .``` # to activate the build enviroment
+- ```make``` # to build again
+
+you can also use the __--dirty__ flag but this will run cmake again, so there are more things getting rebuild
+in the build directory you can also use cmake-gui.
+
+# additional informations
+### list all enviroments
+```conda info --envs``
+
+### update
+- ```conda update --all```
+- ```conda update conda```
+
+### uploading sometimes needs a login:
+```anaconda login```
+
+
+<-------------
 
 # create package
 [instruction](http://docs.anaconda.org/using.html)

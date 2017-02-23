@@ -9,7 +9,6 @@
     this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
 
 
-
 ## INSTALL FREECAD
 
 - first we have to add some channels to get all the necesarry packages:
@@ -44,7 +43,7 @@ Most likely there will be some library linking errors... If you encounter one of
 #### create enviroment with specific dependency versions
 to create an enviroment with secific versions of packages you can add these packages with versions to the create command.
 
-```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...``` 
+```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
 
 
 ## TESTING AND DEBUGGING
@@ -65,3 +64,15 @@ when you have an error you can go to the build directory something like
 
 you can also use the --dirty flag but this will run cmake again, so there are more things getting rebuild
 in the build directory you can also use cmake-gui.
+
+## additional informations
+### list all enviroments
+conda info --envs
+
+### update
+- update all conda packages   
+```bash
+conda update --all```
+
+### install sometimes needs a login:
+anaconda login

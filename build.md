@@ -51,10 +51,10 @@ Once this is setup we can use this container to use for packages
 ```
 cd FreeCAD_Conda/fc_conda_docker
 docker build -t fc_conda_docker .
+```
 
 ```
 sudo docker run -v ~/projects/:/projects:ro -i -t --name freecad fc_conda_docker /bin/bash
-
 ```
 ----->
 # TESTING AND DEBUGGING FreeCAD with dependencies from conda

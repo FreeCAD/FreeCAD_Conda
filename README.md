@@ -52,33 +52,3 @@ channels:
 to create an enviroment with secific versions of packages you can add these packages with versions to the create command. This will give you the oppertunity to reproduce a enviroment. eg.: in case some newer dependencies are broken.
 
 ```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
-
-
-# TESTING AND DEBUGGING FreeCAD with dependencies from conda
-This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is nice, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction:
-
-
-- git clone https://github.com/looooo/FreeCAD_Conda # this branch
-- go to *FreeCAD_Conda/FreeCAD_debug/build.sh* and modify the FREECAD_SOURCE Variable at the top of the document
-
-- in the terminal go to *FreeCAD_Conda/FreeCAD_debug/*
-- ```conda build . --python=3.5  # or 2.7```
-
-when you have an error you can go to the build directory something like
-~/miniconda3/conda-bld/FreeCAD_123423342/work
-- ```source activate .``` # to activate the build enviroment
-- ```make``` # to build again
-
-you can also use the __--dirty__ flag but this will run cmake again, so there are more things getting rebuild
-in the build directory you can also use cmake-gui.
-
-# additional informations
-### list all enviroments
-```conda info --envs``
-
-### update
-- ```conda update --all```
-- ```conda update conda```
-
-### uploading sometimes needs a login:
-```anaconda login```

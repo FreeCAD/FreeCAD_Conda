@@ -17,8 +17,8 @@ if [ "$BUILD_FULL" = true ] ; then
           -DCMAKE_INSTALL_PREFIX=$PREFIX \
           -DINSTALL_DIR=$PREFIX \
           -DUSE_OCC=ON \
-          -DUSE_PYTHON=ON \
-          -DUSE_GUI=ON \
+          -DUSE_PYTHON=OFF \
+          -DUSE_GUI=OFF \
           -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
           -DOCC_LIBRARY_DIR=$PREFIX/lib \
           -DPYBIND_INCLUDE_DIR=$PREFIX/include/pybind11 \
@@ -31,5 +31,5 @@ make install
 mkdir ${PREFIX}/include/netgen
 
 rsync -avm --include='*.h*' -f 'hide,! */' .. ${PREFIX}/include/netgen
-cp ${PREFIX}/include/netgen/build/config.h ${PREFIX}/include/netgen/mydefs.hpp
+cp ${PREFIX}/include/netgen/build/netgen/config.h ${PREFIX}/include/netgen/mydefs.hpp
 rm ${PREFIX}/include/netgen/build -r

@@ -1,9 +1,9 @@
 package:
   name: netgen
-  version: 6.0
+  version: 6.2
 
 build:
-  number: 0
+  number: 1
 
   PATCHES:
     # - NONE
@@ -11,12 +11,12 @@ build:
 requirements:
   build:
     - cmake
-    - python
+    # - python
     - occt
-    - pybind11
+    # - pybind11
   run:
     - occt
-    - python
+    # - python
 
 about:
   home: https://sourceforge.net/projects/netgen-mesher/

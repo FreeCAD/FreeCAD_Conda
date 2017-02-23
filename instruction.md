@@ -41,8 +41,13 @@ channels:
 
 Most likely there will be some library linking errors... If you encounter one of these, pleasecreate a new issue at: https://github.com/looooo/FreeCAD_Conda/issues
 
+#### create enviroment with specific dependency versions
+to create an enviroment with secific versions of packages you can add these packages with versions to the create command.
 
-##TESTING AND DEBUGGING
+```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...``` 
+
+
+## TESTING AND DEBUGGING
 This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is nice, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction:
 
 

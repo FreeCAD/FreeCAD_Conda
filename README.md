@@ -18,7 +18,6 @@ https://conda.io/docs/intro.html
     -to this: __alias initConda='export PATH="path_to_anaconda/bin:$PATH" '__
     this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
 
-
 ## INSTALL FREECAD
 
 - first we have to add some channels to get all the necesarry packages:
@@ -37,7 +36,6 @@ channels:
  - the channels hosting this libraries:
     - freecad: freecad, coin, pivy, boost, occt, ...
     - conda-forge: pyside, shiboken, ...
-
 
 
 ## CREATE A NEW ENVIROMENT

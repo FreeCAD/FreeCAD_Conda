@@ -41,6 +41,11 @@ sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
 ```
 
+## copy files to local host
+```
+sudo docker cp <name of running docker>:<file> <local_file_path>
+```
+
 - there is also the option to use a newer linux version. see fc_conda_docker/debian_based.
 
 # TESTING AND DEBUGGING FreeCAD with dependencies from conda

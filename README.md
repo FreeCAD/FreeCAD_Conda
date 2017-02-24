@@ -1,4 +1,4 @@
-# conda packages for freecad
+# CONDA PACKAGES FOR FreeCAD
 The idea behind using conda for freecad is the wish for a consistend package-manager for linux (all distros), windows and mac. At the moment only linux-64 builds are available. Furthermore conda gives FreeCAD the ability to install 3rd-party modules with dependencies easily.
 
 FreeCAD packages on conda will be available only with python3. While there is the possebility to build packages also with python2 on linux, there will be no packages uplaoded to anaconda.org which depends on python2.
@@ -7,7 +7,7 @@ For more information about conda, you can follow this link:
 https://conda.io/docs/intro.html
 
 
-# how to install FreeCAD with conda?
+# HOW TO INSTALL FreeCAD WITH CONDA
 ## INSTALL MINICONDA:
 
 - first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
@@ -40,7 +40,7 @@ channels:
 
 
 
-### CREATE A NEW ENV
+## CREATE A NEW ENVIROMENT
 - type in terminal: ```initConda``` (now the "conda" command should be available)
 - create an env: ```conda create -n env-name freecad``` # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
@@ -48,7 +48,21 @@ channels:
 - start freecad: ```FreeCAD```
 
 
-#### create enviroment with specific dependency versions
+## use specific dependency versions
 to create an enviroment with secific versions of packages you can add these packages with versions to the create command. This will give you the oppertunity to reproduce a enviroment. eg.: in case some newer dependencies are broken.
 
 ```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
+
+
+# ADDITIONAL INFORMATION
+
+- list all enviroments
+```
+conda env list
+```  
+
+- update
+```
+conda update --all
+conda update conda
+```

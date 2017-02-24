@@ -1,4 +1,4 @@
-## INSTALL MINICONDA:
+# INSTALL MINICONDA:
 
 - first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
 - install miniconda: bash <miniconda-file>.sh (not as root!!!)
@@ -9,7 +9,7 @@
     this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
 
 
-## INSTALL FREECAD
+# INSTALL FREECAD
 
 - first we have to add some channels to get all the necesarry packages:
   - you can add them one by one with: conda config --add channels <name>
@@ -30,7 +30,7 @@ channels:
 
 
 
-### CREATE A NEW ENV
+# CREATE A NEW ENV
 - type in terminal: __initConda__ (now the "conda" command should be available)
 - create an env: __conda create -n env-name freecad__ # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
@@ -40,39 +40,25 @@ channels:
 
 Most likely there will be some library linking errors... If you encounter one of these, pleasecreate a new issue at: https://github.com/looooo/FreeCAD_Conda/issues
 
-#### create enviroment with specific dependency versions
+### create enviroment with specific dependency versions
 to create an enviroment with secific versions of packages you can add these packages with versions to the create command.
 
-```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
-
-
-## TESTING AND DEBUGGING
-This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is nice, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction:
-
-
-- git clone https://github.com/looooo/FreeCAD_Conda # this branch
-- git checkout develop
-- go to FreeCAD_Conda/FreeCAD/build.sh and modify the FREECAD_SOURCE Variable at the top of the document
-
-- in the terminal go to FreeCAD_Conda/FreeCAD/
-- conda build . --python=3.5  # or 2.7
-
-when you have an error you can go to the build directory something like
-~/miniconda3/conda-bld/FreeCAD_123423342/work
-- source activate . # to activate the build enviroment
-- make # to build again
+```
+conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...
+```
 
 you can also use the --dirty flag but this will run cmake again, so there are more things getting rebuild
 in the build directory you can also use cmake-gui.
 
-## additional informations
-### list all enviroments
-conda info --envs
+# ADDITIONAL INFORMATION
 
-### update
-- update all conda packages   
-```bash
-conda update --all```
+- list all enviroments
+```
+conda env list
+```  
 
-### install sometimes needs a login:
-anaconda login
+- update
+```
+conda update --all
+conda update conda
+```

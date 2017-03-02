@@ -1,0 +1,56 @@
+#ignore dot files:
+.*
+!.gitignore
+!.travis.yml
+
+#python compiled
+*.py[cod~]
+
+# C extensions
+*.so
+*.lyx
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.
+
+#intellij
+*.iml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# lock-files
+*~
+
+# Doxygen generated Doc
+# Doc/doxygen/*
+docs/sphinx/build/*
+examples
+#scripts
+__pycache__*
+*.AppImage

@@ -6,7 +6,7 @@ export PYTHONPATH=$SP_DIR
 echo "set PYTHONPATH to: $PYTHONPATH"
 echo "------------------------------------------------"
 
-mkdir build
+mkdir build -p
 cd build 
 
 cmake -DCMAKE_BUILD_TYPE=Release \
@@ -17,7 +17,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_GUI=ON \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \
-      -DPYBIND_INCLUDE_DIR=$PREFIX/include/pybind11 \
+      -DPYBIND_INCLUDE_DIRS=$PREFIX/include/python3.5 \
       ..
 
 make -j5 2>&1 | tee output.txt

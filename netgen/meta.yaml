@@ -21,14 +21,14 @@ source:
 requirements:
     build:
         - cmake
-        - python
+        # - python
         - occt
-        - pybind11
-        - tk
+        # - pybind11
+        # - tk
     run:
         - occt
-        - python
-        - tk
+        # - python
+        # - tk
 
 about:
     home: https://sourceforge.net/projects/netgen-mesher/

@@ -12,12 +12,12 @@ build:
 requirements:
   build:
     - cmake     [unix]
-    - qt 5.6.0  [unix]
+    - qt 5.6.2  [unix]
     - libpng    [linux]
     - shiboken2 [unix]
     - python
   run:
-    - qt 5.6.0  [unix]
+    - qt 5.6.2  [unix]
     - shiboken2 [unix]
     - libpng    [linux]
     - python

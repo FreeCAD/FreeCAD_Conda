@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir build
+mkdir build -p
 cd build
 cmake \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -11,5 +11,5 @@ cmake \
     -DShiboken_DIR=$PREFIX \
     -DUSE_PYTHON_VERSION=$(expr $CONDA_PY / 10) \
     ..
-make
+make -j5
 make install

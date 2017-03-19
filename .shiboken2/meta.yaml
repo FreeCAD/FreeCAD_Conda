@@ -9,10 +9,10 @@ source:
 requirements:
   build:
     - cmake
-    - qt 5.6.0
+    - qt 5.6.2
     - python
   run:
-    - qt 5.6.0
+    - qt 5.6.2
     - python
 
 build:

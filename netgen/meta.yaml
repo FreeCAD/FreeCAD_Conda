@@ -3,7 +3,7 @@ package:
     version: 6.2
 
 build:
-    number: 1
+    number: 2
 
 # source:
 #   fn: netgen.tar.gz
@@ -12,7 +12,7 @@ build:
 
 source:
     git_url: https://github.com/looooo/netgen
-    git_tag: netgen6.2
+    git_tag: 6.2rebased
 
     track_features:
         - vc14                                # [win and py35]
@@ -21,15 +21,10 @@ source:
 requirements:
     build:
         - cmake
-        # - python
+        - ninja  # [win]
         - occt
-        # - pybind11
-        # - tk
     run:
         - occt
-        # - python
-        # - tk
-
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL

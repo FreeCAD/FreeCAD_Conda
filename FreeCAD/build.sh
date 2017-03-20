@@ -4,8 +4,8 @@ mkdir $PREFIX/lib/freecad -p
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
-      -DNETGENDATA=$PREFIX/include/netgen/libsrc \
-      -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen/ \
+      -DNETGENDATA=$PREFIX/include/netgen \
+      -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
       -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen/nglib \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \

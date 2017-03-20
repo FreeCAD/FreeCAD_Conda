@@ -12,9 +12,11 @@ cd build
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DINSTALL_DIR=$PREFIX \
+      -DINCDIR=$PREFIX/include/netgen \
       -DUSE_OCC=ON \
       -DUSE_PYTHON=OFF \
       -DUSE_GUI=OFF \
+      -DUSE_SUPERBUILD=OFF \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \
       -DPYBIND_INCLUDE_DIRS=$PREFIX/include/python3.5 \
@@ -23,8 +25,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 make -j5 2>&1 | tee output.txt
 make install 
 
-mkdir ${PREFIX}/include/netgen
-
-rsync -avm --include='*.h*' -f 'hide,! */' .. ${PREFIX}/include/netgen
-cp ${PREFIX}/include/netgen/build/netgen/config.h ${PREFIX}/include/netgen/mydefs.hpp
-rm ${PREFIX}/include/netgen/build -r
+mkdir ${PREFIX}/include/netgen -p
+cp ${SRC_DIR}/build/config.h ${PREFIX}/include/netgen/mydefs.hpp

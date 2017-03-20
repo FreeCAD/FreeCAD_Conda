@@ -21,7 +21,7 @@ Instead of using a virtual machine, it's also possible to use docker.
 
 ```
 sudo docker run -i -t -v ~/projects/:/projects  --name conda-forge condaforge/linux-anvil
-yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel
+yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
 ```
 
 > -v: mount a local path into the docker host  
@@ -128,3 +128,14 @@ eval "$(register-python-argcomplete conda)"
 ```
 anaconda login
 ```
+
+
+## compile dependences 
+
+- occt
+- coin
+- pivy
+- libMed
+- netgen
+- pyside-tools
+- freecad

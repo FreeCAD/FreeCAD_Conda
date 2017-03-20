@@ -1,5 +1,5 @@
 FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (modyfy to your needs)
-BUILD_FULL=false                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
+BUILD_FULL=true                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
 
 
 if [ "$BUILD_FULL" = true ] ; then
@@ -8,7 +8,7 @@ if [ "$BUILD_FULL" = true ] ; then
           -DCMAKE_PREFIX_PATH=$PREFIX \
           -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
           -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 \
-          -DNETGENDATA=$PREFIX/include/netgen/libsrc \
+          -DNETGENDATA=$PREFIX/include/netgen \
           -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
           -DNGLIB_INCLUDE_DIR=$PREFIX/include/netgen/nglib \
           -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \

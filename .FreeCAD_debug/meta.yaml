@@ -6,7 +6,7 @@ build:
     number: 0
 
     patches:
-        # - none
+        - xerces.patch
 
     track_features:
         - vc14                                # [win and py35]

@@ -1,0 +1,26 @@
+diff --git a/cMake/FindXercesC.cmake b/cMake/FindXercesC.cmake
+index f714b5bc9..0d8d23798 100644
+--- a/cMake/FindXercesC.cmake
++++ b/cMake/FindXercesC.cmake
+@@ -8,7 +8,11 @@
+ # XercesC_LIBRARIES, the libraries to link against to use pwlib.
+ # XercesC_FOUND, If false, don't try to use pwlib.
+ 
++MESSAGE(STATUS ${CMAKE_INCLUDE_PATH})
++MESSAGE(STATUS ${CMAKE_LIBRARY_PATH})
++
+ FIND_PATH(XercesC_INCLUDE_DIRS xercesc/dom/DOM.hpp
++  ${CMAKE_INCLUDE_PATH}
+   "[HKEY_CURRENT_USER\\software\\xerces-c\\src]"
+   "[HKEY_CURRENT_USER\\xerces-c\\src]"
+   $ENV{XERCESCROOT}/src/
+@@ -19,7 +23,9 @@ FIND_PATH(XercesC_INCLUDE_DIRS xercesc/dom/DOM.hpp
+ FIND_LIBRARY(XercesC_LIBRARIES
+   NAMES
+     xerces-c
++    xerces-c_3
+   PATHS
++    ${CMAKE_LIBRARY_PATH}
+     "[HKEY_CURRENT_USER\\software\\xerces-c\\lib]"
+     "[HKEY_CURRENT_USER\\xerces-c\\lib]"
+     $ENV{XERCESCROOT}/${LIB_DESTINATION}

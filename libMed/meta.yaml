@@ -4,19 +4,25 @@ package:
 
 build:
     number: 2
+    features:
+        - vc14    # [win and py>=35]
+    detect_binary_files_with_prefix: True
 
 source:
     git_url: https://github.com/vejmarie/libMED.git
     git_tag: master
 
-    track_features:
-         - vc14                                # [win and py35]
+    patches:
+        - comment.patch
 
 requirements:
     build:
+        - toolchain
+        - python         # [win]
         - ninja  # [win]
-        - cmake
+        - cmake >=3.1
         - hdf5 1.8.17.*
+        - vc 14  # [win and py>=35]
 
 about:
     summary: libmed

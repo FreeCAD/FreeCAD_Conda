@@ -1,0 +1,22 @@
+diff --git a/tools/medimport/2.3.1/MED231champRefInfoEtRenMaabuilt.cxx b/tools/medimport/2.3.1/MED231champRefInfoEtRenMaabuilt.cxx
+index 44e7e13..b93cc00 100644
+--- a/tools/medimport/2.3.1/MED231champRefInfoEtRenMaabuilt.cxx
++++ b/tools/medimport/2.3.1/MED231champRefInfoEtRenMaabuilt.cxx
+@@ -95,7 +95,7 @@ MED231champRefInfoEtRenMaa(med_idt fid,char *champ,
+     SSCRUTE(maai); goto ERROR;
+   }
+   if ( MAJ_231_232_chaine(maai,maaf) ) {
+-    fprintf(stdout,"  >>> Normalisation du nom de maillage par défaut [%s] associé au champ [%s] pour (n°dt,n°it) ("IFORMAT","IFORMAT")\n",maai,champ,numdt,numo);
++    // fprintf(stdout,"  >>> Normalisation du nom de maillage par défaut [%s] associé au champ [%s] pour (n°dt,n°it) ("IFORMAT","IFORMAT")\n",maai,champ,numdt,numo);
+     ret = _MEDattrStringEcrire(datagroup2,MED_NOM_MAI,MED_TAILLE_NOM,maaf);
+     EXIT_IF(ret < 0,"Renommage du maillage en",maaf);
+     fprintf(stdout,"  >>> Normalisation du nom du maillage par défaut [%s] ... OK ... \n",maaf);
+@@ -120,7 +120,7 @@ MED231champRefInfoEtRenMaa(med_idt fid,char *champ,
+   
+   if ( MAJ_231_232_chaine(maa,maaf) ) {
+   
+-    fprintf(stdout,"  >>> Normalisation du nom de maillage [%s] associé au champ [%s] pour (n°dt,n°it) ("IFORMAT","IFORMAT")\n",maa,champ,numdt,numo);
++    // fprintf(stdout,"  >>> Normalisation du nom de maillage [%s] associé au champ [%s] pour (n°dt,n°it) ("IFORMAT","IFORMAT")\n",maa,champ,numdt,numo);
+     /* on accede au maillage */
+     strcpy(chemini,chemin);
+     strcat(chemini,maa);

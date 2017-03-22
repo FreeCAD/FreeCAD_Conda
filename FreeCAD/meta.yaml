@@ -12,8 +12,11 @@ source:
     patches:
         # - none
 
+    features:
+        - vc14  # [win]
+
     track_features:
-        - vc14                                # [win and py35]
+        - vc14  # [win and py35]
         - occt7.1.0
 
 requirements:
@@ -21,13 +24,12 @@ requirements:
         - cmake
         - swig
         - eigen
-        - hdf5
-        - boost-cpp 1.63.0 2
+        - boost-cpp 1.63.*
         - python
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7 7
+        - qt 4.8.7
         - pyside
         - occt
         - netgen
@@ -35,13 +37,13 @@ requirements:
         - libmed
         - xerces-c
     run:
-        - boost-cpp 1.63.0 2
+        - boost-cpp 1.63.*
         - python
         - numpy
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7 7
+        - qt 4.8.7
         - pyside
         - occt
         - netgen

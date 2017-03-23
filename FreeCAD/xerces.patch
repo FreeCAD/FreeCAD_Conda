@@ -1,8 +1,19 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 076fa021b..002f29568 100644
+index 076fa021b..a251d3663 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -611,7 +611,7 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+@@ -12,6 +12,10 @@ set(PACKAGE_STRING "${PACKAGE_NAME} ${PACKAGE_VERSION}")
+ 
+ cmake_minimum_required(VERSION 2.8.0 FATAL_ERROR)
+ 
++if (WIN32)
++    set(CMAKE_SIZEOF_VOID_P "")
++endif()
++
+ if(COMMAND cmake_policy)
+     cmake_policy(SET CMP0003 NEW)
+     if(POLICY CMP0020)
+@@ -611,7 +615,7 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
          )
  
          # check which modules are available
@@ -11,6 +22,47 @@ index 076fa021b..002f29568 100644
              find_package(VTK COMPONENTS vtkCommonCore REQUIRED NO_MODULE)
              list(APPEND VTK_COMPONENTS vtkIOMPIParallel vtkParallelMPI vtkhdf5)
              foreach(_module ${VTK_COMPONENTS})
+diff --git a/cMake/FindCoin3D.cmake b/cMake/FindCoin3D.cmake
+index 2680b694e..8327f3944 100644
+--- a/cMake/FindCoin3D.cmake
++++ b/cMake/FindCoin3D.cmake
+@@ -12,12 +12,14 @@ IF (WIN32)
+   IF (CYGWIN)
+ 
+     FIND_PATH(COIN3D_INCLUDE_DIRS Inventor/So.h
++      ${CMAKE_INCLUDE_PATH}
+       /usr/include
+       /usr/local/include
+       /usr/include/coin
+     )
+ 
+     FIND_LIBRARY(COIN3D_LIBRARIES Coin
++      ${CMAKE_LIBRARY_PATH}
+       /usr/lib
+       /usr/local/lib
+     )
+@@ -25,6 +27,7 @@ IF (WIN32)
+   ELSE (CYGWIN)
+ 
+     FIND_PATH(COIN3D_INCLUDE_DIRS Inventor/So.h
++      ${CMAKE_INCLUDE_PATH}
+       "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\Coin3D\\2;Installation Path]/include"
+     )
+ 
+@@ -32,7 +35,12 @@ IF (WIN32)
+       "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\Coin3D\\2;Installation Path]/lib"
+     )
+ 
+-    FIND_LIBRARY(COIN3D_LIBRARY_RELEASE coin2
++    FIND_LIBRARY(COIN3D_LIBRARY_RELEASE 
++    NAMES
++      coin2
++      Coin4
++    PATHS
++      ${CMAKE_LIBRARY_PATH}
+       "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\Coin3D\\2;Installation Path]/lib"
+     )
+ 
 diff --git a/cMake/FindXercesC.cmake b/cMake/FindXercesC.cmake
 index f714b5bc9..a4181c41d 100644
 --- a/cMake/FindXercesC.cmake

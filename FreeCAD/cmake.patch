@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 076fa021b..002f29568 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -611,7 +611,7 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+         )
+ 
+         # check which modules are available
+-        if(UNIX)
++        if(UNIX OR WIN32)
+             find_package(VTK COMPONENTS vtkCommonCore REQUIRED NO_MODULE)
+             list(APPEND VTK_COMPONENTS vtkIOMPIParallel vtkParallelMPI vtkhdf5)
+             foreach(_module ${VTK_COMPONENTS})

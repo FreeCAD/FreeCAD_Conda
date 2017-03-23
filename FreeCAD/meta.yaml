@@ -10,6 +10,9 @@ source:
     git_tag: py3-24
 
     patches:
+        - cmake.patch
+        - coin.patch
+        - netgen.patch
         - xerces.patch
 
     features:
@@ -21,7 +24,9 @@ source:
 
 requirements:
     build:
-        - ninja
+        - toolchain
+        - ninja  # [win]
+        - vc 14  # [win and py>=35]
         - cmake
         - swig
         - eigen

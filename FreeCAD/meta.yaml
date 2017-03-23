@@ -21,6 +21,7 @@ source:
 
 requirements:
     build:
+        - ninja
         - cmake
         - swig
         - eigen

@@ -63,6 +63,25 @@ index 2680b694e..8327f3944 100644
        "[HKEY_LOCAL_MACHINE\\SOFTWARE\\SIM\\Coin3D\\2;Installation Path]/lib"
      )
  
+diff --git a/cMake/FindNETGEN.cmake b/cMake/FindNETGEN.cmake
+index cdc0df32c..71bab75ef 100644
+--- a/cMake/FindNETGEN.cmake
++++ b/cMake/FindNETGEN.cmake
+@@ -137,10 +137,12 @@ IF(NGLIB_INCLUDE_DIR AND NGLIB_LIBRARIES)
+       check_cxx_compiler_flag("-std=c++1y" HAS_CPP1Y_FLAG)
+       if(HAS_CPP14_FLAG)
+           set(NETGEN_CXX_FLAGS "-std=c++14")
+-      elseif(HAS_CPP1Y_FLAG)
++      elseif(HAS_CPP1Y_FLAG OR HAS_CPP11_FLAG)
+           set(NETGEN_CXX_FLAGS "-std=c++1y")
+       else()
+-          message(FATAL_ERROR "Unsupported compiler -- C++1y support or newer required!")
++          # message(FATAL_ERROR "Unsupported compiler -- C++1y support or newer required!")
++          message(STATUS "can not detect c++1y support, but will try to build with c++1y")
++          set(NETGEN_CXX_FLAGS "-std=c++1y")
+       endif()
+       if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+         # Clang sometimes fails to include <cstdio>
 diff --git a/cMake/FindXercesC.cmake b/cMake/FindXercesC.cmake
 index f714b5bc9..a4181c41d 100644
 --- a/cMake/FindXercesC.cmake

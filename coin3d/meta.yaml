@@ -21,11 +21,11 @@ build:
 
 requirements:
   build:
-    - cmake  # [unix]
+    - toolchain
+    - cmake
     - ninja  # [win]
     - python  # [win]
     - boost-cpp
-    - toolchain
   run:
     - boost-cpp
 

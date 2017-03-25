@@ -24,10 +24,10 @@ source:
 requirements:
     build:
         - toolchain
+        - cmake
         - ninja  # [win]
         - python # [win]
         - vc 14  # [win and py>=35]
-        - cmake
         - occt
     run:
         - occt

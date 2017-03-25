@@ -10,7 +10,6 @@ source:
   
 requirements:
   build:
-    - cmake    # [win]
     - python
     - swig 3.0.8  # [win]
     - swig        # [unix]

@@ -43,6 +43,7 @@ requirements:
         - libmed
         - hdf5
         - xerces-c
+        - zlib 1.2.*
     run:
         - boost-cpp 1.63.*
         - python

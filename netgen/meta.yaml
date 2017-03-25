@@ -2,23 +2,17 @@ package:
     name: netgen
     version: 6.2
 
-build:
-    number: 2
-
-# source:
-#   fn: netgen.tar.gz
-#   url: https://github.com/looooo/netgen/archive/6.0.0-conda-pybind.tar.gz
-#   sha256: 6d8ee2ea3d744a761b838a2d6a691f971de6ef3d1f8f8c1c26de4c39a8b7c809
-
 source:
     git_url: https://github.com/looooo/netgen
     git_tag: 6.2rebased
 
+build:
+    number: 2
     features:
-        - vc14
+        - vc14  # [win and py>=35]
 
     track_features:
-        - vc14                                # [win and py35]
+        - vc14  # [win and py>=35]
         - occt7.1.0
 
 requirements:
@@ -30,7 +24,9 @@ requirements:
         - vc 14  # [win and py>=35]
         - occt
     run:
+        - python # [win]
         - occt
+        - vc 14  # [win and py>=35]
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL

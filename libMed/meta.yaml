@@ -2,12 +2,6 @@ package:
     name: libmed
     version: 3.1.0
 
-build:
-    number: 2
-    features:
-        - vc14    # [win and py>=35]
-    detect_binary_files_with_prefix: True
-
 source:
     git_url: https://github.com/vejmarie/libMED.git
     git_tag: master
@@ -15,14 +9,28 @@ source:
     patches:
         - comment.patch
 
+build:
+    number: 2
+    features:
+        - vc14  # [win and py>=35]
+
+    track_features:
+        - vc14  # [win and py>=35]
+
 requirements:
     build:
         - toolchain
-        - ninja  # [win]
-        - python # [win]
-        - vc 14  # [win and py>=35]
+        - ninja   # [win]
+        - python  # [win]
+        - vc 14   # [win and py>=35]
         - cmake >=3.1
         - hdf5 1.8.17.*
+        - zlib 1.2*
+    run:
+        - python  # [win]
+        - vc 14  # [win and py>=35]
+        - hdf5 1.8.17.*
+        - zlib 1.2*
 
 about:
     summary: libmed

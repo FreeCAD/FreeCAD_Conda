@@ -1,11 +1,3 @@
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/PySide-1.2.4/PySideConfig.cmake
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/PySide-1.2.4/PySideConfig-python3.5.cmake
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/PySide-1.2.4/PySideConfigVersion.cmake
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/Shiboken-1.2.4/ShibokenConfig.cmake
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/Shiboken-1.2.4/ShibokenConfig-python3.5.cmake
-rem %PYTHON% %RECIPE_DIR%/win_path.py %LIBRARY_PREFIX%/lib/cmake/Shiboken-1.2.4/ShibokenConfigVersion.cmake
-rem copy %RECIPE_DIR%\PySideConfig-python3.5.cmake %LIBRARY_PREFIX%\lib\cmake\PySide-1.2.4\PySideConfig-python3.5.cmake
-
 cmake . -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^

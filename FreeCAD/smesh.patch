@@ -13,3 +13,54 @@ index 9426971..e014b5d 100644
                    std::vector<const SMDS_MeshNode*>& FNodes,
                    gp_Pnt& PC, gp_Vec& VNorm,
                    const SMDS_MeshElement** volumes=0);
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+index 19dd0c4..4568331 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_Mesher.cpp
+@@ -82,7 +82,11 @@ namespace nglib {
+ //#include <ngexception.hpp>
+ namespace netgen {
+ #if NETGEN_VERSION >= NETGEN_VERSION_STRING(6,2)
+-  DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #if WIN32
++  // allready defined in occgeom.hpp but without DLL_HEADER
++  #else
++    DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #endif
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(6,0)
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&, int, int);
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(5,0)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+index ae2b937..dad9d3e 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_2D_ONLY.cpp
+@@ -67,7 +67,11 @@ namespace nglib {
+ //#include <meshtype.hpp>
+ namespace netgen {
+ #if NETGEN_VERSION >= NETGEN_VERSION_STRING(6,2)
+-  DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #if WIN32
++  // allready defined in occgeom.hpp but without DLL_HEADER
++  #else
++    DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #endif
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(6,0)
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&, int, int);
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(5,0)
+diff --git a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+index 6e21884..9e309b8 100644
+--- a/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
++++ b/src/3rdParty/salomesmesh/src/NETGENPlugin/NETGENPlugin_NETGEN_3D.cpp
+@@ -76,7 +76,11 @@ namespace nglib {
+ }
+ namespace netgen {
+ #if NETGEN_VERSION >= NETGEN_VERSION_STRING(6,2)
+-  DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #if WIN32
++  // allready defined in occgeom.hpp but without DLL_HEADER
++  #else
++    DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&);
++  #endif
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(6,0)
+   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry&, shared_ptr<Mesh>&, MeshingParameters&, int, int);
+ #elif NETGEN_VERSION >= NETGEN_VERSION_STRING(5,0)

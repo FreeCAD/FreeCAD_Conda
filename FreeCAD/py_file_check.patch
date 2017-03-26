@@ -1,0 +1,63 @@
+diff --git a/src/App/PropertyFile.cpp b/src/App/PropertyFile.cpp
+index d5d9292..3e97019 100644
+--- a/src/App/PropertyFile.cpp
++++ b/src/App/PropertyFile.cpp
+@@ -253,6 +253,7 @@ PyObject *PropertyFileIncluded::getPyObject(void)
+ 
+ #if PY_MAJOR_VERSION >= 3
+ extern PyTypeObject PyFileIO_Type;
++extern PyTypeObject PyIOBase_Type;
+ namespace App {
+ const char* getNameFromFile(PyObject* value)
+ {
+@@ -285,7 +286,7 @@ void PropertyFileIncluded::setPyObject(PyObject *value)
+     else if (PyBytes_Check(value)) {
+         string = PyBytes_AsString(value);
+     }
+-    else if (PyObject_IsInstance(value, (PyObject *)&PyFileIO_Type) == 1) {
++    else if (PyObject_IsInstance(value, (PyObject *)&PyIOBase_Type) == 1){
+         string = getNameFromFile(value);
+     }
+ #else
+@@ -318,7 +319,7 @@ void PropertyFileIncluded::setPyObject(PyObject *value)
+         else if (PyBytes_Check(file)) {
+             fileStr = PyBytes_AsString(file);
+         }
+-        else if(PyObject_IsInstance(file, (PyObject *)&PyFileIO_Type) == 1) {
++        else if(PyObject_IsInstance(file, (PyObject *)&PyIOBase_Type) == 1) {
+             fileStr = getNameFromFile(file);
+         }
+ #else
+@@ -335,9 +336,9 @@ void PropertyFileIncluded::setPyObject(PyObject *value)
+             fileStr = PyString_AsString(FileName);
+         }
+ #endif
+-        else {
++        else {
+             std::string error = std::string("First item in tuple must be a file or string, not ");
+-            error += file->ob_type->tp_name;
++            error += file->ob_type->tp_name;
+             throw Base::TypeError(error);
+         }
+ 
+@@ -350,7 +351,7 @@ void PropertyFileIncluded::setPyObject(PyObject *value)
+         else if (PyBytes_Check(name)) {
+             nameStr = PyBytes_AsString(name);
+         }
+-        else if(PyObject_IsInstance(name, (PyObject *)&PyFileIO_Type) == 1) {
++        else if(PyObject_IsInstance(name, (PyObject *)&PyIOBase_Type) == 1) {
+             nameStr = getNameFromFile(name);
+         }
+ #else
+@@ -362,9 +363,9 @@ void PropertyFileIncluded::setPyObject(PyObject *value)
+             nameStr = PyString_AsString(FileName);
+         }
+ #endif
+-        else {
++        else {
+             std::string error = std::string("Second item in tuple must be a string, not ");
+-            error += name->ob_type->tp_name;
++            error += name->ob_type->tp_name;
+             throw Base::TypeError(error);
+         }
+ 

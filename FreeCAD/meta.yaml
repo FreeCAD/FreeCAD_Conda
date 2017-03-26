@@ -14,6 +14,9 @@ source:
         - coin.patch
         - netgen.patch
         - xerces.patch
+        - smesh.patch
+        - CXX.patch
+        - py_file_check.patch
 
     features:
         - vc14  # [win and py>=35]

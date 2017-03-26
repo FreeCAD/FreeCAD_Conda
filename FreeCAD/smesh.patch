@@ -1,17 +1,15 @@
-diff --git a/src/3rdParty/salomesmesh/src/StdMeshers/StdMeshers_QuadToTriaAdaptor.cpp b/src/3rdParty/salomesmesh/src/StdMeshers/StdMeshers_QuadToTriaAdaptor.cpp
-index 1832f48..3da106a 100644
---- a/src/3rdParty/salomesmesh/src/StdMeshers/StdMeshers_QuadToTriaAdaptor.cpp
-+++ b/src/3rdParty/salomesmesh/src/StdMeshers/StdMeshers_QuadToTriaAdaptor.cpp
-@@ -736,8 +736,10 @@ bool StdMeshers_QuadToTriaAdaptor::Compute(SMESH_Mesh&         aMesh,
-     myElemSearcher = SMESH_MeshAlgos::GetElementSearcher( *meshDS );
+diff --git a/src/3rdParty/salomesmesh/inc/StdMeshers_QuadToTriaAdaptor.hxx b/src/3rdParty/salomesmesh/inc/StdMeshers_QuadToTriaAdaptor.hxx
+index 9426971..e014b5d 100644
+--- a/src/3rdParty/salomesmesh/inc/StdMeshers_QuadToTriaAdaptor.hxx
++++ b/src/3rdParty/salomesmesh/inc/StdMeshers_QuadToTriaAdaptor.hxx
+@@ -66,8 +66,8 @@ public:
+ protected:
  
-   const SMESHDS_SubMesh * aSubMeshDSFace;
--  Handle(TColgp_HArray1OfPnt) PN = new TColgp_HArray1OfPnt(1,5);
--  Handle(TColgp_HArray1OfVec) VN = new TColgp_HArray1OfVec(1,4);
-+  // Handle(TColgp_HArray1OfPnt) PN = new TColgp_HArray1OfPnt(1,5);
-+  // Handle(TColgp_HArray1OfVec) VN = new TColgp_HArray1OfVec(1,4);
-+  Handle_TColgp_HArray1OfPnt PN = new TColgp_HArray1OfPnt(1,5);
-+  Handle_TColgp_HArray1OfVec VN = new TColgp_HArray1OfVec(1,4);
-   vector<const SMDS_MeshNode*> FNodes(5);
-   gp_Pnt PC;
-   gp_Vec VNorm;
+   int Preparation(const SMDS_MeshElement* face,
+-                  Handle_TColgp_HArray1OfPnt& PN,
+-                  Handle_TColgp_HArray1OfVec& VN,
++                  Handle(TColgp_HArray1OfPnt)& PN,
++                  Handle(TColgp_HArray1OfVec)& VN,
+                   std::vector<const SMDS_MeshNode*>& FNodes,
+                   gp_Pnt& PC, gp_Vec& VNorm,
+                   const SMDS_MeshElement** volumes=0);

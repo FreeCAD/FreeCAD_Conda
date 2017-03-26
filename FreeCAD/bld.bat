@@ -48,6 +48,7 @@ cmake . -G "Ninja" ^
       -DBUILD_START=YES ^
       -DBUILD_TEMPLATE=YES ^
       -DBUILD_TEST=YES ^
+      -DBUILD_TECHDRAW=YES ^
       -DBUILD_VR=NO ^
       -DBUILD_WEB=YES .
 
@@ -56,4 +57,4 @@ if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
 
-rmdir /s /q %LIBRARY_PREFIX%/doc
+rem rmdir /s /q %LIBRARY_PREFIX%/doc

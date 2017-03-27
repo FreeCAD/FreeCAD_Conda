@@ -10,7 +10,7 @@ source:
         - comment.patch
 
 build:
-    number: 2
+    number: 3
     features:
         - vc14  # [win and py>=35]
 

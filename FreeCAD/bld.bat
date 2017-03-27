@@ -23,7 +23,7 @@ cmake . -G "Ninja" ^
       -DBUILD_DRAFT=YES ^
       -DBUILD_DRAWING=YES ^
       -DBUILD_FEM=YES ^
-      -DBUILD_GUI=YES ^
+      -DBUILD_GUI=ON ^
       -DBUILD_IDF=YES ^
       -DBUILD_IMAGE=YES ^
       -DBUILD_IMPORT=YES ^
@@ -37,9 +37,9 @@ cmake . -G "Ninja" ^
       -DBUILD_PART_DESIGN=YES ^
       -DBUILD_PATH=NO ^
       -DBUILD_POINTS=YES ^
-      -DBUILD_PLOT=YES ^
+      -DBUILD_PLOT=NO ^
       -DBUILD_RAYTRACING=YES ^
-      -DBUILD_REVERSEENGINEERING=YES ^
+      -DBUILD_REVERSEENGINEERING=NO ^
       -DBUILD_ROBOT=YES ^
       -DBUILD_SANDBOX=YES ^
       -DBUILD_SHIP=YES ^
@@ -57,4 +57,4 @@ if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
 
-rem rmdir /s /q %LIBRARY_PREFIX%/doc
+rmdir /s /q "%LIBRARY_PREFIX%\doc"

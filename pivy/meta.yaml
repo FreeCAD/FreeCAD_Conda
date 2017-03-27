@@ -6,7 +6,7 @@ source:
     git_url: https://github.com/looooo/pivy
 
 build:
-    number: 3
+    number: 4
     features:
         - vc14  # [win and py>=35]
 

@@ -1,5 +1,5 @@
 FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (modyfy to your needs)
-BUILD_FULL=false                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
+BUILD_FULL=true                  # run cmake .. if true, if not use the --dirty flag of conda (maybe this can be automated)
 
 
 if [ "$BUILD_FULL" = true ] ; then

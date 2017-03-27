@@ -7,16 +7,10 @@ build:
 
 source:
     git_url: https://github.com/looooo/FreeCAD
-    git_tag: py3-24
+    git_tag: py3-25
 
     patches:
-        - cmake.patch
-        - coin.patch
-        - netgen.patch
-        - xerces.patch
-        - smesh.patch
-        - CXX.patch
-        - py_file_check.patch
+        #
 
     features:
         - vc14  # [win and py>=35]

@@ -22,7 +22,7 @@ requirements:
         - eigen
         - boost-cpp 1.63.*
         - python
-        - matplotlib
+        - matplotlib  # [unix]
         - coin3d
         - pivy
         - qt 4.8.7
@@ -39,7 +39,7 @@ requirements:
         - boost-cpp 1.63.*
         - python
         - numpy
-        - matplotlib
+        - matplotlib  # [unix]
         - coin3d
         - pivy
         - qt 4.8.7

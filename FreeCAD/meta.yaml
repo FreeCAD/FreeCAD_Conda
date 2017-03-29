@@ -5,13 +5,6 @@ package:
 build:
     number: 4
 
-source:
-    git_url: https://github.com/looooo/FreeCAD
-    git_tag: py3-25
-
-    patches:
-        #
-
     features:
         - vc14  # [win and py>=35]
         - occt7.1.0  # [unix]
@@ -21,6 +14,13 @@ source:
         - vc14  # [win and py>=35]
         - occt7.1.0  # [unix]
         - occt7.0.0  # [win]
+
+source:
+    git_url: https://github.com/looooo/FreeCAD
+    git_tag: py3-25
+
+    patches:
+        #
 
 requirements:
     build:

@@ -22,6 +22,7 @@ cmake . -G "Ninja" ^
       -DSWIG_EXECUTABLE=%LIBRARY_PREFIX%/bin/swig ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
       -DBUILD_REVERSEENGINEERING=NO ^
+      -DBUILD_PATH=NO ^
       %FREECAD_SOURCE%
 
 

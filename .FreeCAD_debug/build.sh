@@ -20,40 +20,7 @@ if [ "$BUILD_FULL" = true ] ; then
           -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
           -DPYTHON_EXECUTABLE=$PYTHON \
           -DBUILD_FEM_NETGEN=ON \
-          -DBUILD_ARCH=ON \
-          -DBUILD_ASSEMBLY=OFF \
-          -DBUILD_COMPLETE=ON \
-          -DBUILD_DRAFT=ON \
-          -DBUILD_DRAWING=ON \
-          -DBUILD_FEM=ON \
-          -DBUILD_GUI=YES \
-          -DBUILD_IDF=ON \
-          -DBUILD_IMAGE=ON \
-          -DBUILD_IMPORT=ON \
-          -DBUILD_INSPECTION=ON \
-          -DBUILD_JTREADER=OFF \
-          -DBUILD_MATERIAL=ON \
-          -DBUILD_MESH=ON \
-          -DBUILD_MESH_PART=ON \
-          -DBUILD_OPENSCAD=ON \
-          -DBUILD_PART=YES \
-          -DBUILD_PART_DESIGN=ON \
-          -DBUILD_PATH=NO \
-          -DBUILD_POINTS=ON \
-          -DBUILD_PLOT=ON \
-          -DBUILD_RAYTRACING=ON \
-          -DBUILD_REVERSEENGINEERING=ON \
-          -DBUILD_ROBOT=ON \
-          -DBUILD_SANDBOX=ON \
-          -DBUILD_SHIP=ON \
-          -DBUILD_SKETCHER=ON \
-          -DBUILD_SPREADSHEET=ON \
-          -DBUILD_START=ON \
-          -DBUILD_TEMPLATE=ON \
-          -DBUILD_TEST=ON \
-          -DBUILD_VR=OFF \
-          -DBUILD_WEB=ON \
-          -DBUILD_TECHDRAW=ON ${FREECAD_SOURCE}
+          ${FREECAD_SOURCE}
 fi
 
 make -j4 2>&1 | tee output.txt

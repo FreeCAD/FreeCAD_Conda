@@ -7,10 +7,13 @@ build:
 
     features:
         - vc14  # [win and py>=35]
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
 
 requirements:
     build:
@@ -22,12 +25,13 @@ requirements:
         - eigen
         - boost 1.63.*
         - python
-        - matplotlib  # [unix]
+        - matplotlib
         - coin3d
         - pivy
         - qt 4.8.7
         - pyside
-        - occt
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
         - netgen
         - vtk 7.1.0
         - libmed
@@ -39,12 +43,13 @@ requirements:
         - boost 1.63.*
         - python
         - numpy
-        - matplotlib  # [unix]
+        - matplotlib
         - coin3d
         - pivy
         - qt 4.8.7
         - pyside
-        - occt
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
         - netgen
         - vtk 7.1.0
         - libmed

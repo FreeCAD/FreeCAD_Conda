@@ -13,7 +13,8 @@ build:
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
 
 requirements:
     build:
@@ -22,10 +23,12 @@ requirements:
         - ninja  # [win]
         - python # [win]
         - vc 14  # [win and py>=35]
-        - occt
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
     run:
         - python # [win]
-        - occt
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
         - vc 14  # [win and py>=35]
 about:
     home: https://sourceforge.net/projects/netgen-mesher/

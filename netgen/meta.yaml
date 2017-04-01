@@ -20,6 +20,7 @@ requirements:
     build:
         - toolchain
         - cmake
+        - gcc  # [unix]
         - ninja  # [win]
         - python # [win]
         - vc 14  # [win and py>=35]

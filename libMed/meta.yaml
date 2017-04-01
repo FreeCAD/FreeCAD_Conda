@@ -23,6 +23,7 @@ requirements:
         - ninja   # [win]
         - python  # [win]
         - vc 14   # [win and py>=35]
+        - gcc  # [unix]
         - cmake >=3.1
         - hdf5 1.8.17.*
         - zlib 1.2*

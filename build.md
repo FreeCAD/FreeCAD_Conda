@@ -17,6 +17,14 @@ Instead of using a virtual machine, it's also possible to use docker.
 
 ## linux
 - [install Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) for ubuntu. But there also installation-guides for other distros available.
+
+### cent-os-6 reminder:
+```
+yum install epel-release
+yum install docker
+service start docker
+```
+
 - conda-forge docker image:
 
 ```

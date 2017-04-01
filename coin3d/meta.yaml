@@ -29,6 +29,7 @@ requirements:
         - vc 14  # [win and py>=35]
         - toolchain
         - cmake
+        - gcc  # [unix]
         - boost-cpp
     run:
         - python  # [win]

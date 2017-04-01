@@ -4,3 +4,5 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       .
 make -j4
 make install
+
+rm -r $PREFIX/share/doc

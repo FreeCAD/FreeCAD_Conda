@@ -10,6 +10,7 @@ https://conda.io/docs/intro.html
 # HOW TO INSTALL FreeCAD WITH CONDA
 ## INSTALL MINICONDA:
 
+### unix
 - first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
 - install miniconda: bash <miniconda-file>.sh (not as root!!!)
 - at the end of the install it will ask you if you want to add the anaconda-dir to the $PATH, say yes.
@@ -17,6 +18,11 @@ https://conda.io/docs/intro.html
     -from this: __export PATH="path_to_anaconda/bin:$PATH"__
     -to this: __alias initConda='export PATH="path_to_anaconda/bin:$PATH" '__
     this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
+
+### windows
+- first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
+- install by double-clicking the downloaded file
+- follow the instruction and install for user.
 
 ## INSTALL FREECAD
 
@@ -39,11 +45,19 @@ channels:
 
 
 ## CREATE A NEW ENVIROMENT
-- type in terminal: ```initConda``` (now the "conda" command should be available)
-- create an env: ```conda create -n env-name freecad``` # with <env-name> is the name of the env, eg. fc_test
+### windows:
+- open the anaconda prompt/terminal
+- create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
+    (this will install all necessary packages needed to run FreeCAD)
+- `activate <env-name>`
+- start FreeCAD by entering: `FreeCAD`
+
+### unix
+- type in terminal: `initConda` (now the "conda" command should be available)
+- create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
 - at the end of this process a short statement is printed how to activate the new env.: ```source activate <env-name>```
-- start freecad: ```FreeCAD```
+- start FreeCAD by entering: `FreeCAD`
 
 
 ## use specific dependency versions

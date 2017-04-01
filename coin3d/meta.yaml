@@ -4,34 +4,34 @@ package:
 
 source:
     fn: coin.tar.gz
-    url: https://bitbucket.org/Coin3D/coin/get/CMake.tar.gz
+    url: https://github.com/looooo/pivy/releases/download/v0.6.1-0/coin.tar.gz
     sha256: e93d77e6ac61f166d93b66e60c644928935263ded1c27205f2e4352adaafdf97
 
     patches:
-          - HAVE_INTTYPES_H.patch
-          - cmake.patch
-          - windows.patch  # [win]
+        - HAVE_INTTYPES_H.patch
+        - cmake.patch
+        - windows.patch  # [win]
 
 build:
     number: 3
-    skip: true  # [win and py<35]
+    skip: true  # [py<35]
 
     features:
-        - vc14  # [win and py>=35]
+        - vc14  # [win]
 
     track_features:
-        - vc14  # [win and py>=35]
+        - vc14  # [win]
 
 requirements:
     build:
         - ninja  # [win]
-        - vc 14  # [win and py>=35]
+        - vc 14  # [win]
         - toolchain
         - cmake
         - gcc  # [unix]
         - boost-cpp
     run:
-        - vc 14  # [win and py>=35]
+        - vc 14  # [win]
         - boost-cpp
 
 test:

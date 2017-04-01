@@ -1,0 +1,60 @@
+package:
+    name: freecad_py2
+    version: 0.17
+
+build:
+    number: 4
+
+    features:
+        - vc14  # [win and py>=35]
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
+
+    track_features:
+        - vc14  # [win and py>=35]
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
+
+requirements:
+    build:
+        - toolchain
+        - ninja  # [win]
+        - vc 14  # [win and py>=35]
+        - cmake
+        - swig
+        - eigen
+        - boost 1.63.*
+        - python
+        - matplotlib
+        - coin3d
+        - pivy
+        - qt 4.8.7
+        - pyside
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
+        - netgen
+        - vtk 7.1.0
+        - libmed
+        - hdf5
+        - xerces-c
+        - zlib 1.2.*
+    run:
+        - vc 14  # [win and py>=35]
+        - boost 1.63.*
+        - python
+        - numpy
+        - matplotlib
+        - coin3d
+        - pivy
+        - qt 4.8.7
+        - pyside
+        - occt  # [unix]
+        - occt 7.0.0  # [win]
+        - netgen
+        - vtk 7.1.0
+        - libmed
+        - xerces-c
+        - zlib 1.2*
+about:
+    summary: freecad
+

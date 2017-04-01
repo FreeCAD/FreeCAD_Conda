@@ -1,0 +1,156 @@
+diff --git a/libsrc/meshing/meshclass.hpp b/libsrc/meshing/meshclass.hpp
+index c113564..e3ef757 100644
+--- a/libsrc/meshing/meshclass.hpp
++++ b/libsrc/meshing/meshclass.hpp
+@@ -340,7 +340,7 @@ namespace netgen
+     void SetDimension (int dim) { dimension = dim; }
+ 
+     /// sets internal tables
+-    void CalcSurfacesOfNode ();
++    DLL_HEADER void CalcSurfacesOfNode ();
+ 
+     /// additional (temporarily) fix points 
+     void FixPoints (const BitArray & fixpoints);
+diff --git a/libsrc/meshing/meshtype.hpp b/libsrc/meshing/meshtype.hpp
+index 92acaaf..7a73ab8 100644
+--- a/libsrc/meshing/meshtype.hpp
++++ b/libsrc/meshing/meshtype.hpp
+@@ -352,15 +352,15 @@ namespace netgen
+ 
+   public:
+     ///
+-    Element2d ();
++    DLL_HEADER Element2d ();
+     ///
+-    Element2d (int anp);
++    DLL_HEADER Element2d (int anp);
+     ///
+     DLL_HEADER Element2d (ELEMENT_TYPE type);
+     ///
+-    Element2d (int pi1, int pi2, int pi3);
++    DLL_HEADER Element2d (int pi1, int pi2, int pi3);
+     ///
+-    Element2d (int pi1, int pi2, int pi3, int pi4);
++    DLL_HEADER Element2d (int pi1, int pi2, int pi3, int pi4);
+     ///
+     ELEMENT_TYPE GetType () const { return typ; }
+     /// 
+diff --git a/libsrc/occ/CMakeLists.txt b/libsrc/occ/CMakeLists.txt
+index 8f7f7c3..4e213f8 100644
+--- a/libsrc/occ/CMakeLists.txt
++++ b/libsrc/occ/CMakeLists.txt
+@@ -5,12 +5,17 @@ add_library(occ ${NG_LIB_TYPE}
+         occconstruction.cpp occgenmesh.cpp occgeom.cpp occmeshsurf.cpp
+         )
+ 
+-add_library(occvis ${NG_LIB_TYPE} vsocc.cpp)
++if(USE_GUI)
++    add_library(occvis ${NG_LIB_TYPE} vsocc.cpp)
++endif(USE_GUI)
+ 
+ if(NOT WIN32)
+     target_link_libraries( occ ${OCC_LIBRARIES} ${PYTHON_LIBRARIES})
+-    target_link_libraries( occvis occ )
+-    install( TARGETS occ occvis ${ng_install_dir})
++    install( TARGETS occ ${ng_install_dir})
++    if (USE_GUI)
++        target_link_libraries( occvis occ )
++        install( TARGETS occvis ${ng_install_dir})
++    endif (USE_GUI)
+ endif(NOT WIN32)
+ 
+ install(FILES
+diff --git a/libsrc/occ/occgeom.hpp b/libsrc/occ/occgeom.hpp
+index d77c8b8..39930ed 100644
+--- a/libsrc/occ/occgeom.hpp
++++ b/libsrc/occ/occgeom.hpp
+@@ -244,7 +244,7 @@ namespace netgen
+       }
+ 
+ 
+-     virtual void Save (string filename) const;
++      DLL_HEADER virtual void Save (string filename) const;
+ 
+ 
+       DLL_HEADER void BuildFMap();
+@@ -275,7 +275,7 @@ namespace netgen
+          return OCCSurface (TopoDS::Face(fmap(surfi)), PLANESPACE);
+       }
+ 
+-      void CalcBoundingBox ();
++      DLL_HEADER void CalcBoundingBox ();
+       DLL_HEADER void BuildVisualizationMesh (double deflection);
+ 
+       void RecursiveTopologyTree (const TopoDS_Shape & sh,
+@@ -440,7 +440,7 @@ namespace netgen
+    // Philippose - 31.09.2009
+    // External access to the mesh generation functions within the OCC
+    // subsystem (Not sure if this is the best way to implement this....!!)
+-   extern int OCCGenerateMesh (OCCGeometry & occgeometry, shared_ptr<Mesh> & mesh,
++   DLL_HEADER extern int OCCGenerateMesh (OCCGeometry & occgeometry, shared_ptr<Mesh> & mesh,
+ 			       MeshingParameters & mparam);
+ 
+    DLL_HEADER extern void OCCSetLocalMeshSize(OCCGeometry & geom, Mesh & mesh);
+diff --git a/libsrc/occ/occmeshsurf.hpp b/libsrc/occ/occmeshsurf.hpp
+index 198ade6..3817207 100644
+--- a/libsrc/occ/occmeshsurf.hpp
++++ b/libsrc/occ/occmeshsurf.hpp
+@@ -4,6 +4,7 @@
+ #define FILE_OCCMESHSURF
+ 
+ #include "occgeom.hpp"
++#include "mydefs.hpp"
+ 
+ #define PARAMETERSPACE -1
+ #define PLANESPACE     1
+@@ -169,7 +170,7 @@ public:
+ class OCCGeometry;
+ 
+ 
+-class OCCRefinementSurfaces : public Refinement
++class DLL_HEADER OCCRefinementSurfaces : public Refinement
+ {
+   const OCCGeometry & geometry;
+ 
+diff --git a/nglib/CMakeLists.txt b/nglib/CMakeLists.txt
+index eb18a63..574f526 100644
+--- a/nglib/CMakeLists.txt
++++ b/nglib/CMakeLists.txt
+@@ -3,9 +3,7 @@ add_definitions(-DNGLIB_EXPORTS)
+ if(WIN32)
+     set(nglib_objects 
+           $<TARGET_OBJECTS:mesh>
+-          $<TARGET_OBJECTS:stlvis>
+           $<TARGET_OBJECTS:stl>
+-          $<TARGET_OBJECTS:geom2dvis>
+           $<TARGET_OBJECTS:interface>
+           $<TARGET_OBJECTS:geom2d>
+           $<TARGET_OBJECTS:csg>
+@@ -13,11 +11,17 @@ if(WIN32)
+           $<TARGET_OBJECTS:gen>
+           $<TARGET_OBJECTS:la>
+           $<TARGET_OBJECTS:gprim>
++          $<TARGET_OBJECTS:occ>
+ 
+           $<TARGET_OBJECTS:visual>
++       )
++    if (USE_GUI)
++        set(nglib_objects 
++          $<TARGET_OBJECTS:stlvis>
++          $<TARGET_OBJECTS:geom2dvis>
+           $<TARGET_OBJECTS:csgvis>
+-          $<TARGET_OBJECTS:occ>
+        )
++    endif(USE_GUI)
+ endif(WIN32)
+ 
+ add_library(nglib SHARED nglib.cpp ${nglib_objects})
+@@ -51,3 +55,8 @@ endif(USE_PYTHON)
+ # endif(NOT WIN32)
+ 
+ install(TARGETS nglib ${ng_install_dir})
++
++install(FILES
++  nglib.h
++  DESTINATION ${INCDIR}/nglib COMPONENT netgen_devel
++)

@@ -24,7 +24,6 @@ build:
 
 requirements:
     build:
-        - python  # [win]
         - ninja  # [win]
         - vc 14  # [win and py>=35]
         - toolchain
@@ -32,7 +31,6 @@ requirements:
         - gcc  # [unix]
         - boost-cpp
     run:
-        - python  # [win]
         - vc 14  # [win and py>=35]
         - boost-cpp
 

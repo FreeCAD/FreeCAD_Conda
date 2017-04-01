@@ -10,6 +10,8 @@ build:
     number: 2
     features:
         - vc14  # [win and py>=35]
+        - occt7.1.0  # [unix]
+        - occt7.0.0  # [win]
 
     track_features:
         - vc14  # [win and py>=35]
@@ -22,12 +24,10 @@ requirements:
         - cmake
         - gcc  # [unix]
         - ninja  # [win]
-        - python # [win]
         - vc 14  # [win and py>=35]
         - occt  # [unix]
         - occt 7.0.0  # [win]
     run:
-        - python # [win]
         - occt  # [unix]
         - occt 7.0.0  # [win]
         - vc 14  # [win and py>=35]

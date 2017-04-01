@@ -26,4 +26,7 @@ make -j4 2>&1 | tee output.txt
 make install 
 
 mkdir ${PREFIX}/include/netgen -p
+# this line is not correct. There is already a mydef.hpp in the include files
+# better just move the config.h and make FreeCAD-cmake look for a congfig.h instead of 
+# a mydefs.hpp
 cp ${SRC_DIR}/build/config.h ${PREFIX}/include/netgen/mydefs.hpp

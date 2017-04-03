@@ -27,10 +27,13 @@ requirements:
         - vc 14  # [win and py>=35]
         - occt  # [unix]
         - occt 7.0.0  # [win]
+        - python
+        - pybind11
     run:
         - occt  # [unix]
         - occt 7.0.0  # [win]
         - vc 14  # [win and py>=35]
+        - python
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL

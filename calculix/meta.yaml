@@ -1,0 +1,42 @@
+package:
+    name: calculix
+    version: 2.12
+
+source:
+    fn: calculix.tar.gz
+    url: http://www.dhondt.de/ccx_2.12.src.tar.bz2
+    sha256: d75427dfb6db70fdfbb5939df22da8addf0ea4522cff32c9cdc4029e39b6b914
+
+    patches:
+
+build:
+    number: 0
+    skip: true  # [py<35]
+
+    features:
+        - vc14  # [win]
+
+    track_features:
+        - vc14  # [win]
+
+requirements:
+    build:
+        - vc 14  # [win]
+        - toolchain
+    run:
+        - vc 14  # [win]
+
+about:
+    home: http://www.dhondt.de/
+    license: GPL 2
+    license_family: GPL
+    # license_file: COPYING
+    summary: 3D Structural Finite Element Program
+    description: A Free Software Three-Dimensional Structural 
+                 Finite Element Program
+    doc_url: http://www.dhondt.de/ccx_2.12.pdf
+    dev_url: http://www.dhondt.de/
+
+extra:
+    recipe-maintainers:
+        - looooo

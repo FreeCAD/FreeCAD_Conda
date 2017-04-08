@@ -10,7 +10,7 @@ cmake .. -G "Ninja" ^
     -DOCC_INCLUDE_DIR=%LIBRARY_PREFIX%\include\opencascade ^
     -DOCC_LIBRARY_DIR=%LIBRARY_PREFIX%\lib ^
     -DUSE_OCC=ON ^
-    -DUSE_PYTHON=OFF ^
+    -DUSE_PYTHON=ON ^
     -DUSE_GUI=OFF ^
     -DUSE_SUPERBUILD=OFF
 

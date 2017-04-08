@@ -3,9 +3,8 @@ package:
     version: 2.12
 
 source:
-    fn: calculix.tar.gz
-    url: http://www.dhondt.de/ccx_2.12.src.tar.bz2
-    sha256: d75427dfb6db70fdfbb5939df22da8addf0ea4522cff32c9cdc4029e39b6b914
+    git_url: https://github.com/easyw/ccx_prool
+    git_tag: master
 
     patches:
 

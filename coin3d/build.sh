@@ -1,5 +1,6 @@
 cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
+      -DCOIN_LINK_LIBSIMAGE=ON \
       .
 
 make -j4 2>&1 | tee output.txt

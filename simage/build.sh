@@ -1,0 +1,6 @@
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DCMAKE_PREFIX_PATH=$PREFIX \
+      -DCMAKE_INSTALL_LIBDIR=$PREFIX/lib \
+      .
+
+make -j4 install

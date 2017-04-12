@@ -30,13 +30,16 @@ requirements:
         - cmake
         - gcc  # [unix]
         - boost-cpp
+        - simage
     run:
         - vc 14  # [win]
         - boost-cpp
+        - simage
 
 test:
     requires:
         - python {{ environ['PY_VER'] + '*' }}  # [win]
+        - gcc  # [unix]
     files:
         - test.cpp  # [linux]
     commands:

@@ -7,17 +7,15 @@ build:
 
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
 source:
     git_url: https://github.com/looooo/FreeCAD
-    git_tag: py3-25
+    git_tag: py3-26
 
     patches:
         #
@@ -38,8 +36,7 @@ requirements:
         - pivy
         - qt 4.8.7
         - pyside
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt 7.1.0
         - netgen
         - vtk 7.1.0
         - libmed
@@ -56,8 +53,7 @@ requirements:
         - pivy
         - qt 4.8.7
         - pyside
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt 7.1.0
         - netgen
         - vtk 7.1.0
         - libmed

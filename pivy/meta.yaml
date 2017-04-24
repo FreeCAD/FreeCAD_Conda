@@ -1,14 +1,16 @@
 package:
     name: pivy
-    version: 0.6.1
+    version: 0.6.2
 
 source:
-    fn: pivy.tar.gz
-    url: https://github.com/looooo/pivy/archive/v0.6.1-0.tar.gz
-    sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
+    git_url: https://github.com/looooo/pivy
+    git_tag: master
+    # fn: pivy.tar.gz
+    # url: https://github.com/looooo/pivy/archive/v0.6.1-0.tar.gz
+    # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    number: 0
+    string: dev_0
     skip: true  # [py<35]
     features:
         - vc14  # [win]

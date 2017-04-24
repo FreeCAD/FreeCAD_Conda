@@ -5,7 +5,7 @@ cmake .. -G "Ninja" ^
     -DCMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX:FILEPATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_BUILD_TYPE="Release" ^
-	-DCOIN_LINK_LIBSIMAGE=ON
+	-DCOIN_LINK_LIBSIMAGE="dynamic"
 
 if errorlevel 1 exit 1
 

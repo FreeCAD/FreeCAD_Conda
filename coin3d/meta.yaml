@@ -11,9 +11,10 @@ source:
         - HAVE_INTTYPES_H.patch
         - cmake.patch
         - windows.patch  # [win]
+        - simage.patch  # [win]
 
 build:
-    number: 3
+    number: 4
     skip: true  # [py<35]
 
     features:

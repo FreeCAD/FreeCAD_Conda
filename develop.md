@@ -1,4 +1,5 @@
 # TESTING AND DEBUGGING FreeCAD with dependencies from conda
+
 This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is interesting, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction.
 
 - ```git clone https://github.com/looooo/FreeCAD_Conda # this branch```
@@ -17,20 +18,31 @@ you can also use the __--dirty__ flag but this will run cmake again, so there ar
 in the build directory you can also use cmake-gui.
 
 
-# setup with Kdevelop (linux)
+# setup with KDevelop (linux)
+## preperation:
+- conda installed
+- channeld freecad and conda-forge added
 
-1. build with conda
+## setup
+ 1. build with conda
 ```bash
 cd FreeCAD_Conda/develop/FreeCAD_debug
 conda build . --python=3.5
 # abort once cmake is ready
 ln -s ~/conda/conda-bld/freecad_debug/...b_env... ~/conda/env/fc_debug
 ```
-2. activate the build environment
+ 2. activate the build environment
 ```source activate fc_debug```
-3. start kdevelop from terminal
-4. open a project and choose the CMakeList.txt from FreeCAD
-5. set build dir to ~/conda/conda-bld/freecad_debug..../work
+ 3. start kdevelop from terminal (fc_debug environment)
+ 4. open a project and choose the CMakeList.txt from FreeCAD
+ 5. set build dir to ~/conda/conda-bld/freecad_debug..../work
+ 6. in KDevelop press __Build__ (wait until build is done)
+ 7. configure executable in KDevelop:
+- select FreeCAD in the project tree
+- menu at top -> Run -> Configure Launches -> AddNew -> Compiled Binary
+- check executable
+- select *~/conda/conda-bld/freecad_debug/work/bin/FreeCAD*
+ 8. press __Execute__
 
 if you want to run cmake again simple do:
 ```bash

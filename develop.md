@@ -3,6 +3,7 @@ This section is for testing new branches, or your own implementations/additions 
 
 - ```git clone https://github.com/looooo/FreeCAD_Conda # this branch```
 - go to *FreeCAD_Conda/.FreeCAD_debug/build.sh* and modify the FREECAD_SOURCE Variable at the top of the document
+Also have a look at the gcc options. An old version is needed! I have tested with 4.8 and 4.9. But most-likely the gcc shipped with conda is not compatible with the system libstd... So manually specifying gcc is necessary! This is not true for building with old linux versions. Especially if you build with docker and any-linux gcc from conda can be used(see build.md)
 
 - in the terminal go to *FreeCAD_Conda/develop/FreeCAD_debug/*
 - ```conda build . --python=3.5  # or 2.7```
@@ -16,7 +17,7 @@ you can also use the __--dirty__ flag but this will run cmake again, so there ar
 in the build directory you can also use cmake-gui.
 
 
-# Kdevelop (linux)
+# setup with Kdevelop (linux)
 
 1. build with conda
 ```bash

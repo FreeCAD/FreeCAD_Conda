@@ -22,7 +22,7 @@ requirements:
         - swig
         - eigen
         - boost
-        - python
+        - python 3.5
         - matplotlib
         - coin3d
         - pivy
@@ -38,7 +38,7 @@ requirements:
     run:
         - vc 14  # [win and py>=35]
         - boost 1.63.*
-        - python
+        - python 3.5
         - numpy
         - matplotlib
         - coin3d

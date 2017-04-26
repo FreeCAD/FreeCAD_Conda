@@ -1,19 +1,17 @@
 package:
-    name: freecad
+    name: freecad_debug
     version: 0.17
 
 build:
-    number: 4
+    number: 0
 
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
 requirements:
     build:
@@ -23,17 +21,16 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost 1.63.*
+        - boost
         - python
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7
+        - qt 4.*
         - pyside
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt
         - netgen
-        - vtk 7.1.0
+        - vtk 7.*
         - libmed
         - hdf5
         - xerces-c
@@ -46,12 +43,11 @@ requirements:
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7
+        - qt 4.*
         - pyside
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt
         - netgen
-        - vtk 7.1.0
+        - vtk 7.*
         - libmed
         - xerces-c
         - zlib 1.2*

@@ -1,4 +1,4 @@
-# Build conda paclkages with windows
+# Build conda packages with windows
 
 - install windows 7/8/10 or run in virtual machine
     - win 7 needs service pack 1

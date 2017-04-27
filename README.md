@@ -27,7 +27,7 @@ https://conda.io/docs/intro.html
 ## INSTALL FREECAD
 
 - first we have to add some channels to get all the necesarry packages:
-  - you can add them one by one with: conda config --add channels <name>
+  - you can add them one by one with: `conda config --add channels <name>`
   - or you can open the ~/.condarc and add them directly to this file
 at the end this file have to look like this.
 __open ~.condarc with a editor and make the channels section look like this__
@@ -44,15 +44,15 @@ channels:
     - conda-forge: pyside, shiboken, ...
 
 
-## CREATE A NEW ENVIROMENT
-### windows:
+### create new environment
+#### windows:
 - open the anaconda prompt/terminal
 - create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
 - `activate <env-name>`
 - start FreeCAD by entering: `FreeCAD`
 
-### unix
+#### unix
 - type in terminal: `initConda` (now the "conda" command should be available)
 - create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
@@ -60,7 +60,7 @@ channels:
 - start FreeCAD by entering: `FreeCAD`
 
 
-## use specific dependency versions
+### use specific dependency versions
 to create an enviroment with secific versions of packages you can add these packages with versions to the create command. This will give you the oppertunity to reproduce a enviroment. eg.: in case some newer dependencies are broken.
 
 ```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
@@ -68,13 +68,11 @@ to create an enviroment with secific versions of packages you can add these pack
 
 # ADDITIONAL INFORMATION
 
-- list all enviroments
-```
-conda env list
-```  
+- list all enviroments:
+`conda env list`
 
-- update
-```
-conda update --all
-conda update conda
-```
+- update:  
+`conda update --all`  
+`conda update conda`
+- list added channels:
+`conda config --show-sources`

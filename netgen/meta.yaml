@@ -10,13 +10,11 @@ build:
     number: 2
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0  # [unix]
-        - occt7.0.0  # [win]
+        - occt7.1.0
 
 requirements:
     build:
@@ -25,13 +23,11 @@ requirements:
         - gcc  # [unix]
         - ninja  # [win]
         - vc 14  # [win and py>=35]
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt
         - python
         - pybind11
     run:
-        - occt  # [unix]
-        - occt 7.0.0  # [win]
+        - occt
         - vc 14  # [win and py>=35]
         - python
 about:

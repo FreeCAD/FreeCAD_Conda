@@ -26,7 +26,7 @@ requirements:
         - ninja  # [win]
         - vc 14  # [win and py>=35]
         - cmake
-        - gcc # [unix]
+        # - gcc # [unix]
         - swig
         - eigen
         - boost 1.63.*

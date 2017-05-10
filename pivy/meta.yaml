@@ -11,7 +11,6 @@ source:
 
 build:
     string: dev_0
-    skip: true  # [py<35]
     features:
         - vc14  # [win]
 

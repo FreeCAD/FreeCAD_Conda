@@ -19,8 +19,8 @@ if [ "$BUILD_FULL" = true ] ; then
           -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
           -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
           -DPYTHON_EXECUTABLE=$PYTHON \
-          -DBUILD_FEM_NETGEN=ON \
-          -DBUILD_PATH=NO \
+          -DBUILD_FEM_NETGEN=NO \
+          -DBUILD_PATH=ON \
           ${FREECAD_SOURCE}
 fi
 

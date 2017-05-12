@@ -1,4 +1,4 @@
-cmake . -G "NMake Makefiles" ^
+cmake . -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
@@ -21,8 +21,7 @@ cmake . -G "NMake Makefiles" ^
 
 
 if errorlevel 1 exit 1
-set CL=/MP
-nmake install
+ninja install
 if errorlevel 1 exit 1
 
 rmdir /s /q "%LIBRARY_PREFIX%\doc"

@@ -23,6 +23,7 @@ source:
 requirements:
     build:
         - vc 14  # [win and py>=35]
+        - ninja  # [win and py>=35]
         - cmake
         - swig
         - eigen

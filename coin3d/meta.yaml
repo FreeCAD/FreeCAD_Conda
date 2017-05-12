@@ -26,10 +26,9 @@ build:
 requirements:
     build:
         - ninja  # [win]
-        - gcc  # [unix]
         - vc 14  # [win]
         - cmake
-        - boost-cpp
+        - boost-cpp 1.63*
         - simage
     run:
         - vc 14  # [win]

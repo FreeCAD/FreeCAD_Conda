@@ -1,4 +1,4 @@
-cmake . -G "Ninja" ^
+cmake . -G "NMake Makefiles" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
@@ -17,12 +17,12 @@ cmake . -G "Ninja" ^
       -DSWIG_EXECUTABLE=%LIBRARY_PREFIX%/bin/swig ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
       -DBUILD_REVERSEENGINEERING=NO ^
-      -DBUILD_PATH=NO ^
       .
 
 
 if errorlevel 1 exit 1
-ninja install
+set CL=/MP
+nmake install
 if errorlevel 1 exit 1
 
 rmdir /s /q "%LIBRARY_PREFIX%\doc"

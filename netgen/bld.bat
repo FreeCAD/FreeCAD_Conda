@@ -1,7 +1,7 @@
 mkdir build -p
 cd build 
 
-cmake .. -G "Ninja" ^
+cmake .. -G "NMake Makefiles" ^
     -DCMAKE_BUILD_TYPE="Release" ^
     -DINSTALL_DIR_LAYOUT="Unix" ^
     -DCMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
@@ -15,8 +15,8 @@ cmake .. -G "Ninja" ^
     -DUSE_SUPERBUILD=OFF
 
 if errorlevel 1 exit 1
-
-ninja install
+set CL=/MP
+nmake install
 if errorlevel 1 exit 1
 
 mkdir %LIBRARY_PREFIX%\include\netgen -p

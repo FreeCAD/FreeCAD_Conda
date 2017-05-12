@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 4
+    number: 5
 
     features:
         - vc14  # [win and py>=35]
@@ -15,18 +15,15 @@ build:
 
 source:
     git_url: https://github.com/looooo/FreeCAD
-    git_tag: py3-26
+    git_tag: py3-27
 
     patches:
         #
 
 requirements:
     build:
-        - toolchain
-        - ninja  # [win]
         - vc 14  # [win and py>=35]
         - cmake
-        # - gcc # [unix]
         - swig
         - eigen
         - boost 1.63.*
@@ -59,6 +56,7 @@ requirements:
         - libmed
         - xerces-c
         - zlib 1.2*
+        - git
 about:
     summary: freecad
 

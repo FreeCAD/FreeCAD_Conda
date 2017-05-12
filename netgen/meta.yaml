@@ -7,7 +7,7 @@ source:
     git_tag: 6.2_rebased1
 
 build:
-    number: 2
+    number: 3
     features:
         - vc14  # [win and py>=35]
         - occt7.1.0
@@ -18,9 +18,7 @@ build:
 
 requirements:
     build:
-        - toolchain
         - cmake
-        - ninja  # [win]
         - vc 14  # [win and py>=35]
         - occt
         - python

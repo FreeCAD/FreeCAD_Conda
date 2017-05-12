@@ -21,11 +21,8 @@ build:
 
 requirements:
     build:
-        - ninja  # [win]
         - vc 14  # [win]
-        - toolchain
         - cmake
-        - gcc  # [unix]
         - qt 4.8.7
         - libpng
         - jpeg

@@ -22,6 +22,7 @@ build:
 requirements:
     build:
         - vc 14  # [win]
+        - ninja  # [win]
         - cmake
         - qt 4.8.7
         - libpng

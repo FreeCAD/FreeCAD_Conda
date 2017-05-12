@@ -20,6 +20,7 @@ requirements:
     build:
         - cmake
         - vc 14  # [win and py>=35]
+        - ninja  # [win and py>=35]
         - occt
         - python
         - pybind11

@@ -1,4 +1,4 @@
-cmake . -G "NMake Makefiles" ^
+cmake . -G "Ninja" ^
     -DCMAKE_PREFIX_PATH=%PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DHDF5_LIBRARIES=%LIBRARY_PREFIX%\lib\libhdf5.lib;%LIBRARY_PREFIX%\lib\zlib.lib ^
@@ -9,8 +9,7 @@ cmake . -G "NMake Makefiles" ^
 rem MEDFILE_BUILD_PYTHON -> swig, maybe this is a nice option
 
 if errorlevel 1 exit 1
-set CL=/MP
-nmake install
+ninja install
 if errorlevel 1 exit 1
 
 move %LIBRARY_PREFIX%\lib\medC.dll %LIBRARY_PREFIX%\bin

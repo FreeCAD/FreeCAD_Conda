@@ -3,7 +3,7 @@ BUILD_FULL=true                  # run cmake .. if true, if not use the --dirty 
 
 
 if [ "$BUILD_FULL" = true ] ; then
-    cmake -DCMAKE_BUILD_TYPE=Release \
+    cmake -DCMAKE_BUILD_TYPE=Debug \
           -DCMAKE_INSTALL_PREFIX=$PREFIX \
           -DCMAKE_PREFIX_PATH=$PREFIX \
           -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
@@ -19,8 +19,7 @@ if [ "$BUILD_FULL" = true ] ; then
           -DSWIG_DIR=$PREFIX/share/swig/3.0.8 \
           -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
           -DPYTHON_EXECUTABLE=$PYTHON \
-          -DBUILD_FEM_NETGEN=NO \
-          -DBUILD_PATH=ON \
+          -DBUILD_FEM_NETGEN=ON \
           ${FREECAD_SOURCE}
 fi
 

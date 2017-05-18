@@ -1,0 +1,11 @@
+name: freecad
+version: 0.17
+
+channels:
+  - https://conda.anaconda.org/freecad
+  - https://conda.anaconda.org/conda-forge
+  - https://conda.anaconda.org/anaconda
+
+specs:
+  - freecad
+  - nomkl  # [unix]

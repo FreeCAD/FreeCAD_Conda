@@ -10,8 +10,8 @@ source:
     # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    string: py35_dev_1 # [py>=35]
-    string: py27_dev_1 # [py<35]
+    string: py35_dev_2 # [py>=35]
+    string: py27_dev_2 # [py<35]
     features:
         - vc14  # [win]
 
@@ -26,9 +26,11 @@ requirements:
         - coin3d
         - vc 14  # [win]
         - colorama
+        - soqt #  [linux]
     run:
         - python
         - coin3d
+        - soqt  # [linux]
         - vc 14  # [win]
 
 test:

@@ -1,0 +1,56 @@
+package:
+    name: blender
+    version: 2.7.8
+
+source:
+    fn: blender.tar.gz
+    url: http://download.blender.org/source/blender-2.78c.tar.gz
+    sha256: 64a98ff30300f79385ddb9ad016aa790a92720ff2feb84ddb1d097e6531dd338
+
+build:
+    number: 0
+    skip: true  # [py<35]
+
+    features:
+        - vc14  # [win]
+
+    track_features:
+        - vc14  # [win]
+
+requirements:
+    build:
+        - vc 14  # [win]
+        - ninja  # [win]
+        - python
+        - numpy
+        - boost
+        - cmake
+        - alembic
+        - libpng
+        - jpeg
+        - imageio
+        - glew
+    run:
+        - vc 14  # [win]
+        - numpy
+        - python
+        - boost
+        - alembic
+        - libpng
+        - jpeg
+        - imageio
+        - glew
+
+about:
+    home: https://wiki.blender.org/
+    # license: -
+    # license_family: -
+    # license_file: -
+    summary: blender
+    description: blender
+    doc_url: https://wiki.blender.org/
+    dev_url: https://wiki.blender.org/
+
+extra:
+    recipe-maintainers:
+        - looooo

@@ -1,5 +1,5 @@
-./configure \
-  --prefix="%LIBRARY_PREFIX%" \
-  --exec_prefix="%LIBRARY_PREFIX%"
+sh ./configure ^
+	--prefix="%LIBRARY_PREFIX%" ^
+	--exec_prefix="%LIBRARY_PREFIX%"
 
-make -j4 install
+make install

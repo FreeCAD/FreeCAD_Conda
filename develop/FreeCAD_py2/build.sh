@@ -24,5 +24,3 @@ if [ "$BUILD_FULL" = true ] ; then
 fi
 
 make -j4 2>&1 | tee output.txt
-make install -j4
-rm ${PREFIX}/doc -r     # smaller size of package!

@@ -21,7 +21,7 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost
+        - boost 1.63.*
         - python
         - matplotlib
         - coin3d

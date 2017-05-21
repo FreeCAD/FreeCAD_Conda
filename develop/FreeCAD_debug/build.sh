@@ -25,7 +25,3 @@ fi
 
 make -j4 2>&1 | tee output.txt
 make install -j4
-# mkdir $PREFIX/bin -p
-# ln -s ../lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
-# ln -s ../lib/freecad/bin/FreeCADCmd $PREFIX/bin/FreeCADCmd
-rm ${PREFIX}/doc -r     # smaller size of package!

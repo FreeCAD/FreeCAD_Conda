@@ -1,11 +1,11 @@
 package:
-    name: blender
+    name: oiio
     version: 2.7.8
 
 source:
-    fn: blender.tar.gz
-    url: http://download.blender.org/source/blender-2.78c.tar.gz
-    sha256: 64a98ff30300f79385ddb9ad016aa790a92720ff2feb84ddb1d097e6531dd338
+    fn: oiio.tar.gz
+    url: https://github.com/OpenImageIO/oiio/archive/Release-1.7.14.tar.gz
+    sha256: 5d205cc9baccf9ae3f46a589a656e308d89f7d7f93f2586ed20b9acea8a27f4c
 
 build:
     number: 0
@@ -21,35 +21,30 @@ requirements:
     build:
         - vc 14  # [win]
         - ninja  # [win]
-        - python
-        - numpy
-        - boost
-        - cmake
-        - alembic
+        - cmake  # [unix]
+        - boost-cpp 1.63*
+        - openexr
+        - libtiff
         - libpng
         - jpeg
-        - imageio
-        - glew
+
     run:
         - vc 14  # [win]
-        - numpy
-        - python
-        - boost
-        - alembic
+        - boost-cpp 1.63*
+        - openexr
+        - libtiff
         - libpng
         - jpeg
-        - imageio
-        - glew
 
 about:
-    home: https://wiki.blender.org/
+    home: https://github.com/OpenImageIO/oiio
     # license: -
     # license_family: -
     # license_file: -
-    summary: blender
-    description: blender
-    doc_url: https://wiki.blender.org/
-    dev_url: https://wiki.blender.org/
+    summary: oiio
+    description: oiio
+    doc_url: https://github.com/OpenImageIO/oiio
+    dev_url: https://github.com/OpenImageIO/oiio
 
 extra:
     recipe-maintainers:

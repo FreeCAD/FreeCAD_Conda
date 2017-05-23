@@ -21,15 +21,15 @@ requirements:
     build:
         - vc 14  # [win]
         - ninja  # [win]
+        - cmake  # [unix]
         - python
         - numpy
         - boost
-        - cmake
         - alembic
         - libpng
         - jpeg
-        - imageio
         - glew
+        - oiio
     run:
         - vc 14  # [win]
         - numpy
@@ -38,8 +38,8 @@ requirements:
         - alembic
         - libpng
         - jpeg
-        - imageio
         - glew
+        - oiio
 
 about:
     home: https://wiki.blender.org/

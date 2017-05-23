@@ -1,0 +1,40 @@
+package:
+    name: openexr
+    version: 2.2.0
+
+source:
+    fn: openexr.tar.gz
+    url: https://github.com/openexr/openexr/archive/v2.2.0.tar.gz
+    sha256: 8c219754af33fee199bdd72a0441f73dd4b3ce5363ac3c5cd7b2c6306f5442a6
+
+build:
+    number: 0
+    skip: true  # [py<35]
+
+    features:
+        - vc14  # [win]
+
+    track_features:
+        - vc14  # [win]
+
+requirements:
+    build:
+        - vc 14  # [win]
+        - ninja  # [win]
+        - cmake  # [unix]
+    run:
+        - vc 14  # [win]
+
+about:
+    home: http://www.openexr.com/
+    # license: -
+    # license_family: -
+    # license_file: -
+    summary: openexr
+    description: openexr
+    doc_url: http://www.openexr.com/
+    dev_url: http://www.openexr.com/
+
+extra:
+    recipe-maintainers:
+        - looooo

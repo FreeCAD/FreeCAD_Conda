@@ -1,5 +1,7 @@
 mkdir $PREFIX/lib/freecad -p
 
+mkdir build
+cd build
 
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -16,7 +18,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
       -DBUILD_FEM_NETGEN=YES \
-      .
+      ..
 
 make -j4 2>&1 | tee output.txt
 make install

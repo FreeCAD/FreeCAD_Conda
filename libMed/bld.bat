@@ -1,4 +1,7 @@
-cmake . -G "Ninja" ^
+mkdir build -p
+cd build 
+
+cmake .. -G "Ninja" ^
     -DCMAKE_PREFIX_PATH=%PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DHDF5_LIBRARIES=%LIBRARY_PREFIX%\lib\libhdf5.lib;%LIBRARY_PREFIX%\lib\zlib.lib ^

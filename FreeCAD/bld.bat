@@ -1,4 +1,7 @@
-cmake . -G "Ninja" ^
+mkdir build
+cd build
+
+cmake .. -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^

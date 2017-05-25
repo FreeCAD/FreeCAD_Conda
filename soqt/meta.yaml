@@ -2,14 +2,10 @@ package:
     name: soqt
     version: 1.5.0
 
-# there is a problem with the zipped version of the cmake-soqt branch
-# somehow there are some differences between zipped and direct cloned repo.
-# I have no idea what exactly is different.
-# So building manually is the simplest option:
-    # 1: hg clone https://bitbucket.org/roboticslibrary/soqt
-    # 2: change in CmakeList.txt coin::coin -> coin 2x
-    # 3: select path to soqt dir in the build.sh/build.bat
-
+source:
+    fn: soqt.tar.gz
+    url: https://github.com/looooo/pivy/releases/download/v0.6.1-0/soqt.tar.gz
+    sha256: f758cb3e60193799320e27aec0b68e3af803f552c13001db4a4644cc32d3d798
 
 build:
     number: 0

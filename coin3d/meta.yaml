@@ -32,7 +32,7 @@ requirements:
         - simage
     run:
         - vc 14  # [win]
-        - boost-cpp
+        - boost-cpp 1.63*
         - simage
 
 test:

@@ -5,7 +5,7 @@ package:
 source:
     fn: soqt.tar.gz
     url: https://github.com/looooo/pivy/releases/download/v0.6.1-0/soqt.tar.gz
-    sha256: 6ad54cf28be26b83b5d571523f46fe0879bd01657d5ed1c32130d33d394d8b74
+    sha256: e2ac92850748d99033d4d2d435b551f71320c1ae0dd37edbcf7a58373ad552f7
 
 build:
     number: 0

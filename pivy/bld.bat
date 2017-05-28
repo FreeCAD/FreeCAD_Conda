@@ -1,4 +1,5 @@
 SET COINDIR=%LIBRARY_PREFIX%
+SET QTDIR=%LIBRARY_PREFIX%
 
 %PYTHON% setup.py clean
 %PYTHON% setup.py install

@@ -21,8 +21,7 @@ build:
 requirements:
     build:
         - python
-        - swig 3.0.8  # [win]
-        - swig  # [unix]
+        - swig
         - coin3d
         - vc 14  # [win]
         - colorama
@@ -31,7 +30,6 @@ requirements:
         - python
         - coin3d
         - soqt
-        - soqt  # [linux]
         - vc 14  # [win]
 
 test:

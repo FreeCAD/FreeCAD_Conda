@@ -35,6 +35,7 @@ requirements:
 test:
     imports:
         - pivy.coin
+        - pivy.gui.soqt
 
 about:
     home: https://github.com/looooo/pivy

@@ -10,7 +10,8 @@ source:
     # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    string: py35_dev_3 # [py>=35]
+    string: py35_dev_3 # [py==35]
+    string: py36_dev_3 # [py>35]
     string: py27_dev_3 # [py<35]
     features:
         - vc14  # [win]
@@ -21,8 +22,7 @@ build:
 requirements:
     build:
         - python
-        - swig 3.0.8  # [win]
-        - swig  # [unix]
+        - swig 3.0.8
         - coin3d
         - vc 14  # [win]
         - colorama

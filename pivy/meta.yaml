@@ -31,12 +31,12 @@ requirements:
         - python
         - coin3d
         - soqt
-        - soqt  # [linux]
         - vc 14  # [win]
 
 test:
     imports:
         - pivy.coin
+        - pivy.gui.soqt
 
 about:
     home: https://github.com/looooo/pivy

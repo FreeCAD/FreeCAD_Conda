@@ -10,9 +10,9 @@ source:
     # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    string: py35_dev_3 # [py==35]
-    string: py36_dev_3 # [py>35]
-    string: py27_dev_3 # [py<35]
+    string: py35_dev_4 # [py==35]
+    string: py36_dev_4 # [py==36]
+    string: py27_dev_4 # [py==27]
     features:
         - vc14  # [win]
 

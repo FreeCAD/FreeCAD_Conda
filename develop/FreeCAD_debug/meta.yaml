@@ -15,6 +15,7 @@ build:
 
 requirements:
     build:
+        - nomkl  # [unix]
         - toolchain
         - ninja  # [win]
         - vc 14  # [win and py>=35]

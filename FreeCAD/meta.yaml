@@ -15,45 +15,45 @@ build:
 
 source:
     git_url: https://github.com/looooo/FreeCAD
-    git_tag: py3-27
-
-    patches:
-        #
+    git_tag: master
 
 requirements:
     build:
+        - nomkl  # [unix]
         - vc 14  # [win and py>=35]
         - ninja  # [win and py>=35]
         - cmake
         - swig
         - eigen
-        - boost 1.63.*
+        - boost
+        - boost-cpp
         - python
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7
+        - qt 4.*
         - pyside
-        - occt 7.1.0
+        - occt
         - netgen
-        - vtk 7.1.0
+        - vtk
         - libmed
         - hdf5
         - xerces-c
         - zlib 1.2.*
     run:
         - vc 14  # [win and py>=35]
-        - boost 1.63.*
+        - boost
+        - boost-cpp
         - python
         - numpy
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.8.7
+        - qt 4.*
         - pyside
-        - occt 7.1.0
+        - occt
         - netgen
-        - vtk 7.1.0
+        - vtk
         - libmed
         - xerces-c
         - zlib 1.2*

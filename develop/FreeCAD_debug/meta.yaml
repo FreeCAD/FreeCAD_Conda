@@ -22,7 +22,7 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost 1.63.*
+        - boost
         - python
         - matplotlib
         - coin3d
@@ -38,7 +38,7 @@ requirements:
         - zlib 1.2.*
     run:
         - vc 14  # [win and py>=35]
-        - boost 1.63.*
+        - boost
         - python
         - numpy
         - matplotlib

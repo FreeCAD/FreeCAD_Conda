@@ -13,14 +13,13 @@ cmake .. -G "Ninja" ^
       -DNGLIB_INCLUDE_DIR=%LIBRARY_PREFIX%/include/nglib ^
       -DOCC_INCLUDE_DIR=%LIBRARY_PREFIX%/include/opencascade ^
       -DOCC_LIBRARY_DIR=%LIBRARY_PREFIX%/lib ^
-      -DOCC_LIBRARIES=%LIBRARY_PREFIX%/lib CACHE ^
+      -DOCC_LIBRARIES=%LIBRARY_PREFIX%/lib ^
       -DFREECAD_USE_OCC_VARIANT="Official Version" ^
       -DOCC_OCAF_LIBRARIES=%LIBRARY_PREFIX%/lib ^
       -DSWIG_DIR=%LIBRARY_PREFIX%/share/swig/3.0.8 ^
       -DSWIG_EXECUTABLE=%LIBRARY_PREFIX%/bin/swig ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
-      -DBUILD_REVERSEENGINEERING=NO ^
-      .
+      -DBUILD_REVERSEENGINEERING=NO
 
 
 if errorlevel 1 exit 1

@@ -13,9 +13,13 @@ build:
         - vc14  # [win and py>=35]
         - occt7.1.0
 
+# source:
+#     git_url: https://github.com/looooo/FreeCAD
+#     git_tag: master
+
 source:
-    git_url: https://github.com/looooo/FreeCAD
-    git_tag: master
+    fn: FreeCAD.tar.gz
+    url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
 requirements:
     build:

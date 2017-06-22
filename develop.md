@@ -49,3 +49,14 @@ if you want to run cmake again simple do:
 cd FreeCAD_Conda/develop/FreeCAD_debug
 conda build . --python=3.5 --dirty
 ```
+
+
+## problems
+- there is the chance the default conda and the build environment are using the same python version. If this is the case you should set the variable PYTHONHOME explicitly to the build environment.
+in kdevelop: 
+ - run / configure launches
+ - select problematic version
+ - Environmen (press on the button on the right side)
+ - on top press the arrow-"x" and type a new name
+ - "add new group"
+ - in the table enter "PYTHONHOME" and as value look for the path to the build-environment

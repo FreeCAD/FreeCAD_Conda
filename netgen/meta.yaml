@@ -4,10 +4,10 @@ package:
 
 source:
     git_url: https://github.com/looooo/netgen
-    git_tag: 6.2_rebased1
+    git_tag: 6.2_rebased3
 
 build:
-    number: 3
+    number: 4
     features:
         - vc14  # [win and py>=35]
         - occt7.1.0

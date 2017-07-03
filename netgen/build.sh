@@ -11,7 +11,6 @@ cd build
 
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
-      -DINSTALL_DIR=$PREFIX \
       -DINCDIR=$PREFIX/include/netgen \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \
@@ -28,4 +27,4 @@ mkdir ${PREFIX}/include/netgen -p
 # this line is not correct. There is already a mydef.hpp in the include files
 # better just move the config.h and make FreeCAD-cmake look for a congfig.h instead of 
 # a mydefs.hpp
-cp ${SRC_DIR}/build/config.h ${PREFIX}/include/netgen/mydefs.hpp
+cp ${SRC_DIR}/build/libsrc/include/mydefs.hpp ${PREFIX}/include/netgen/mydefs.hpp

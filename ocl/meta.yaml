@@ -1,0 +1,44 @@
+package:
+    name: ocl
+    version: 0.0.1
+
+source:
+    git_url: https://github.com/aewallin/opencamlib
+    git_tag: master
+
+    patches:
+        - boost.patch
+        - boost_py3.patch  # [py != 27]
+
+build:
+    number: 4
+    features:
+        - vc14  # [win and py>=35]
+        - occt7.1.0
+
+    track_features:
+        - vc14  # [win and py>=35]
+        - occt7.1.0
+
+requirements:
+    build:
+        - cmake
+        - vc 14  # [win and py>=35]
+        - ninja  # [win and py>=35]
+        - boost
+        - python
+        - doxygen
+        - nomkl  # [unix]
+    run:
+        - vc 14  # [win and py>=35]
+        - boost
+        - python
+about:
+    home: http://www.anderswallin.net/CAM/
+    license: GPL3.0
+    license_family: GPL
+    summary: OpenCAMLib (ocl)
+    description: OpenCAMLib (ocl) is a c++ library for creating toolpaths for cnc-machines
+                 such as mills and lathes.
+    doc_url: http://www.anderswallin.net/CAM/
+    dev_url: https://github.com/aewallin/opencamlib

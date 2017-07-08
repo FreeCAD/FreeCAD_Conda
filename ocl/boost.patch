@@ -1,0 +1,18 @@
+commit c415d65a2c86a73ceec270e4bc44973858a2be10
+Author: looooo <sppedflyer@gmail.com>
+Date:   Sat Jul 8 17:58:42 2017 +0200
+
+    boost: patch
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 06ad288..9f1bcab 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -306,6 +306,7 @@ message(STATUS "Python modules will be installed to: " ${Python_site_packages})
+ message(STATUS "Python libraries will be installed to: " ${Python_arch_packages})
+ 
+ if (BUILD_PY_LIB)
++  link_directories(${Boost_LIBRARY_DIRS})
+   # this makes the ocl Python module
+   add_library(
+     ocl 

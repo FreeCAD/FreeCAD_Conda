@@ -20,6 +20,7 @@ if [ "$BUILD_FULL" = true ] ; then
           -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
           -DPYTHON_EXECUTABLE=$PYTHON \
           -DBUILD_FEM_NETGEN=ON \
+          -DUSE_BOOST_PYTHON=OFF \
           ${FREECAD_SOURCE}
 fi
 

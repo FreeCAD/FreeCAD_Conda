@@ -19,5 +19,10 @@ requirements:
     - vc 14  # [win and py>=35]
     - python
 
+
+test:
+  imports:
+    - area
+
 about:
   summary: area library

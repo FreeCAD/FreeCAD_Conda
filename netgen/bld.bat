@@ -22,4 +22,4 @@ mkdir %LIBRARY_PREFIX%\include\netgen -p
 rem this line is not correct. There is already a mydef.hpp in the include files
 rem better just move the config.h and make FreeCAD-cmake look for a congfig.h instead of 
 rem a mydefs.hpp
-Copy %LIBRARY_PREFIX%\include\include\mydefs.hpp %LIBRARY_PREFIX%\include\netgen\mydefs.hpp
+Copy %SRC_DIR%\libsrc\include\mydefs.hpp %LIBRARY_PREFIX%\include\netgen\mydefs.hpp

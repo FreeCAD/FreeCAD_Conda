@@ -27,4 +27,4 @@ mkdir ${PREFIX}/include/netgen -p
 # this line is not correct. There is already a mydef.hpp in the include files
 # better just move the config.h and make FreeCAD-cmake look for a congfig.h instead of 
 # a mydefs.hpp
-cp ${SRC_DIR}/build/libsrc/include/mydefs.hpp ${PREFIX}/include/netgen/mydefs.hpp
+cp ${SRC_DIR}/libsrc/include/mydefs.hpp ${PREFIX}/include/netgen/mydefs.hpp

@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 5
+    number: 6
 
     features:
         - vc14  # [win and py>=35]
@@ -12,10 +12,6 @@ build:
     track_features:
         - vc14  # [win and py>=35]
         - occt7.1.0
-
-# source:
-#     git_url: https://github.com/looooo/FreeCAD
-#     git_tag: master
 
 source:
     fn: FreeCAD.tar.gz
@@ -44,6 +40,7 @@ requirements:
         - hdf5
         - xerces-c
         - zlib 1.2.*
+        - doxygen
     run:
         - vc 14  # [win and py>=35]
         - boost

@@ -18,6 +18,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
       -DPYTHON_EXECUTABLE=$PYTHON \
       -DBUILD_FEM_NETGEN=YES \
+      -DUSE_BOOST_PYTHON=NO \
       ..
 
 make -j4 2>&1 | tee output.txt

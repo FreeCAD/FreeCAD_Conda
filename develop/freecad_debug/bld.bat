@@ -23,6 +23,7 @@ cmake . -G "Ninja" ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
       -DBUILD_REVERSEENGINEERING=NO ^
       -DBUILD_PATH=NO ^
+      -DUSE_BOOST_PYTHON=NO ^
       %FREECAD_SOURCE%
 
 

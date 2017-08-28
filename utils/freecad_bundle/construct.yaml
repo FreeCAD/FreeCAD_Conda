@@ -9,4 +9,5 @@ channels:
 specs:
   - freecad
   - nomkl  # [unix]
-  - occt 7.1*
+  - conda
+  - conda-build

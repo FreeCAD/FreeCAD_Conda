@@ -19,7 +19,8 @@ cmake .. -G "Ninja" ^
       -DSWIG_DIR=%LIBRARY_PREFIX%/share/swig/3.0.8 ^
       -DSWIG_EXECUTABLE=%LIBRARY_PREFIX%/bin/swig ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
-      -DBUILD_REVERSEENGINEERING=NO
+      -DBUILD_REVERSEENGINEERING=NO ^
+      -DUSE_BOOST_PYTHON=NO
 
 
 if errorlevel 1 exit 1

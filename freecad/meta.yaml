@@ -25,8 +25,8 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost
         - boost-cpp
+        - pybind11
         - python
         - matplotlib
         - coin3d
@@ -43,7 +43,6 @@ requirements:
         - doxygen
     run:
         - vc 14  # [win and py>=35]
-        - boost
         - boost-cpp
         - python
         - numpy

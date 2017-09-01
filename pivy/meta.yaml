@@ -10,9 +10,9 @@ source:
     # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    string: py35_dev_4 # [py==35]
-    string: py36_dev_4 # [py==36]
-    string: py27_dev_4 # [py==27]
+    string: py35_dev_5 # [py==35]
+    string: py36_dev_5 # [py==36]
+    string: py27_dev_5 # [py==27]
     features:
         - vc14  # [win]
 
@@ -26,17 +26,17 @@ requirements:
         - coin3d
         - vc 14  # [win]
         - colorama
-        - soqt
+        # - soqt
     run:
         - python
         - coin3d
-        - soqt
+        # - soqt
         - vc 14  # [win]
 
 test:
     imports:
         - pivy.coin
-        - pivy.gui.soqt
+        # - pivy.gui.soqt
 
 about:
     home: https://github.com/looooo/pivy

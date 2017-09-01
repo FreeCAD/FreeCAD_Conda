@@ -7,10 +7,8 @@ source:
     url: https://github.com/looooo/pivy/releases/download/v0.6.1-0/simage.tar.gz
     sha256: 4b57ed3c4997fbcc8b13823a60c1115cd97f701ada8afd44241f8512a5a9adc0
 
-    patches:
-
 build:
-    number: 0
+    number: 1
     skip: true  # [py<35]
 
     features:
@@ -24,13 +22,13 @@ requirements:
         - vc 14  # [win]
         - ninja  # [win]
         - cmake
-        - qt 4.8.7
+        - qt 5.*
         - libpng
         - jpeg
     run:
         - vc 14  # [win]
         - libpng
-        - qt 4.8.7
+        - qt 5.*
 
 about:
     home: https://bitbucket.org/Coin3D/simage

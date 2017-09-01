@@ -7,15 +7,17 @@ build:
 
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.2.0
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.2.0
 
 source:
     fn: FreeCAD.tar.gz
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
+    patches:
+        - qt5.patch
 
 requirements:
     build:
@@ -26,13 +28,13 @@ requirements:
         - swig
         - eigen
         - boost-cpp
-        - pybind11
+        - pybind11 2.1.*
         - python
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.*
-        - pyside
+        - qt 5.*
+        - pyside2
         - occt
         - netgen
         - vtk
@@ -49,8 +51,8 @@ requirements:
         - matplotlib
         - coin3d
         - pivy
-        - qt 4.*
-        - pyside
+        - qt 5.*
+        - pyside2
         - occt
         - netgen
         - vtk

@@ -6,6 +6,7 @@ if [ "$BUILD_FULL" = true ] ; then
     cmake -DCMAKE_BUILD_TYPE=Debug \
           -DCMAKE_INSTALL_PREFIX=$PREFIX \
           -DCMAKE_PREFIX_PATH=$PREFIX \
+          -DBUILD_QT5=ON \
           -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
           -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 \
           -DNETGENDATA=$PREFIX/include/netgen \
@@ -20,7 +21,7 @@ if [ "$BUILD_FULL" = true ] ; then
           -DSWIG_EXECUTABLE=$PREFIX/bin/swig \
           -DPYTHON_EXECUTABLE=$PYTHON \
           -DBUILD_FEM_NETGEN=ON \
-          -DUSE_BOOST_PYTHON=OFF \
+          -DUSE_BOOST_PYTHON=NO \
           ${FREECAD_SOURCE}
 fi
 

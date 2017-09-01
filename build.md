@@ -6,11 +6,8 @@ Conda-Forge is a github-organization containing many dependencies of FreeCAD. Wi
 - coin3d
 - netgen
 - pivy
-- pyside-tools
 - libMed
-
-Packages are currently build with a virtual machine running ubuntu-14.04. Building them needs a virgin enviroment.
-Instead of using a virtual machine, it's also possible to use docker.
+- ...
 
 
 # Build packages for FreeCAD with docker
@@ -94,6 +91,7 @@ https://github.com/conda/conda-build/issues/1331
 https://forum.freecadweb.org/viewtopic.php?f=10&t=12534&start=280#p155440
 
 - hosting packages  
+
 We host packages on https://anaconda.org/freecad.
 - set enviroment variables
   - [how-to-set-specific-environment-variables](http://stackoverflowstackoverflow.com/questions/31598963/how-to-set-specific-environment-variables-when-activating-conda-environment)  
@@ -120,13 +118,14 @@ eval "$(register-python-argcomplete conda)"
 anaconda login
 ```
 
+- local packages:
+building packages make them locally (on the machine which build the package) available. For example if the package __simage__ was build, conda will use this package. It's also possible to use a cloud service to store packages. This is very useful if you want to use your packages on multiple machines. There are two things to remember:
 
-## compile dependences 
-
-- occt
-- coin
-- pivy
-- libMed
-- netgen
-- pyside-tools
-- freecad
+  1. the directory structure should be the same as in conda/conda-bld
+For linux-64 it looks like this.
+```
+├──conda-packages
+│   ├── linux-64
+│   │   ├── coin3d-4.0.0-5.tar.bz2
+```
+  2. use `conda index conda-packages/linux-64` to add newly added packages to the conda index.

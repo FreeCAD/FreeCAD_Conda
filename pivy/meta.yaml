@@ -1,6 +1,6 @@
 package:
     name: pivy
-    version: 0.6.2
+    version: 0.6.3
 
 source:
     git_url: https://github.com/looooo/pivy
@@ -10,14 +10,16 @@ source:
     # sha256: 9def3f8d19f90fa66e4511da1d301ee921005fb6b0e114a1bb604e4360462f23
 
 build:
-    string: py35_dev_5 # [py==35]
-    string: py36_dev_5 # [py==36]
-    string: py27_dev_5 # [py==27]
+    string: py35_dev_0 # [py==35]
+    string: py36_dev_0 # [py==36]
+    string: py27_dev_0 # [py==27]
     features:
         - vc14  # [win]
+        - nosoqt
 
     track_features:
         - vc14  # [win]
+        - nosoqt
   
 requirements:
     build:

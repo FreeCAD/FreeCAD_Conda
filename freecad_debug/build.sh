@@ -1,5 +1,4 @@
-mkdir -p build
-cd build
+FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (modyfy to your needs)
 
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX/lib/freecad \
@@ -18,7 +17,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DPYTHON_EXECUTABLE=$PYTHON \
       -DBUILD_FEM_NETGEN=YES \
       -DUSE_BOOST_PYTHON=NO \
-      /..
+      ${FREECAD_SOURCE}
 
 make -j4 2>&1 | tee output.txt
 make install

@@ -1,0 +1,38 @@
+package:
+  name: constructor
+  version: 1.6.0
+
+source:
+  path: ../../constructor
+
+build:
+  number: 0
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+    - libconda
+    - pillow >=3.1  # [win]
+    - nsis          # [win]
+
+test:
+  imports:
+    - constructor
+
+  commands:
+    - constructor --help
+
+about:
+  home: http://github.com/conda/constructor
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: create installer from conda packages
+
+extra:
+  recipe-maintainers:
+    - jakirkham

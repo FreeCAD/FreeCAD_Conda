@@ -28,7 +28,8 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.64*
-        - pybind11 2.1.*
+        - pybind11 2.1.*  # [unix]
+        - boost 1.64*  # [not unix]
         - python
         - matplotlib
         - coin3d
@@ -46,6 +47,7 @@ requirements:
     run:
         - vc 14  # [win and py>=35]
         - boost-cpp 1.64*
+        - boost 1.64*  # [not unix]
         - python
         - numpy
         - matplotlib

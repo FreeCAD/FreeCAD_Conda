@@ -11,3 +11,9 @@ specs:
   - nomkl  # [unix]
   - conda
   - conda-build
+  - qt 5.*
+  - conda
+
+exclude:
+  - pyqt
+  - sip

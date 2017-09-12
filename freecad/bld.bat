@@ -8,6 +8,7 @@ cmake .. -G "Ninja" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DCMAKE_INCLUDE_PATH=%LIBRARY_PREFIX%/include ^
       -DCMAKE_LIBRARY_PATH=%LIBRARY_PREFIX%/lib ^
+      -DBUILD_QT5=ON ^
       -DNETGENDATA=%LIBRARY_PREFIX%/include ^
       -DNETGEN_INCLUDEDIR=%LIBRARY_PREFIX%/include/netgen ^
       -DNGLIB_INCLUDE_DIR=%LIBRARY_PREFIX%/include/nglib ^

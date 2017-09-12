@@ -18,7 +18,6 @@ source:
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
     patches:
         - qt5.patch
-        - Draft.patch
 
 requirements:
     build:
@@ -28,7 +27,7 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost-cpp
+        - boost-cpp 1.64*
         - pybind11 2.1.*
         - python
         - matplotlib
@@ -46,7 +45,7 @@ requirements:
         - doxygen
     run:
         - vc 14  # [win and py>=35]
-        - boost-cpp
+        - boost-cpp 1.64*
         - python
         - numpy
         - matplotlib

@@ -6,6 +6,9 @@ source:
     git_url: https://github.com/looooo/pivy
     git_tag: master
 
+    patches:
+        - no_soqt.patch
+
 build:
     string: py35_dev_0 # [py==35]
     string: py36_dev_0 # [py==36]

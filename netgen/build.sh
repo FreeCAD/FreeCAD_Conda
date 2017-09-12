@@ -18,7 +18,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_PYTHON=ON \
       -DUSE_GUI=OFF \
       -DUSE_SUPERBUILD=OFF \
-      /projects/netgen
+      ..
 
 
 make -j${CPU_COUNT} 2>&1 | tee output.txt

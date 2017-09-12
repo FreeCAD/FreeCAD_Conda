@@ -18,6 +18,7 @@ source:
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
     patches:
         - qt5.patch
+        - Draft.patch
 
 requirements:
     build:

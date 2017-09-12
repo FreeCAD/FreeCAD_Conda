@@ -1,5 +1,5 @@
 package:
-    name: freecad
+    name: freecad-debug
     version: 0.17
 
 build:

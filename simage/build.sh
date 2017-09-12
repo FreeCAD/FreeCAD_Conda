@@ -9,4 +9,4 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DUSE_QT5=ON \
       ..
 
-make -j4 install
+make -j${CPU_COUNT} install

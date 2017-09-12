@@ -23,11 +23,16 @@ requirements:
         - ninja  # [win and py>=35]
         - occt
         - python
-        - pybind11
+        - pybind11  2.1.*
     run:
         - occt
         - vc 14  # [win and py>=35]
         - python
+
+test:
+    imports:
+        - netgen
+
 about:
     home: https://sourceforge.net/projects/netgen-mesher/
     license: LGPL

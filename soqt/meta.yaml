@@ -8,7 +8,7 @@ source:
     sha256: d6e302cbd8b5a9e02bae214c5d4e5016f182f0d17546be0bcd9aed0e02cd3fe6
 
 build:
-    number: 0
+    number: 1
     skip: true  # [py<35]
 
     features:
@@ -22,11 +22,11 @@ requirements:
         - vc 14  # [win]
         - ninja  # [win]
         - cmake
-        - qt 4.8.7
+        - qt 5.*
         - coin3d
     run:
         - vc 14  # [win]
-        - qt 4.8.7
+        - qt 5.*
         - coin3d
 
 about:

@@ -60,3 +60,7 @@ in kdevelop:
  - on top press the arrow-"x" and type a new name
  - "add new group"
  - in the table enter "PYTHONHOME" and as value look for the path to the build-environment
+
+ ## some notes to kdevelop:
+ TODO: translate
+ - Einstellungen->Kdevelop einrichten -> Erscheinungsbild -> Randbereich -> [x] Symbolspalte / [x] Zeilennummer

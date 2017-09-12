@@ -29,8 +29,8 @@ sudo docker run -i -t -v ~/projects/:/projects  --name conda-forge condaforge/li
 yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
 ```
 
-> -v: mount a local path into the docker host  
-> -i: Keep STDIN open even if not attached  
+> -v: mount a local path into the docker host
+> -i: Keep STDIN open even if not attached
 > -t: Allocate a pseudo-TTY
 
 
@@ -70,7 +70,7 @@ at the end of the build process the upload command is printed.
 with -u a specific user/organization can be specified
 ```
 anaconda upload <file> -u <user_name>
-```  
+```
 to use anaconda the anaconda-client has to be installed:
 ```
 conda install anaconda-client
@@ -85,16 +85,16 @@ conda env export > environment.yml
 ```
 http://conda.pydata.org/docs/using/envs.html#share-an-environment
 
-- encrypted home directory:  
-this makes problems with building because the resulting path-length gets too long. The solution is to make a temporary build dir, e.g. mkdir /tmp/fcbuild and then append --croot /tmp/fcbuild to your conda build command.  
-https://github.com/conda/conda-build/issues/1331  
+- encrypted home directory:
+this makes problems with building because the resulting path-length gets too long. The solution is to make a temporary build dir, e.g. mkdir /tmp/fcbuild and then append --croot /tmp/fcbuild to your conda build command.
+https://github.com/conda/conda-build/issues/1331
 https://forum.freecadweb.org/viewtopic.php?f=10&t=12534&start=280#p155440
 
-- hosting packages  
+- hosting packages
 
 We host packages on https://anaconda.org/freecad.
 - set enviroment variables
-  - [how-to-set-specific-environment-variables](http://stackoverflowstackoverflow.com/questions/31598963/how-to-set-specific-environment-variables-when-activating-conda-environment)  
+  - [how-to-set-specific-environment-variables](http://stackoverflowstackoverflow.com/questions/31598963/how-to-set-specific-environment-variables-when-activating-conda-environment)
   - [saved-environment-variables](http://conda.pydata.org/docs/using/envs.html#saved-environment-variables)
 
 

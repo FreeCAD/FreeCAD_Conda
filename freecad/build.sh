@@ -18,10 +18,10 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DPYTHON_EXECUTABLE=$PYTHON \
       -DBUILD_FEM_NETGEN=YES \
       -DUSE_BOOST_PYTHON=NO \
-      /..
+      ..
 
-make -j4 2>&1 | tee output.txt
-make install
+make -j${CPU_COUNT} 2>&1 | tee output.txt
+make -j${CPU_COUNT} install
 rm ${PREFIX}/doc -r     # smaller size of package!
 mkdir -p $PREFIX/bin/
 ln -s $PREFIX/lib/freecad/bin/FreeCAD $PREFIX/bin/freecad

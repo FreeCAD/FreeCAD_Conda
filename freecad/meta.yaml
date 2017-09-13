@@ -44,6 +44,7 @@ requirements:
         - xerces-c
         - zlib 1.2.*
         - doxygen
+        - git
     run:
         - vc 14  # [win and py>=35]
         - boost-cpp 1.64*

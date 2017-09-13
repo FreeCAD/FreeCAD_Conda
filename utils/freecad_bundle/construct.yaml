@@ -1,7 +1,12 @@
-name: freecad
+name: FreeCAD_CONDA_INSTALLER
 version: 0.17
 
 channels:
+  - https://conda.anaconda.org/freecad
+  - https://conda.anaconda.org/conda-forge
+  - https://conda.anaconda.org/anaconda
+
+conda_default_channels:
   - https://conda.anaconda.org/freecad
   - https://conda.anaconda.org/conda-forge
   - https://conda.anaconda.org/anaconda
@@ -12,8 +17,10 @@ specs:
   - conda
   - conda-build
   - qt 5.*
-  - conda
 
 exclude:
   - pyqt
   - sip
+  - tornado
+  - tk
+  - git

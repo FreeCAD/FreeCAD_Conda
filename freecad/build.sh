@@ -2,7 +2,7 @@ mkdir -p build
 cd build
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=$PREFIX/lib/freecad \
+      -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DBUILD_QT5=ON \
       -DNETGENDATA=$PREFIX/include/netgen \
@@ -23,6 +23,3 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 make -j${CPU_COUNT} 2>&1 | tee output.txt
 make -j${CPU_COUNT} install
 rm ${PREFIX}/doc -r     # smaller size of package!
-mkdir -p $PREFIX/bin/
-ln -s $PREFIX/lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
-ln -s $PREFIX/lib/freecad/bin/FreeCADCmd $PREFIX/bin/freecad_cmd

@@ -1,4 +1,4 @@
-name: FreeCAD_CONDA_INSTALLER
+name: freecad
 version: 0.17
 
 channels:

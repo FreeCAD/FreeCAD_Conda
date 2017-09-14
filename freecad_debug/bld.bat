@@ -1,29 +1,25 @@
-SET FREECAD_SOURCE="C:\Users\fc-builder\projects\FreeCAD"
-SET BUILD_FULL="1"
+SET FREECAD_SOURCE="C:\Users\fc_builder\projects\FreeCAD"
 
-
-if %BUILD_FULL%=="1" ^
-cmake . -G "Ninja" ^
-      -DCMAKE_BUILD_TYPE=Release ^
+cmake -G "Ninja" ^
+      -DCMAKE_BUILD_TYPE=Debug ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DCMAKE_INCLUDE_PATH=%LIBRARY_PREFIX%/include ^
       -DCMAKE_LIBRARY_PATH=%LIBRARY_PREFIX%/lib ^
-      -DNETGENDATA=%LIBRARY_PREFIX%/include ^
+      -DBUILD_QT5=ON ^
+      -DNETGENDATA=%LIBRARY_PREFIX%/include/netgen ^
       -DNETGEN_INCLUDEDIR=%LIBRARY_PREFIX%/include/netgen ^
       -DNGLIB_INCLUDE_DIR=%LIBRARY_PREFIX%/include/nglib ^
       -DOCC_INCLUDE_DIR=%LIBRARY_PREFIX%/include/opencascade ^
       -DOCC_LIBRARY_DIR=%LIBRARY_PREFIX%/lib ^
-      -DOCC_LIBRARIES=%LIBRARY_PREFIX%/lib CACHE ^
+      -DOCC_LIBRARIES=%LIBRARY_PREFIX%/lib ^
       -DFREECAD_USE_OCC_VARIANT="Official Version" ^
       -DOCC_OCAF_LIBRARIES=%LIBRARY_PREFIX%/lib ^
       -DSWIG_DIR=%LIBRARY_PREFIX%/share/swig/3.0.8 ^
       -DSWIG_EXECUTABLE=%LIBRARY_PREFIX%/bin/swig ^
       -DPYTHON_EXECUTABLE=%PYTHON% ^
       -DBUILD_REVERSEENGINEERING=NO ^
-      -DBUILD_PATH=NO ^
-      -DUSE_BOOST_PYTHON=NO ^
       %FREECAD_SOURCE%
 
 

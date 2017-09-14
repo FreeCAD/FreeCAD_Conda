@@ -64,3 +64,37 @@ in kdevelop:
  ## some notes to kdevelop:
  TODO: translate
  - Einstellungen->Kdevelop einrichten -> Erscheinungsbild -> Randbereich -> [x] Symbolspalte / [x] Zeilennummer
+
+
+# setup with KDevelop (win)
+
+win is allwys a bit more difficult. But with some hacks it's possible to setup a development base with kdevelop on windows.
+
+## Preperation:
+- make sure you have installed conda
+- make sure you are familiar with basic conda commands
+- download and install latest kdevelop for windows https://www.kdevelop.org/download
+
+## get the FreeCAD source
+- this is as simple as `git clone https://github.com/FreeCAD/FreeCAD`
+- remember the path where the source is located this location will be called %FREECAD_SRC% for further instructions
+
+## get the sources for building FreeCAD with conda
+- `git clone https://github.com/FreeCAD/FreeCAD_Conda`
+- the location where the conda install scripts are will be called `%FC_CONDA_SCRIPTS%`
+
+## creating a development build
+- `cd %FC_CONDA_SCRIPTS%\freecad_debug`
+- `conda build .`
+- once the build process is starting press `ctrl-c` to apport
+
+## configure kdevelop
+- open a file browser and look for the place where kdevelop is installed.: eg C:\Program Files\KDevelop
+- once found open the bin directory and copy the file `kdevelop-msvc.bat` to the desctop or anywhere where you can make changes to that file.
+- open the copied file in a text-editor.
+- look for this line: `CALL %script%` and edit the line so it matches: `CALL %script% amd64`
+- after this line add: `CALL %PATH_TO_CONDA%Scripts\activate %PATH_TO_BUILD_ENV%
+- for me this looks like this:
+```
+CALL C:\Users\fc_builder\conda64\Scripts\activate C:\Users\fc_builder\conda64\conda-bld\freecad-debug_1505378983749\_b_env
+```

@@ -6,7 +6,6 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
       -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 \
-      -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
       -DBUILD_QT5=ON \
       -DNETGENDATA=$PREFIX/include/netgen \
       -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \

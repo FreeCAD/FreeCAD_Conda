@@ -2,7 +2,7 @@ FREECAD_SOURCE=~/projects/FreeCAD # this is the path to the FreeCAD source (mody
 
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=$PREFIX/lib/freecad \
+      -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
       -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 \
@@ -25,6 +25,3 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 make -j-j${CPU_COUNT} 2>&1 | tee output.txt
 make install
 rm ${PREFIX}/doc -r     # smaller size of package!
-mkdir -p $PREFIX/bin/
-ln -s $PREFIX/lib/freecad/bin/FreeCAD $PREFIX/bin/freecad
-ln -s $PREFIX/lib/freecad/bin/FreeCADCmd $PREFIX/bin/freecad_cmd

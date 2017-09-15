@@ -4,7 +4,7 @@ package:
 
 source:
     git_url: https://github.com/looooo/netgen
-    git_tag: 6.2_rebased4
+    git_tag: 6.2_rebased5
 
 build:
     number: 5
@@ -23,7 +23,7 @@ requirements:
         - ninja  # [win and py>=35]
         - occt
         - python
-        - pybind11  2.1.*
+        - pybind11
     run:
         - occt
         - vc 14  # [win and py>=35]

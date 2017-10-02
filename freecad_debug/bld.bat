@@ -1,7 +1,7 @@
 SET FREECAD_SOURCE="C:\Users\fc_builder\projects\FreeCAD"
 
 cmake -G "Ninja" ^
-      -DCMAKE_BUILD_TYPE=Debug ^
+      -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^

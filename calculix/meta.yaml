@@ -22,6 +22,7 @@ requirements:
     build:
         - vc 14  # [win]
         - toolchain
+        - perl
     run:
         - vc 14  # [win]
 

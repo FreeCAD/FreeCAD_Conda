@@ -22,4 +22,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 
 make -j${CPU_COUNT} 2>&1 | tee output.txt
 make -j${CPU_COUNT} install
+
 rm ${PREFIX}/doc -r     # smaller size of package!

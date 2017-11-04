@@ -22,6 +22,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_BOOST_PYTHON=NO \
       ${FREECAD_SOURCE}
 
-make -j-j${CPU_COUNT} 2>&1 | tee output.txt
-make install
-rm ${PREFIX}/doc -r     # smaller size of package!
+make -j${CPU_COUNT} 2>&1 | tee output.txt
+exit 1

@@ -22,7 +22,7 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.64*
-        - pybind11 2.1.*  # [unix]
+        - pybind11  # [unix]
         - boost 1.64*  # [not unix]
         - python
         - matplotlib

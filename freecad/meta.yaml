@@ -7,11 +7,11 @@ build:
 
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.2.0
 
     track_features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
+        - occt7.2.0
 
 source:
     fn: FreeCAD.tar.gz

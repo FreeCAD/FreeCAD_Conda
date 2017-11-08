@@ -1,6 +1,6 @@
 mkdir $PREFIX/lib/freecad -p
 
-mkdir build
+mkdir -p build
 cd build
 
 cmake -DCMAKE_BUILD_TYPE=Release \

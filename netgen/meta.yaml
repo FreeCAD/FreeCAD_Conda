@@ -28,6 +28,7 @@ requirements:
         - occt
         - vc 14  # [win and py>=35]
         - python
+        - future  # [py<=27]
 
 test:
     imports:

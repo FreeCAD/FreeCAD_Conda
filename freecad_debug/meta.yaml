@@ -29,7 +29,7 @@ requirements:
         - coin3d
         - pivy
         - qt 5.*
-        - pyside2
+        - pyside2  2.0.0.dev0 py36_0 
         - occt
         - netgen
         - vtk
@@ -49,7 +49,7 @@ requirements:
         - coin3d
         - pivy
         - qt 5.*
-        - pyside2
+        - pyside2  2.0.0.dev0 py36_0
         - occt
         - netgen
         - vtk

@@ -14,7 +14,7 @@ source:
         - simage.patch  # [win]
 
 build:
-    number: 5
+    number: 6
     skip: true  # [py<35]
 
     features:
@@ -28,11 +28,11 @@ requirements:
         - ninja  # [win]
         - vc 14  # [win]
         - cmake
-        - boost-cpp
+        - boost-cpp 1.64*
         - simage
     run:
         - vc 14  # [win]
-        - boost-cpp
+        - boost-cpp 1.64*
         - simage
 
 test:

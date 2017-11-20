@@ -25,9 +25,9 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost-cpp 1.65*
+        - boost-cpp 1.64*
         - pybind11  # [unix]
-        - boost 1.65*  # [not unix]
+        - boost 1.64*  # [not unix]
         - python
         - matplotlib
         - coin3d
@@ -45,8 +45,8 @@ requirements:
         - git
     run:
         - vc 14  # [win and py>=35]
-        - boost-cpp 1.65*
-        - boost 1.65*  # [not unix]
+        - boost-cpp 1.64*
+        - boost 1.64*  # [not unix]
         - python
         - numpy
         - matplotlib

@@ -23,7 +23,7 @@ requirements:
         - eigen
         - boost-cpp 1.64*
         - pybind11  # [unix]
-        - boost 1.64*  # [not unix]
+        - boost 1.64* # [not unix]
         - python
         - matplotlib
         - coin3d
@@ -57,6 +57,7 @@ requirements:
         - xerces-c
         - zlib 1.2*
         - git
+        - calculix
 about:
     summary: freecad
 

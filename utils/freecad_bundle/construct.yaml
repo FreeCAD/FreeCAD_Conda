@@ -16,6 +16,7 @@ specs:
   - nomkl  # [unix]
   - conda
   - conda-build
+  - scipy
   - qt 5.*
   - vtk 7.*
   - boost 1.64*
@@ -23,11 +24,11 @@ specs:
   - xerces-c 3.1*
   - python-graphviz
   - freecad-launcher
+  - jupyter
 
 exclude:
   - pyqt
   - sip
-  - tornado
   - tk
   - cryptography
 

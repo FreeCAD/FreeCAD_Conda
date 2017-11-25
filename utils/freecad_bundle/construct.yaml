@@ -21,6 +21,8 @@ specs:
   - boost 1.64*
   - gitpython
   - xerces-c 3.1*
+  - python-graphviz
+  - freecad-launcher
 
 exclude:
   - pyqt

@@ -1,0 +1,11 @@
+{
+    "menu_name": "FreeCAD${PY_VER} ${PLATFORM}",
+    "menu_items":
+    [
+        {
+            "name": "FreeCAD",
+            "system": "${ROOT_PREFIX}\\Scripts\\activate.bat ${PREFIX} & freecad",
+            "icon": "${MENU_DIR}/freecad.ico"
+        }
+    ]
+}

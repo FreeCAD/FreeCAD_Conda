@@ -17,10 +17,16 @@ specs:
   - conda
   - conda-build
   - qt 5.*
+  - vtk 7.*
+  - boost 1.64*
+  - gitpython
+  - xerces-c 3.1*
 
 exclude:
   - pyqt
   - sip
   - tornado
   - tk
-  - git
+  - cryptography
+
+welcome_image: freecad.JPG   # [win]

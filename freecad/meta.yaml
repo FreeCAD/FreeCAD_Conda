@@ -40,7 +40,7 @@ requirements:
         - vtk 7.*
         - libmed
         - hdf5
-        - xerces-c
+        - xerces-c 3.1.*
         - zlib 1.2.*
         - doxygen
         - git
@@ -60,7 +60,7 @@ requirements:
         - netgen
         - vtk 7.*
         - libmed
-        - xerces-c
+        - xerces-c 3.1.*
         - zlib 1.2*
         - git
         - calculix  # [unix]

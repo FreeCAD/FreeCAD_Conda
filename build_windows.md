@@ -2,8 +2,7 @@
 
 - install windows 7/8/10 or run in virtual machine
     - win 7 needs service pack 1
-- get visual studio 2015 https://www.microsoft.com/en-us/download/details.aspx?id=48145
-    - select the c++ things (not remember what exactly, but it were missing at first try)
+- get visual studio 2015 build tools: http://landinghub.visualstudio.com/visual-cpp-build-tools
     - installation will take some time
     - for windows 7 this workaround will be needed:
     https://github.com/kobilutil/api-ms-win-core-path-HACK/releases

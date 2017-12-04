@@ -1,6 +1,6 @@
 SET FREECAD_SOURCE="C:\Users\fc_builder\projects\FreeCAD"
 
-cmake -G "Ninja" ^
+cmake -G "Visual Studio 14 2015 Win64" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
@@ -24,6 +24,6 @@ cmake -G "Ninja" ^
 
 
 if errorlevel 1 exit 1
-ninja install
+make install
 
 exit 1

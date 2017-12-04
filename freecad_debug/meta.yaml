@@ -22,6 +22,7 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.64*
+        - boost 1.64*  # [win]
         - pybind11
         - python
         - matplotlib
@@ -42,7 +43,7 @@ requirements:
     run:
         - vc 14  # [win and py>=35]
         - boost-cpp 1.64*
-        - boost 1.64*  # [not unix]
+        - boost 1.64*  # [win]
         - python
         - numpy
         - matplotlib

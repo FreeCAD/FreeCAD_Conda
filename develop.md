@@ -65,8 +65,7 @@ in kdevelop:
  TODO: translate
  - Einstellungen->Kdevelop einrichten -> Erscheinungsbild -> Randbereich -> [x] Symbolspalte / [x] Zeilennummer
 
-
-# setup with KDevelop (win)
+# basic development setup (win)
 
 win is allwys a bit more difficult. But with some hacks it's possible to setup a development base with kdevelop on windows.
 
@@ -88,13 +87,45 @@ win is allwys a bit more difficult. But with some hacks it's possible to setup a
 - `conda build .`
 - once the build process is starting press `ctrl-c` to apport
 
+# setup with KDevelop (win)
+
 ## configure kdevelop
-- open a file browser and look for the place where kdevelop is installed.: eg C:\Program Files\KDevelop
-- once found open the bin directory and copy the file `kdevelop-msvc.bat` to the desctop or anywhere where you can make changes to that file.
-- open the copied file in a text-editor.
-- look for this line: `CALL %script%` and edit the line so it matches: `CALL %script% amd64`
-- after this line add: `CALL %PATH_TO_CONDA%Scripts\activate %PATH_TO_BUILD_ENV%
-- for me this looks like this:
+- this script works for me to start kdevelop with the right settings for the created build-environment. Edit the paths of the script to match your system.
 ```
-CALL C:\Users\fc_builder\conda64\Scripts\activate C:\Users\fc_builder\conda64\conda-bld\freecad-debug_1505378983749\_b_env
+
+call "C:\Users\fc_builder\Miniconda3\Scripts\activate.bat" "C:\Users\fc_builder\Miniconda3\envs\fc_debug"
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\..\..\VC\vcvarsall.bat" amd64
+
+FOR /F "usebackq tokens=3*" %%A IN (`REG QUERY "HKEY_LOCAL_MACHINE\Software\KDE\KDevelop" /v Install_Dir`) DO (
+    set appdir=%%A %%B
+)
+
+if NOT DEFINED appdir (
+    FOR /F "usebackq tokens=3*" %%A IN (`REG QUERY "HKEY_LOCAL_MACHINE\Software\Wow6432Node\KDE\KDevelop" /v Install_Dir`) DO (
+        set appdir=%%A %%B
+    )
+)
+
+START "" "%appdir%\bin\kdevelop.exe"
+
+```
+- once kdevelop is launched this way: create a new environment-:
+	- `project/openconfiguration/show advanced/configure-environment (right button)`
+	- enter a name for the "Environment-group" (eg.: "fc_debug")
+	- go to batch-edit-mode (seccond button on the right side (hoover over the buttoms if you are not sure))
+	- enter this lines and configure to match your system:
+
+```
+FC_PYTHONHOME=C:\Users\fc_builder\Miniconda3\envs\fc_debug
+QT_QPA_PLATFORM_PLUGIN_PATH=C:\Users\fc_builder\Miniconda3\envs\fc_debug\Library\plugins\platforms
+```
+
+# setup with Visual Studio 2015 (win)
+- get visual studio 2015 community: I downloaded it from [here](https://www.computerbase.de/downloads/systemtools/entwicklung/visual-studio-2015/)
+- use a script to launch visual-studio: (not yet working)
+```
+call "C:\Users\fc_builder\Miniconda3\Scripts\activate.bat" "C:\Users\fc_builder\Miniconda3\envs\fc_debug_vs"
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\..\..\VC\vcvarsall.bat" amd64
+
+START  "" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
 ```

@@ -1,6 +1,9 @@
 SET FREECAD_SOURCE="C:\Users\fc_builder\projects\FreeCAD"
 
-cmake -G "Visual Studio 14 2015 Win64" ^
+
+rem use this line if you want to build with visual studio
+rem cmake -G "Visual Studio 14 2015 Win64" ^
+cmake -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DFREECAD_LIBPACK_USE=FALSE ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
@@ -22,8 +25,6 @@ cmake -G "Visual Studio 14 2015 Win64" ^
       -DBUILD_REVERSEENGINEERING=NO ^
       %FREECAD_SOURCE%
 
-
-if errorlevel 1 exit 1
-make install
-
 exit 1
+rem do not install and make conda-build fail
+rem now setup the ide (kdevelop, visual-studio) to work with conda-packages

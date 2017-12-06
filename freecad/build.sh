@@ -5,6 +5,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DBUILD_QT5=ON \
+      -BUILD_ENABLE_CXX14=ON \
       -DNETGENDATA=$PREFIX/include/netgen \
       -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
       -DNGLIB_INCLUDE_DIR=$PREFIX/include/nglib \

@@ -37,7 +37,7 @@ requirements:
         - pyside2  2.0.0.dev0 py36_vc14_0  # [win]
         - occt
         - netgen
-        - vtk 7.*
+        - vtk
         - libmed
         - hdf5
         - xerces-c 3.1.*
@@ -58,7 +58,7 @@ requirements:
         - pyside2  2.0.0.dev0 py36_vc14_0  # [win]
         - occt
         - netgen
-        - vtk 7.*
+        - vtk
         - libmed
         - xerces-c 3.1.*
         - zlib 1.2*

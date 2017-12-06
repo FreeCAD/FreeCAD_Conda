@@ -7,6 +7,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_C_COMPILER=/usr/bin/gcc-4.9 \
       -DCMAKE_CXX_COMPILER=/usr/bin/g++-4.9 \
       -DBUILD_QT5=ON \
+      -BUILD_ENABLE_CXX14=ON \
       -DNETGENDATA=$PREFIX/include/netgen \
       -DNETGEN_INCLUDEDIR=$PREFIX/include/netgen \
       -DNGLIB_INCLUDE_DIR=$PREFIX/include/nglib \

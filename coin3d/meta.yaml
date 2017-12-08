@@ -4,35 +4,28 @@ package:
 
 source:
     fn: coin.tar.gz
-    url: https://github.com/FreeCAD/pivy/releases/download/0.6.2/coin.tar.gz
-    sha256: e93d77e6ac61f166d93b66e60c644928935263ded1c27205f2e4352adaafdf97
+    url: https://bitbucket.org/Coin3D/coin/get/8e8337f61b05.tar.gz
+    sha256: 8319cfa699afac0e5f19054222c25a7ad655f018f7c3c7b53f626e7b167cb08e
 
     patches:
-        - HAVE_INTTYPES_H.patch
-        - cmake.patch
-        - windows.patch  # [win]
-        - simage.patch  # [win]
+        - include.patch
+    #     - windows.patch  # [win]
+    #     - simage.patch  # [win]
 
 build:
-    number: 6
+    number: 7
     skip: true  # [py<35]
-
-    features:
-        - vc14  # [win]
-
-    track_features:
-        - vc14  # [win]
 
 requirements:
     build:
         - ninja  # [win]
         - vc 14  # [win]
         - cmake
-        - boost-cpp 1.64*
+        - boost-cpp
         - simage
     run:
         - vc 14  # [win]
-        - boost-cpp 1.64*
+        - boost-cpp
         - simage
 
 test:

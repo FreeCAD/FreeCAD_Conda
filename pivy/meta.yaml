@@ -2,9 +2,9 @@ package:
     name: pivy
     version: 0.6.3
 
-# source:
-#     git_url: https://github.com/looooo/pivy
-#     git_tag: qt5
+source:
+    git_url: https://github.com/looooo/pivy
+    git_tag: qt5
 
 
 build:

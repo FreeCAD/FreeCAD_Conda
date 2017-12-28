@@ -13,7 +13,7 @@ source:
     #     - simage.patch  # [win]
 
 build:
-    number: 7
+    number: 8
     skip: true  # [py<35]
 
 requirements:

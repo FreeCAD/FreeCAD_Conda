@@ -2,43 +2,40 @@ package:
     name: pivy
     version: 0.6.3
 
-source:
-    git_url: https://github.com/looooo/pivy
-    git_tag: master
+# source:
+#     git_url: https://github.com/looooo/pivy
+#     git_tag: qt5
 
-    patches:
-        - no_soqt.patch
 
 build:
-    string: py35_dev_0 # [py==35]
-    string: py36_dev_0 # [py==36]
-    string: py27_dev_0 # [py==27]
+    string: py35_dev_2 # [py==35]
+    string: py36_dev_2 # [py==36]
+    string: py27_dev_2 # [py==27]
     features:
         - vc14  # [win]
-        - nosoqt
 
     track_features:
         - vc14  # [win]
-        - nosoqt
   
 requirements:
     build:
+        - cmake
         - python
         - swig 3.0.8
         - coin3d
         - vc 14  # [win]
         - colorama
-        # - soqt
+        - soqt
     run:
         - python
         - coin3d
-        # - soqt
+        - soqt
         - vc 14  # [win]
 
 test:
     imports:
         - pivy.coin
-        # - pivy.gui.soqt
+        - pivy.gui.soqt
 
 about:
     home: https://github.com/looooo/pivy

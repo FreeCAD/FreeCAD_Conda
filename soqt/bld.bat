@@ -5,7 +5,7 @@ cmake .. -G "Ninja" ^
     -DCMAKE_PREFIX_PATH:FILEPATH="%PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX:FILEPATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_BUILD_TYPE="Release" ^
-    -DUSE_QT5=OFF
+    -DUSE_QT5=ON
 
 if errorlevel 1 exit 1
 ninja install

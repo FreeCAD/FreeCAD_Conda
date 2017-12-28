@@ -35,7 +35,7 @@ about:
     license: BSD 3-Clause
     license_family: BSD
     license_file: COPYING
-    summary: Simage, image-library needed by Cin3d.
+    summary: Simage, image-library needed by Coin3d.
     description: This is ``simage'', a library with image format loaders and front-ends
                  to common import libraries. simage is meant for use with applications
                  which reads image files as textures.

@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 9
+    number: 10
 
     features:
         - vc14  # [win and py>=35]
@@ -25,9 +25,9 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost-cpp 1.64*
+        - boost-cpp
         - pybind11  # [unix]
-        - boost 1.64*  # [win]
+        - boost  # [win]
         - python
         - matplotlib
         - coin3d
@@ -40,14 +40,14 @@ requirements:
         - vtk
         - libmed
         - hdf5
-        - xerces-c 3.1.*
+        - xerces-c
         - zlib 1.2.*
         - doxygen
         - git
     run:
         - vc 14  # [win and py>=35]
-        - boost-cpp 1.64*
-        - boost 1.64*  # [win]
+        - boost-cpp
+        - boost  # [win]
         - python
         - numpy
         - matplotlib
@@ -60,7 +60,7 @@ requirements:
         - netgen
         - vtk
         - libmed
-        - xerces-c 3.1.*
+        - xerces-c
         - zlib 1.2*
         - git
         - calculix  # [unix]

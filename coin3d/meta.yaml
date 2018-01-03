@@ -9,8 +9,6 @@ source:
 
     patches:
         - include.patch
-    #     - windows.patch  # [win]
-    #     - simage.patch  # [win]
 
 build:
     number: 8
@@ -20,11 +18,13 @@ requirements:
     build:
         - ninja  # [win]
         - vc 14  # [win]
+        - gcc  # [linux]
         - cmake
         - boost-cpp
         - simage
     run:
         - vc 14  # [win]
+        - libgcc  # [linux]
         - boost-cpp
         - simage
 

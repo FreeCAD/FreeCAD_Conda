@@ -26,7 +26,7 @@ service start docker
 
 ```
 sudo docker run -i -t -v ~/projects/:/projects  --name conda-forge condaforge/linux-anvil
-yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
+/usr/bin/sudo -n yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
 ```
 
 > -v: mount a local path into the docker host

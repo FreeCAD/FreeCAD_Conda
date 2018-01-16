@@ -25,7 +25,7 @@ service start docker
 - conda-forge docker image:
 
 ```
-sudo docker run -i -t -v ~/projects/:/projects  --name conda-forge condaforge/linux-anvil
+sudo docker run -i -t -v ~/projects/:/home/conda/projects  --name conda-forge condaforge/linux-anvil
 /usr/bin/sudo -n yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
 ```
 

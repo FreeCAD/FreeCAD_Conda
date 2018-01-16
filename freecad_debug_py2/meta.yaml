@@ -1,9 +1,17 @@
 package:
-    name: freecad-debug
+    name: freecad-debug-py2
     version: 0.17
 
 build:
-    number: 10
+    number: 6
+
+    features:
+        - vc14  # [win and py>=35]
+        - occt7.2.0
+
+    track_features:
+        - vc14  # [win and py>=35]
+        - occt7.2.0
 
 requirements:
     build:
@@ -13,29 +21,28 @@ requirements:
         - cmake
         - swig
         - eigen
-        - boost-cpp 1.66.0
-        - pybind11  # [unix]
-        - boost 1.66.0  # [win]
+        - boost-cpp 1.64*
+        - boost 1.64*  # [win]
+        - pybind11
         - python
         - matplotlib
         - coin3d
         - pivy
         - qt 5.*
-        - pyside2  2.0.0.dev0 py36_0  # [unix]
-        - pyside2  2.0.0.dev0 py36_vc14_0  # [win]
-        - occt 7.2.0
+        - pyside2  2.0.0.dev0 py27_0
+        - occt
         - netgen
-        - vtk 8.*
+        - vtk  7.*
         - libmed
         - hdf5
-        - xerces-c 3.2.0
+        - xerces-c 3.1.*
         - zlib 1.2.*
         - doxygen
         - git
     run:
         - vc 14  # [win and py>=35]
-        - boost-cpp 1.66.0
-        - boost 1.66.0  # [win]
+        - boost-cpp 1.64*
+        - boost 1.64*  # [win]
         - python
         - numpy
         - matplotlib
@@ -45,16 +52,12 @@ requirements:
         - pyside2
         - occt
         - netgen
-        - vtk 8.*
+        - vtk
         - libmed
-        - xerces-c 3.2.0
+        - xerces-c 3.1.*
         - zlib 1.2*
         - git
-        - calculix  # [unix]
-about:
-    summary: freecad
-
-
+        - calculix
 about:
     summary: freecad
 

@@ -14,7 +14,7 @@ build:
 
 requirements:
     build:
-        - toolchan
+        - toolchain
         - cmake
         - python
         - swig 3.0.8

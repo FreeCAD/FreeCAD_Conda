@@ -3,7 +3,7 @@ package:
     version: 0.17
 
 build:
-    number: 10
+    number: 11
 
 source:
     git_url: https://github.com/FreeCAD/FreeCAD
@@ -24,15 +24,15 @@ requirements:
         - matplotlib
         - coin3d
         - pivy
-        - qt 5.*
+        - qt 5.6.*
         - pyside2  2.0.0.dev0 py36_0  # [unix]
         - pyside2  2.0.0.dev0 py36_vc14_0  # [win]
         - occt 7.2.0
         - netgen
-        - vtk 8.*
+        - vtk 8.1.*
         - libmed
         - hdf5
-        - xerces-c 3.2.0
+        - xerces-c 3.2.*
         - zlib 1.2.*
         - doxygen
         - git
@@ -45,13 +45,13 @@ requirements:
         - matplotlib
         - coin3d
         - pivy
-        - qt 5.*
+        - qt 5.6.*
         - pyside2
-        - occt
+        - occt 7.2.0
         - netgen
-        - vtk 8.*
+        - vtk 8.1.*
         - libmed
-        - xerces-c 3.2.0
+        - xerces-c 3.2.*
         - zlib 1.2*
         - git
         - calculix  # [unix]

@@ -38,6 +38,7 @@ requirements:
         - doxygen
         - git
     run:
+        - libgcc  # [linux]
         - vc 14  # [win and py>=35]
         - boost-cpp 1.66.0
         - boost 1.66.0  # [win]

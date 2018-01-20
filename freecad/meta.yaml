@@ -11,6 +11,7 @@ source:
 
 requirements:
     build:
+        - gcc  # [linux]
         - nomkl  # [unix]
         - vc 14  # [win and py>=35]
         - ninja  # [win and py>=35]

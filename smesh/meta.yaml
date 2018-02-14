@@ -3,11 +3,15 @@ package:
     version: 8.3.0
 
 source:
-    git_url: https://github.com/looooo/SMESH
-    git_tag: master
+    git_url: https://github.com/LaughlinResearch/SMESH
+    git_tag: med_support
 
 build:
     number: 0
+    features:
+        - vc14  # [win and py36]
+    track_features:
+        - vc14  # [win and py36]
 
 requirements:
     build:
@@ -20,6 +24,8 @@ requirements:
         - occt 7.2.0
         - netgen
         - vtk 8.*
+        - libmed
+        -  pthread-stubs
 
     run:
         - libgcc  # [unix]
@@ -28,6 +34,8 @@ requirements:
         - occt 7.2.0
         - netgen
         - vtk 8.*
+        - libmed
+        -  pthread-stubs 
 
 about:
     home: https://github.com/LaughlinResearch/SMESH

@@ -3,13 +3,8 @@ cd build
 
 cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_BUILD_TYPE=Release \
-      -DRAISE_EXCEPTION_ON_FAILURE=ON \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
-      -DSMESH_USE_BUNDLED_BOOST=ON \
-      -DSMESH_TESTING=ON \
-      -DPTHREAD_INCLUDE_DIRS=$PREFIX/include \
-      -DPTHREAD_LIB_DIRS=$PREFIX/lib \
-      ..
+      ~/projects/SMESH
 
 make -j${CPU_COUNT} install

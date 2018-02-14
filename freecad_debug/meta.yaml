@@ -14,8 +14,7 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.66.0
-        - pybind11  # [unix]
-        - boost 1.66.0  # [win]
+        - pybind11
         - python
         - matplotlib
         - coin3d
@@ -34,7 +33,6 @@ requirements:
     run:
         - vc 14  # [win and py>=35]
         - boost-cpp 1.66.0
-        - boost 1.66.0  # [win]
         - python
         - numpy
         - matplotlib
@@ -56,4 +54,3 @@ about:
 
 about:
     summary: freecad
-

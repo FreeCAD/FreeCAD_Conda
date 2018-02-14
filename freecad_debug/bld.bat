@@ -1,4 +1,4 @@
-SET FREECAD_SOURCE="C:\Users\fc_builder\projects\FreeCAD"
+SET FREECAD_SOURCE="C:\Users\hans_\projects\FreeCAD"
 
 
 rem use this line if you want to build with visual studio

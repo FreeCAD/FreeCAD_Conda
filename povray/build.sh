@@ -14,6 +14,7 @@ set -e
     --without-x \
     --without-openexr \
     --without-libsdl \
+    COMPILED_BY="conda"
 
 make
 make install

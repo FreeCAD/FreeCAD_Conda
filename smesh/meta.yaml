@@ -20,22 +20,24 @@ requirements:
         - ninja  # [win]
         - vc 14  # [win]
         - gcc  # [unix]
-        - boost-cpp
+        - boost-cpp 1.66*
         - occt 7.2.0
         - netgen
         - vtk 8.*
         - libmed
-        -  pthread-stubs
+        - pthread-stubs  # [unix]
+        - pthreads-win32  # [win]
 
     run:
         - libgcc  # [unix]
         - vc 14  # [win]
-        - boost-cpp
+        - boost-cpp 1.66*
         - occt 7.2.0
         - netgen
         - vtk 8.*
         - libmed
-        -  pthread-stubs 
+        - pthread-stubs  # [unix]
+        - pthreads-win32  # [win]
 
 about:
     home: https://github.com/LaughlinResearch/SMESH

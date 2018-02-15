@@ -1,0 +1,41 @@
+{% set version = "3.7.0.4" %}
+{% set v_boost = "1.66" %}
+{% set v_gcc = "4.8" %}
+{% set v_png = "1.6.27" %}
+{% set v_tiff = "4.0.6" %}
+
+package:
+  name: povray
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/POV-Ray/povray.git
+  git_tag: v{{ version }}
+
+requirements:
+  build:
+    - gcc {{ v_gcc }}*
+    - boost {{ v_boost }}*
+    - libpng {{ v_png }}*
+    - jpeg
+    - libtiff {{ v_tiff }}*
+    - zlib
+  run:
+    - libgcc >={{ v_gcc }}
+    - boost {{ v_boost }}*
+    - libpng >={{ v_png }}
+    - jpeg
+    - libtiff >={{ v_tiff }}
+    - zlib
+
+build:
+  number: 0
+
+test:
+  commands:
+    - povray --version
+
+about:
+  summary: 'Persistence of Vision Raytracer'
+  home: http://www.povray.org/
+  license: AGPL3

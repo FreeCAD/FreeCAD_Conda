@@ -1,0 +1,37 @@
+package:
+    name: pyocct
+    version: 0.0.1
+
+build:
+    number: 0
+    features:
+        - vc14  # [win and py36]
+    track_features:
+        - vc14  # [win and py36]
+
+requirements:
+    build:
+        - toolchain
+        - cmake
+        - ninja  # [win]
+        - vc 14  # [win and py>=35]
+        - python
+        - pybind11
+        - occt 7.2.0
+        - smesh
+        - vtk
+        - netgen
+    run:
+        - vc 14  # [win and py>=35]
+        - python
+        - occt 7.2.0
+        - smesh
+        - vtk
+        - netgen
+
+test:
+    imports:
+        - OCCT
+
+about:
+    summary: python bindings to OCCT

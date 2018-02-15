@@ -8,7 +8,7 @@ cmake -G "Ninja" ^
     -D CMAKE_SYSTEM_PREFIX_PATH:FILEPATH="%LIBRARY_PREFIX%" ^
     -D PTHREAD_INCLUDE_DIRS:FILE_PATH="%LIBRARY_PREFIX%/include" ^
     -D PTHREAD_LIB_DIRS:FILE_PATH="%LIBRARY_PREFIX%/lib" ^
-    C:\Users\hans_\projects\SMESH
+    ..
 
 if errorlevel 1 exit 1
 ninja install

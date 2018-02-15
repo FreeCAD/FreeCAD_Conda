@@ -7,7 +7,7 @@ source:
     git_tag: master
 
 build:
-    number: 8
+    number: 9
 
 requirements:
     build:
@@ -41,6 +41,6 @@ about:
                  It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
                  STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files.
                  NETGEN contains modules for mesh optimization and hierarchical mesh refinement.
-                 Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows. 
+                 Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows.
     doc_url: http://www.hpfem.jku.at/netgen/
     dev_url: https://sourceforge.net/projects/netgen-mesher/

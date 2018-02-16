@@ -3,16 +3,15 @@ cd build
 
 cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE=Release ^
-      -D CMAKE_INSTALL_PREFIX:FILE_PATH="%LIBRARY_PREFIX%" ^
-      -D CMAKE_PREFIX_PATH:FILE_PATH="%LIBRARY_PREFIX%" ^
-      -D CMAKE_SYSTEM_PREFIX_PATH:FILE_PATH="%LIBRARY_PREFIX%" ^
       -D PTHREAD_INCLUDE_DIRS:FILE_PATH="%LIBRARY_PREFIX%/include" ^
-      -D PTHREAD_LIB_DIRS:FILE_PATH="%LIBRARY_PREFIX%/lib" ^
-      -D ENABLE_SMESH=OFF ^
-      -D ENABLE_NETGEN=OFF ^
+      -D ENABLE_SMESH=ON ^
+      -D ENABLE_NETGEN=ON ^
       -D ENABLE_BLSURF=OFF ^
-      ..
+      C:\Users\hans_\projects\pyOCCT
 
 if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
+
+cd C:\Users\hans_\projects\pyOCCT
+%PYTHON% setup.py install

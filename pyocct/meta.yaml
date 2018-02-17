@@ -9,9 +9,7 @@ package:
 build:
     number: 0
     features:
-        - vc14  # [win and py36]
-    track_features:
-        - vc14  # [win and py36]
+        - vc14  # [win]
 
 requirements:
     build:

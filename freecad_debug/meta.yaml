@@ -3,7 +3,9 @@ package:
     version: 0.17
 
 build:
-    number: 10
+    number: 12
+    features:
+        - vc14  # [win and py>=35]
 
 requirements:
     build:

@@ -53,7 +53,7 @@ conda build . --python=3.5 --dirty
 
 ## problems
 - there is the chance the default conda and the build environment are using the same python version. If this is the case you should set the variable PYTHONHOME explicitly to the build environment.
-in kdevelop: 
+in kdevelop:
  - run / configure launches
  - select problematic version
  - Environmen (press on the button on the right side)

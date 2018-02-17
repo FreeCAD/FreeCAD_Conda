@@ -2,16 +2,20 @@ package:
     name: freecad
     version: 0.17
 
-build:
-    number: 11
+
 
 source:
     git_url: https://github.com/FreeCAD/FreeCAD
     git_tag: master
 
+build:
+    number: 12
+    features:
+        - vc14  # [win and py>=35]
+
 requirements:
     build:
-        - gcc  # [linux]
+        - gcc  # [unix]
         - nomkl  # [unix]
         - vc 14  # [win and py>=35]
         - ninja  # [win and py>=35]
@@ -19,7 +23,8 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.66.0
-        - pybind11
+        - boost 1.66  # [win]
+        - pybind11  # [unix]
         - python
         - matplotlib
         - coin3d
@@ -36,9 +41,10 @@ requirements:
         - doxygen
         - git
     run:
-        - libgcc  # [linux]
+        - libgcc  # [unix]
         - vc 14  # [win and py>=35]
         - boost-cpp 1.66.0
+        - boost 1.66  # [win]
         - python
         - numpy
         - matplotlib

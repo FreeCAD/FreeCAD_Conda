@@ -51,9 +51,10 @@ __open ~.condarc with a editor and make the channels section look like this__
 
 ```
 channels:
+  - freecad
+  - cad
   - conda-forge
   - defaults
-  - freecad
 ```
 
  - the channels hosting this libraries:

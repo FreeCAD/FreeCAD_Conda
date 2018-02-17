@@ -15,15 +15,17 @@ build:
     features:
         - vc14  # [win]
 
-    track_features:
-        - vc14  # [win]
-
 requirements:
     build:
+        - gcc  # [unix]
+        - flang  # [win]
         - vc 14  # [win]
         - toolchain
         - perl
     run:
+        - libgcc  # [unix]
+        - libgfortran # [unix]
+        - libflang  # [win]
         - vc 14  # [win]
 
 about:
@@ -32,7 +34,7 @@ about:
     license_family: GPL
     # license_file: COPYING
     summary: 3D Structural Finite Element Program
-    description: A Free Software Three-Dimensional Structural 
+    description: A Free Software Three-Dimensional Structural
                  Finite Element Program
     doc_url: http://www.dhondt.de/ccx_2.12.pdf
     dev_url: http://www.dhondt.de/

@@ -2,12 +2,15 @@ mkdir -p build
 cd build
 
 cmake -D CMAKE_BUILD_TYPE=Release \
-	  -D CMAKE_INSTALL_PREFIX=${PREFIX} \
-      -D CMAKE_PREFIX_PATH=${PREFIX} \
-      -D CMAKE_SYSTEM_PREFIX_PATH=${PREFIX} \
-      -D ENABLE_SMESH=OFF \
-      -D ENABLE_NETGEN=OFF \
+      -DCMAKE_C_COMPILER=/usr/bin/gcc \
+      -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
+      -D PTHREAD_INCLUDE_DIRS=${PREFIX} \
+      -D ENABLE_SMESH=ON \
+      -D ENABLE_NETGEN=ON \
       -D ENABLE_BLSURF=OFF \
       ~/projects/pyOCCT
 
-make install
+make -j${CPU_COUNT}
+
+cd ~/projects/pyOCCT
+${PYTHON} setup.py install

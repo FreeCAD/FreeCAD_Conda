@@ -3,9 +3,8 @@ package:
     version: 0.0.1
 
 # source:
-    # git_url: https://github.com/LaughlinResearch/pyOCCT
-    # git_tag: support_cad_channel
-
+#     git_url: https://github.com/looooo/pyOCCT
+#     git_tag: master
 
 build:
     number: 0
@@ -17,6 +16,7 @@ build:
 requirements:
     build:
         - toolchain
+        # - gcc  # [win]
         - cmake
         - ninja  # [win]
         - vc 14  # [win and py>=35]
@@ -28,6 +28,7 @@ requirements:
         - netgen
     run:
         - vc 14  # [win and py>=35]
+        # - libgcc  # [linux]
         - python
         - occt 7.2.0
         - smesh

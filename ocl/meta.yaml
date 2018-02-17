@@ -14,22 +14,20 @@ build:
     number: 4
     features:
         - vc14  # [win and py>=35]
-        - occt7.1.0
-
-    track_features:
-        - vc14  # [win and py>=35]
-        - occt7.1.0
 
 requirements:
     build:
-        - cmake
+        - toolchain
+        - gcc  # [unix]
         - vc 14  # [win and py>=35]
         - ninja  # [win and py>=35]
+        - cmake
         - boost
         - python
         - doxygen
         - nomkl  # [unix]
     run:
+        - libgcc  # [unix]
         - vc 14  # [win and py>=35]
         - boost
         - python

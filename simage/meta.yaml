@@ -22,14 +22,14 @@ requirements:
         - toolchain
         - vc 14  # [win]
         - ninja  # [win]
-        - gcc  # [linux]
+        - gcc  # [unix]
         - cmake
         - qt 5.*
         - libpng
         - jpeg
     run:
         - vc 14  # [win]
-        - libgcc  # [linux]
+        - libgcc  # [unix]
         - libpng
         - qt 5.*
 

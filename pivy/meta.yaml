@@ -15,18 +15,20 @@ build:
 requirements:
     build:
         - toolchain
+        - vc 14  # [win]
+        - gcc  # [unix]
         - cmake
         - python
         - swig 3.0.8
         - coin3d
-        - vc 14  # [win]
         - colorama
         - soqt
     run:
+        - vc 14  # [win]
+        - libgcc  # [unix]
         - python
         - coin3d
         - soqt
-        - vc 14  # [win]
 
 test:
     imports:

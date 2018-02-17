@@ -14,7 +14,7 @@ build:
 requirements:
     build:
         - toolchain
-        # - gcc  # [win]
+        # - gcc  # [unix]
         - cmake
         - ninja  # [win]
         - vc 14  # [win and py>=35]
@@ -26,7 +26,7 @@ requirements:
         - netgen
     run:
         - vc 14  # [win and py>=35]
-        # - libgcc  # [linux]
+        # - libgcc  # [unix]
         - python
         - occt 7.2.0
         - smesh

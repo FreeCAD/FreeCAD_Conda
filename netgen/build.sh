@@ -13,12 +13,11 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DNG_INSTALL_DIR_INCLUDE=$PREFIX/include/netgen \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
-      -DCMAKE_CXX_FLAGS='-fabi-version=6' \
       -DOCC_LIBRARY_DIR=$PREFIX/lib \
       -DUSE_NATIVE_ARCH=OFF \
       -DUSE_OCC=ON \
       -DUSE_PYTHON=ON \
-      -DUSE_GUI=OFF \
+      -DUSE_GUI=ON \
       -DUSE_SUPERBUILD=OFF \
       ..
 

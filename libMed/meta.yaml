@@ -14,17 +14,17 @@ build:
     features:
         - vc14  # [win and py>=35]
 
-    track_features:
-        - vc14  # [win and py>=35]
-
 requirements:
     build:
+        - toolchain
+        - gcc  # [unix]
         - vc 14   # [win and py>=35]
-        - ninja  # [win and py>=35]
-        - cmake >=3.1
+        - ninja  # [win]
+        - cmake
         - hdf5 1.8.18.*
         - zlib 1.2*
     run:
+        - libgcc  # [unix]
         - vc 14  # [win and py>=35]
         - hdf5 1.8.18.*
         - zlib 1.2*

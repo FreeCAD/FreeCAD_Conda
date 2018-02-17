@@ -14,21 +14,19 @@ build:
 requirements:
     build:
         - toolchain
-        - gcc  # [linux]
+        - gcc  # [unix]
         - cmake
         - vc 14  # [win and py>=35]
-        - ninja  # [win and py>=35]
+        - ninja  # [win]
         - occt 7.2.*
         - python
         - pybind11
     run:
-        - libgcc  # [linux]
-        - occt 7.2.*
+        - libgcc  # [unix]
         - vc 14  # [win and py>=35]
+        - occt 7.2.*
         - python
         - future  # [py<=27]
-        - xorg-libxmu  # [linux]
-        - xorg-libxi  # [linux]
 
 test:
     imports:

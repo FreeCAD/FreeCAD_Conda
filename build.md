@@ -15,6 +15,14 @@ Conda-Forge is a github-organization containing many dependencies of FreeCAD. Wi
 ## linux
 - [install Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) for ubuntu. But there also installation-guides for other distros available.
 
+### ubuntu reminder:
+as all conda packages are build in centos6 we have to create some soft-links to mimic a centos6:
+```
+mkdir -p /opt/graphics/OpenGL/lib
+ln -s /usr/lib/x86_64-linux-gnu/libGLU.so /opt/graphics/OpenGL/lib
+ln -s /usr/lib/x86_64-linux-gnu/ /usr/lib64
+```
+
 ### cent-os-6 reminder:
 ```
 yum install epel-release

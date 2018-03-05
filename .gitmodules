@@ -1,0 +1,9 @@
+[submodule "coin3d"]
+	path = coin3d
+	url = https://github.com/conda-forge/coin3d-feedstock
+[submodule "simage"]
+	path = simage
+	url = https://github.com/conda-forge/simage-feedstock
+[submodule "occt"]
+	path = occt
+	url = https://github.com/conda-forge/occt-feedstock

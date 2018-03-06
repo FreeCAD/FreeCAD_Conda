@@ -39,6 +39,7 @@ requirements:
         - zlib 1.2.*
         - doxygen
         - git
+        - libglu  # [linux]
     run:
         - libgcc  # [unix]
         - vc 14  # [win and py>=35]
@@ -59,5 +60,6 @@ requirements:
         - zlib 1.2*
         - git
         - calculix  # [unix]
+        - libglu  # [linux]
 about:
     summary: freecad

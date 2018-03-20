@@ -7,3 +7,6 @@
 [submodule "occt"]
 	path = occt
 	url = https://github.com/conda-forge/occt-feedstock
+[submodule "pivy"]
+	path = pivy
+	url = https://github.com/conda-forge/pivy-feedstock

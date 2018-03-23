@@ -7,7 +7,7 @@ source:
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
 build:
-    number: 12
+    number: 13
     features:
         - vc14  # [win and py>=35]
 
@@ -22,18 +22,18 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.66.0
-        - boost 1.66  # [win]
+        - boost 1.66.0  # [win]
         - pybind11  # [unix]
         - python
         - matplotlib
         - coin3d
         - pivy
         - qt 5.6.*
-        - pyside2
+        - pyside2 5.6.*
         - occt 7.2.0
-        - netgen
+        - netgen  # [not win32]
+        - libmed  # [not win32]
         - vtk 8.1.*
-        - libmed
         - hdf5
         - xerces-c 3.2.*
         - zlib 1.2.*
@@ -44,18 +44,18 @@ requirements:
         - libgcc  # [unix]
         - vc 14  # [win and py>=35]
         - boost-cpp 1.66.0
-        - boost 1.66  # [win]
+        - boost 1.66.0  # [win]
         - python
         - numpy
         - matplotlib
         - coin3d
         - pivy
         - qt 5.6.*
-        - pyside2
+        - pyside2 5.6.*
         - occt 7.2.0
-        - netgen
         - vtk 8.1.*
-        - libmed
+        - netgen  # [not win32]
+        - libmed  # [not win32]
         - xerces-c 3.2.*
         - zlib 1.2*
         - git

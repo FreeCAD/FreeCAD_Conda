@@ -2,9 +2,9 @@ package:
     name: pyocct
     version: 0.0.1
 
-# source:
-#     git_url: https://github.com/looooo/pyOCCT
-#     git_tag: master
+source:
+    git_url: https://github.com/looooo/pyOCCT
+    git_tag: master
 
 
 build:
@@ -15,10 +15,10 @@ build:
 requirements:
     build:
         - toolchain
+        - vc 14  # [win and py>=35]
         - gcc  # [unix]
         - cmake
-        - ninja  # [win]
-        - vc 14  # [win and py>=35]
+        - ninja
         - python
         - pybind11 2.3.0
         - occt 7.2.0

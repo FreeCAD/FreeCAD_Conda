@@ -7,7 +7,7 @@ cmake -G "Ninja" ^
       -D ENABLE_SMESH=ON ^
       -D ENABLE_NETGEN=ON ^
       -D ENABLE_BLSURF=OFF ^
-       C:\Users\hans_\projects\pyOCCT
+       ..
 
 if errorlevel 1 exit 1
 ninja install

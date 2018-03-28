@@ -12,7 +12,6 @@ cmake -D CMAKE_BUILD_TYPE=Release \
       -D ENABLE_BLSURF=OFF \
       ..
 
-# make -j${CPU_COUNT}
 make -j${CPU_COUNT} install
 
 cd ..

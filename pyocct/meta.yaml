@@ -37,6 +37,9 @@ requirements:
 test:
     imports:
         - OCCT
+        - OCCT.Exchange
+        - OCCT.Boolean
+        - OCCT.SMESH
 
 about:
     summary: python bindings to OCCT

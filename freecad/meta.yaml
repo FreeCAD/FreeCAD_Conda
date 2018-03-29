@@ -7,7 +7,7 @@ source:
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
 build:
-    number: 13
+    number: 14
     features:
         - vc14  # [win and py>=35]
 

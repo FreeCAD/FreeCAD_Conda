@@ -19,7 +19,7 @@ requirements:
         - toolchain
         - gcc  # [unix]
         - vc 14   # [win and py>=35]
-        - ninja  # [win]
+        - ninja
         - cmake
         - hdf5 1.8.18.*
         - zlib 1.2*

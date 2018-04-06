@@ -10,3 +10,6 @@
 [submodule "pivy"]
 	path = pivy
 	url = https://github.com/conda-forge/pivy-feedstock
+[submodule "netgen"]
+	path = netgen
+	url = https://github.com/conda-forge/netgen-feedstock

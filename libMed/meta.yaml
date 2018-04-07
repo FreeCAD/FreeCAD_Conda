@@ -12,6 +12,7 @@ source:
     url: http://files.salome-platform.org/Salome/other/med-{{ version }}.tar.gz
     sha256: {{ sha256  }}
 
+
 build:
     number: 0
     features:

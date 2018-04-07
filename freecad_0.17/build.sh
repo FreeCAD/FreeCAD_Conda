@@ -24,7 +24,6 @@ cmake -G "Ninja" \
       -D BUILD_ENABLE_CXX11=ON \
       ..
 
-make -j${CPU_COUNT} 2>&1 | tee output.txt
-make -j${CPU_COUNT} install
+ninja install
 
 rm ${PREFIX}/doc -r     # smaller size of package!

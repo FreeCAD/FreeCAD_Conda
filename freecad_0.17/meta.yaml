@@ -5,7 +5,7 @@ package:
 source:
     fn: freecad.tar.gz
     url: https://github.com/FreeCAD/FreeCAD/archive/0.17.tar.gz
-    sha256: 12344
+    sha256: ae017393476b6dc7f1192bcaf91ceedc2f9b791f2495307ce7c45efadb5266fb
 
 build:
     number: 15

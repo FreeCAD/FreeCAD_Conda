@@ -1,0 +1,45 @@
+{%set name = "gmsh"%}
+{%set version = "3.0.6"%}
+{%set md5 = "78bbfdd695b29cfef18a99f93226afc5"%}
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+
+source:
+    fn: {{ name }}-{{ version }}-source.tgz
+    url: http://gmsh.info//src/{{ name }}-{{ version }}-source.tgz
+    md5: {{ md5 }}
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - toolchain
+        - ninja
+        - cmake
+        - gcc  # [unix]
+        - petsc  # [unix]
+        - slepc  # [unix]
+        - python
+        - numpy
+        - gmp
+        - occt
+    run:
+        - libgcc  # [unix]
+        - python
+        - petsc  # [unix]
+        - slepc  # [unix]
+        - numpy
+        - gmp
+        - occt
+
+test:
+    commands:
+      - gmsh -help
+
+about:
+    home: http://geuz.org/gmsh/
+    license: GPL
+    summary: A three-dimensional finite element mesh generator with built-in pre- and post-processing facilities

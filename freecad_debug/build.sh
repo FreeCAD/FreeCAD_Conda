@@ -24,6 +24,7 @@ cmake -D CMAKE_BUILD_TYPE=Release \
       -D FREECAD_USE_PYBIND11=YES \
       -D BUILD_ENABLE_CXX11=ON \
       -D SMESH_INCLUDE_DIR=$PREFIX/include/smesh \
+      -D FREECAD_USE_EXTERNAL_SMESH=ON \
       ${FREECAD_SOURCE}
 
 make -j${CPU_COUNT} 2>&1 | tee output.txt

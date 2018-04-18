@@ -11,7 +11,7 @@ package:
 #     git_tag: master
 
 build:
-    number: 3
+    number: 4
     features:
         - vc14  # [win and py36]
     track_features:

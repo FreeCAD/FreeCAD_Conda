@@ -7,7 +7,7 @@ cmake -G "Ninja" \
       -D CMAKE_PREFIX_PATH=$PREFIX \
       -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
       -D CMAKE_CXX_FLAGS="-std=c++11" \
-      -D ENABLE_MED=ON \
+      -D ENABLE_MED=OFF \
       ~/projects/SMESH
 
-make install
+ninja install

@@ -22,9 +22,10 @@ cmake -G "Ninja" \
       -D USE_BOOST_PYTHON=NO \
       -D FREECAD_USE_PYBIND11=YES \
       -D BUILD_ENABLE_CXX11=ON \
+      -D SMESH_INCLUDE_DIR=$PREFIX/include/smesh \
+      -D FREECAD_USE_EXTERNAL_SMESH=ON \
       ..
 
-make -j${CPU_COUNT} 2>&1 | tee output.txt
-make -j${CPU_COUNT} install
+ninja -j${CPU_COUNT} install
 
 rm ${PREFIX}/doc -r     # smaller size of package!

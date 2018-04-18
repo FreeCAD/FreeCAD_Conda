@@ -6,8 +6,11 @@ source:
     fn: freecad.tar.gz
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
+    patches:
+        - external_smesh.patch
+
 build:
-    number: 0
+    number: 1
     features:
         - vc14  # [win and py>=35]
 
@@ -31,6 +34,7 @@ requirements:
         - qt 5.6.*
         - pyside2 5.6.*
         - occt 7.2.0
+        - smesh  # [linux]
         - netgen  # [not win32]
         - libmed
         - vtk 8.1.*
@@ -54,6 +58,7 @@ requirements:
         - pyside2 5.6.*
         - occt 7.2.0
         - vtk 8.1.*
+        - smesh  # [linux]
         - netgen  # [not win32]
         - libmed
         - xerces-c 3.2.*

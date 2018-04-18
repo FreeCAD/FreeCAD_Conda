@@ -13,3 +13,6 @@
 [submodule "netgen"]
 	path = netgen
 	url = https://github.com/conda-forge/netgen-feedstock
+[submodule "libmed"]
+	path = libmed
+	url = https://github.com/conda-forge/libmed-feedstock

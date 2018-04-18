@@ -8,9 +8,10 @@ source:
 
     patches:
         - external_smesh.patch
+        - mesh-flattening.patch
 
 build:
-    number: 1
+    number: 2
     features:
         - vc14  # [win and py>=35]
 
@@ -34,9 +35,8 @@ requirements:
         - qt 5.6.*
         - pyside2 5.6.*
         - occt 7.2.0
-        - smesh  # [linux]
+        - smesh
         - netgen  # [not win32]
-        - libmed
         - vtk 8.1.*
         - hdf5
         - xerces-c 3.2.*
@@ -58,9 +58,8 @@ requirements:
         - pyside2 5.6.*
         - occt 7.2.0
         - vtk 8.1.*
-        - smesh  # [linux]
+        - smesh
         - netgen  # [not win32]
-        - libmed
         - xerces-c 3.2.*
         - zlib 1.2*
         - git

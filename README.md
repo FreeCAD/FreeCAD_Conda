@@ -1,3 +1,20 @@
+# Packaging Status
+
+package-name | linux | osx | win  
+-------------|-------|-----|---- 
+coin3d | [![Circle CI](https://circleci.com/gh/conda-forge/coin3d-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/coin3d-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/coin3d-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/coin3d-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/coin3d-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/coin3d-feedstock/branch/master) 
+libmed | [![Circle CI](https://circleci.com/gh/conda-forge/libmed-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/libmed-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/libmed-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/libmed-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/libmed-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/libmed-feedstock/branch/master)  
+netgen | [![Circle CI](https://circleci.com/gh/conda-forge/netgen-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/netgen-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/netgen-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/netgen-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/netgen-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/netgen-feedstock/branch/master)  
+occt | [![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/occt-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/occt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/occt-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/occt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/occt-feedstock/branch/master)
+pivy | [![Circle CI](https://circleci.com/gh/conda-forge/pivy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pivy-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/pivy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pivy-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pivy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pivy-feedstock/branch/master)
+simage | [![Circle CI](https://circleci.com/gh/conda-forge/simage-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/simage-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/simage-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/simage-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/simage-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/simage-feedstock/branch/master)
+soqt  | freecad-channel | --- | freecad-channel
+smesh | cad-channel | --- | cad-channel
+calculix | freecad-channel | --- | ---
+gmsh | freecad-channel | --- | ----
+
+
+
 # CONDA-PACKAGES for FreeCAD
 The idea behind the usage of conda for FreeCAD is the wish for a consistend package-manager for linux (all distros), windows and mac. Furthermore conda gives FreeCAD the ability to install 3rd-party modules with dependencies easily.
 

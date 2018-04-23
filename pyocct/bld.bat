@@ -4,8 +4,8 @@ cd build
 cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE=Release ^
       -D PTHREAD_INCLUDE_DIRS:FILEPATH="%LIBRARY_PREFIX%/include" ^
-      -D ENABLE_SMESH=OFF ^
-      -D ENABLE_NETGEN=OFF ^
+      -D ENABLE_SMESH=ON ^
+      -D ENABLE_NETGEN=ON ^
       -D ENABLE_BLSURF=OFF ^
        ..
 

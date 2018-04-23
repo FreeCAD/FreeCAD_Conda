@@ -23,6 +23,9 @@ cmake -G "Ninja" ^
       -D SWIG_EXECUTABLE:FILEPATH=%LIBRARY_PREFIX%/bin/swig ^
       -D PYTHON_EXECUTABLE=%PYTHON% ^
       -D BUILD_REVERSEENGINEERING=NO ^
+      -D FREECAD_USE_PYBIND11=YES ^
+      -D SMESH_INCLUDE_DIR:FILEPATH=%LIBRARY_PREFIX%/include/smesh ^
+      -D FREECAD_USE_EXTERNAL_SMESH=ON ^
       ..
 
 if errorlevel 1 exit 1

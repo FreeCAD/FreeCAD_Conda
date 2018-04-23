@@ -8,7 +8,6 @@ source:
 
     patches:
         - external_smesh.patch
-        - mesh-flattening.patch
 
 build:
     number: 2

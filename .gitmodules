@@ -16,3 +16,6 @@
 [submodule "libmed"]
 	path = libmed
 	url = https://github.com/conda-forge/libmed-feedstock
+[submodule "smesh"]
+	path = smesh
+	url = https://github.com/conda-forge/smesh-feedstock

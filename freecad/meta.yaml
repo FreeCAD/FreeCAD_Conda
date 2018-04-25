@@ -4,15 +4,13 @@ package:
 
 source:
     fn: freecad.tar.gz
-    url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
-
-    patches:
-        - external_smesh.patch
+    url: https://github.com/looooo/FreeCAD/archive/smesh8.3.tar.gz
 
 build:
-    number: 2
+    number: 3
     features:
         - vc14  # [win and py>=35]
+
 
 requirements:
     build:
@@ -25,8 +23,7 @@ requirements:
         - swig
         - eigen
         - boost-cpp 1.66.0
-        - boost 1.66.0  # [win]
-        - pybind11  # [unix]
+        - pybind11
         - python
         - matplotlib
         - coin3d
@@ -47,7 +44,6 @@ requirements:
         - libgcc  # [unix]
         - vc 14  # [win and py>=35]
         - boost-cpp 1.66.0
-        - boost 1.66.0  # [win]
         - python
         - numpy
         - matplotlib

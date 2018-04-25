@@ -13,5 +13,5 @@ if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
 
-cd C:\Users\hans_\projects\pyOCCT
+cd ..
 %PYTHON% setup.py install

@@ -3,7 +3,7 @@ package:
     version: 0.0.1
 
 source:
-    git_url: https://github.com/LaughlinResearch/pyOCCT
+    git_url: https://github.com/looooo/pyOCCT
     git_tag: master
 
 
@@ -39,7 +39,7 @@ test:
         - OCCT
         - OCCT.Exchange
         - OCCT.Boolean
-        # - OCCT.SMESH
+        - OCCT.SMESH
 
 about:
     summary: python bindings to OCCT

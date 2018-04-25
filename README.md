@@ -9,10 +9,11 @@ occt |7.2.0 | [![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.s
 pivy |6.4 (beta)| [![Circle CI](https://circleci.com/gh/conda-forge/pivy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pivy-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/pivy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pivy-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pivy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pivy-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/pivy/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/pivy/badges/downloads.svg)
 simage | 1.7.0| [![Circle CI](https://circleci.com/gh/conda-forge/simage-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/simage-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/simage-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/simage-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/simage-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/simage-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/simage/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/simage/badges/downloads.svg)
 smesh | 8.3.0 | [![Circle CI](https://circleci.com/gh/conda-forge/smesh-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/smesh-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/smesh-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/smesh-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/smesh-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/smesh-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/smesh/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/smesh/badges/downloads.svg)
-soqt  | freecad-channel | --- | freecad-channel
-calculix | freecad-channel | --- | ---
-gmsh | freecad-channel | --- | ----
-freecad | freecad-channel | --- | freecad-channel
+soqt | 1.6.0a | freecad-channel | --- | freecad-channel| |
+calculix | 2.12 | freecad-channel | --- | ---| |
+gmsh | 3.0.6 | freecad-channel | --- | ----| |
+freecad | 0.18 | freecad-channel | --- | | |
+pyocct | 7.2.0 | cad-channel | --- | cad-channel | |
 
 
 

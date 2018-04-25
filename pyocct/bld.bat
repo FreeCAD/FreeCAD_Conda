@@ -7,6 +7,8 @@ cmake -G "Ninja" ^
       -D ENABLE_SMESH=ON ^
       -D ENABLE_NETGEN=ON ^
       -D ENABLE_BLSURF=OFF ^
+      -D ENABLE_FORCE=ON ^
+      -D ENABLE_WARNINGS=OFF ^
        ..
 
 if errorlevel 1 exit 1

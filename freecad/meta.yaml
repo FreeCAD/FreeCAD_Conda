@@ -4,7 +4,7 @@ package:
 
 source:
     fn: freecad.tar.gz
-    url: https://github.com/looooo/FreeCAD/archive/smesh8.3.tar.gz
+    url: https://github.com/looooo/FreeCAD/archive/pre-conda.tar.gz
 
 build:
     number: 3
@@ -29,7 +29,7 @@ requirements:
         - coin3d
         - pivy
         - qt 5.6.*
-        - pyside2 5.6.*
+        - pyside2
         - occt 7.2.0
         - smesh
         - netgen  # [not win32]
@@ -50,7 +50,7 @@ requirements:
         - coin3d
         - pivy
         - qt 5.6.*
-        - pyside2 5.6.*
+        - pyside2
         - occt 7.2.0
         - vtk 8.1.*
         - smesh

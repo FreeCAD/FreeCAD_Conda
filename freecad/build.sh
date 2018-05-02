@@ -24,6 +24,7 @@ cmake -G "Ninja" \
       -D BUILD_ENABLE_CXX11=ON \
       -D SMESH_INCLUDE_DIR=$PREFIX/include/smesh \
       -D FREECAD_USE_EXTERNAL_SMESH=ON \
+      -D BUILD_FLAT_MESH=ON \
       ..
 
 ninja -j${CPU_COUNT} install

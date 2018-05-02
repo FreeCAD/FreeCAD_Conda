@@ -27,6 +27,7 @@ cmake -G "Ninja" ^
       -D FREECAD_USE_PYBIND11=YES ^
       -D SMESH_INCLUDE_DIR:FILEPATH=%LIBRARY_PREFIX%/include/smesh ^
       -D FREECAD_USE_EXTERNAL_SMESH=ON ^
+      -D BUILD_FLAT_MESH=ON ^
       %FREECAD_SOURCE%
 
 exit 1

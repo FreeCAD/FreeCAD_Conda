@@ -7,7 +7,7 @@ source:
     url: https://github.com/looooo/FreeCAD/archive/pre-conda.tar.gz
 
 build:
-    number: 3
+    number: 4
     features:
         - vc14  # [win and py>=35]
 

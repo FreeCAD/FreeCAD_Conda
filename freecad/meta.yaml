@@ -4,7 +4,7 @@ package:
 
 source:
     fn: freecad.tar.gz
-    url: https://github.com/looooo/FreeCAD/archive/pre-conda.tar.gz
+    url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
 build:
     number: 4

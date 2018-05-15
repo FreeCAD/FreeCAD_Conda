@@ -47,7 +47,7 @@ conda-forge is the community channel for conda-packages. It provides a really bi
 ## INSTALL MINICONDA:
 
 ### unix
-- first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
+- first get miniconda: http://conda.pydata.org/miniconda.html choose 64-bit
 - install miniconda: bash <miniconda-file>.sh (not as root!!!)
 - at the end of the install it will ask you if you want to add the anaconda-dir to the $PATH, say yes.
 - if you do not want anaconda to be the default python open the ~/.bashrc and edit the new line:
@@ -56,7 +56,7 @@ conda-forge is the community channel for conda-packages. It provides a really bi
     this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
 
 ### windows
-- first get miniconda: http://conda.pydata.org/miniconda.html choose python3 (it's not necessary, you could also choose python2 but you can have a python2 env anyway)
+- first get miniconda: http://conda.pydata.org/miniconda.html choose 64-bit
 - install by double-clicking the downloaded file
 - follow the instruction and install for user.
 

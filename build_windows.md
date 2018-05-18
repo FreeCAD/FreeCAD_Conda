@@ -11,6 +11,6 @@
         - c++
         - download tools
 - get miniconda https://conda.io/miniconda.html (windows 64 python3.6)
-    - ```conda install conda-build anaconda client git```
+    - ```conda install conda-build anaconda-client git```
 - ```git clone https://github.com/looooo/FreeCAD_Conda```
 - cd to a recipe to build and run ```conda build .``` to build

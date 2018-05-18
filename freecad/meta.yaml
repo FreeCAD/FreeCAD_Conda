@@ -7,7 +7,7 @@ source:
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
 
 build:
-    number: 4
+    number: 5
     features:
         - vc14  # [win and py>=35]
 
@@ -30,7 +30,7 @@ requirements:
         - pivy
         - qt 5.6.*
         - pyside2
-        - occt 7.2.0
+        - occt 7.2.*
         - smesh
         - netgen  # [not win32]
         - vtk 8.1.*
@@ -41,23 +41,22 @@ requirements:
         - git
         - libglu  # [linux]
     run:
+        - {{ pin_compatible("qt") }}
+        - {{ pin_compatible("pyside2") }}
+        - {{ pin_compatible("occt") }}
+        - {{ pin_compatible("vtk") }}
+        - {{ pin_compatible("xerces-c") }}
+        - {{ pin_compatible("zlib") }}
+        - {{ pin_compatible("boost-cpp") }}
         - libgcc  # [unix]
         - vc 14  # [win and py>=35]
-        - boost-cpp 1.66.0
         - python
         - numpy
         - matplotlib
         - coin3d
         - pivy
-        - qt 5.6.*
-        - pyside2
-        - occt 7.2.0
-        - vtk 8.1.*
         - smesh
         - netgen  # [not win32]
-        - xerces-c 3.2.*
-        - zlib 1.2*
-        - git
         - calculix  # [unix]
         - libglu  # [linux]
 about:

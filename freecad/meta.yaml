@@ -1,55 +1,57 @@
+{% set name = "freecad" %}
+{% set version = "0.18" %}
+
 package:
-    name: freecad
-    version: 0.18
+    name: {{ name }}
+    version: {{ version }}
 
 source:
-    fn: freecad.tar.gz
+    fn: freecad_master.tar.gz
     url: https://github.com/FreeCAD/FreeCAD/archive/master.tar.gz
+    patches:
+        - osx.patch
+        - smesh.patch
+        - win_unicode.patch
 
 build:
-    number: 5
-    features:
-        - vc14  # [win and py>=35]
-
+    number: 6
+    skip: True  # [py < 36 or osx]
 
 requirements:
     build:
-        - toolchain
-        - gcc  # [unix]
-        - vc 14  # [win and py>=35]
-        - ninja
+        - {{ compiler("cxx") }}
         - cmake
-        - nomkl  # [unix]
+        - ninja
+    host:
+        - boost-cpp
+        - python
+        - qt
+        - occt
+        - xerces-c
+        - zlib
+        - vtk 8.1.1
         - swig
         - eigen
-        - boost-cpp 1.66.0
         - pybind11
-        - python
         - matplotlib
         - coin3d
         - pivy
-        - qt 5.6.*
         - pyside2
-        - occt 7.2.*
         - smesh
         - netgen  # [not win32]
-        - vtk 8.1.*
-        - hdf5
-        - xerces-c 3.2.*
-        - zlib 1.2.*
         - doxygen
-        - git
         - libglu  # [linux]
+        - mesalib  # [linux]
+        - hdf5 1.10.1
     run:
-        - {{ pin_compatible("qt") }}
         - {{ pin_compatible("pyside2") }}
-        - {{ pin_compatible("occt") }}
-        - {{ pin_compatible("vtk") }}
-        - {{ pin_compatible("xerces-c") }}
-        - {{ pin_compatible("zlib") }}
-        - {{ pin_compatible("boost-cpp") }}
-        - libgcc  # [unix]
-        - vc 14  # [win and py>=35]
+        - {{ pin_compatible("occt", max_pin="x.x") }}
+        - {{ pin_compatible("vtk", max_pin='x.x.x') }}
+        - qt
+        - xerces-c
+        - zlib
+        - boost-cpp
+        - hdf5
         - python
         - numpy
         - matplotlib
@@ -57,7 +59,34 @@ requirements:
         - pivy
         - smesh
         - netgen  # [not win32]
-        - calculix  # [unix]
         - libglu  # [linux]
+        - mesalib  # [linux]
+
+test:
+    commands:
+        - FreeCADCmd -t 0
+
 about:
-    summary: freecad
+    home: https://www.freecadweb.org/
+    license: LGPL2
+    license_family: LGPL
+    license_file: COPYING
+    summary: 'Simple, fast, extensible JSON encoder/decoder for Python'
+    description: |
+        FreeCAD is a general purpose feature-based, parametric 3D modeler for
+        CAD, MCAD, CAx, CAE and PLM, aimed directly at mechanical engineering
+        and product design but also fits a wider range of uses in engineering,
+        such as architecture or other engineering specialties. It is 100% Open
+        Source (LGPL2+ license) and extremely modular, allowing for very
+        advanced extension and customization.
+        FreeCAD is based on OpenCASCADE, a powerful geometry kernel, features an
+        Open Inventor-compliant 3D scene representation model provided by the
+        Coin 3D library, and a broad Python API. The interface is built with Qt.
+        FreeCAD runs exactly the same way on Windows, Mac OSX, BSD and Linux
+        platforms.
+    doc_url: https://www.freecadweb.org/wiki/Main_Page
+    dev_url: https://github.com/FreeCAD/FreeCAD
+
+extra:
+    recipe-maintainers:
+        - looooo

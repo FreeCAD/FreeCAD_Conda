@@ -22,10 +22,11 @@ requirements:
         - {{ compiler("cxx") }}
         - cmake
         - ninja
+        - git
     host:
         - boost-cpp
         - python
-        - qt
+        - qt  5.9
         - occt
         - xerces-c
         - zlib

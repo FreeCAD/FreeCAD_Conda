@@ -22,3 +22,6 @@
 [submodule "soqt"]
 	path = soqt
 	url = https://github.com/conda-forge/soqt-feedstock
+[submodule "freecad-conda-forge"]
+	path = freecad-conda-forge
+	url = https://github.com/conda-forge/freecad-feedstock

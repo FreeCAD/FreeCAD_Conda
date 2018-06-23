@@ -19,3 +19,6 @@
 [submodule "smesh"]
 	path = smesh
 	url = https://github.com/conda-forge/smesh-feedstock
+[submodule "soqt"]
+	path = soqt
+	url = https://github.com/conda-forge/soqt-feedstock

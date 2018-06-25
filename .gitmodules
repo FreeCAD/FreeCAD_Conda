@@ -1,0 +1,36 @@
+[submodule "coin3d-feedstock"]
+	path = coin3d-feedstock
+	url = https://github.com/conda-forge/coin3d-feedstock
+	branch = master
+[submodule "pivy-feedstock"]
+	path = pivy-feedstock
+	url = https://github.com/conda-forge/pivy-feedstock
+	branch = master
+[submodule "simage-feedstock"]
+	path = simage-feedstock
+	url = https://github.com/conda-forge/simage-feedstock
+	branch = master
+[submodule "soqt-feedstock"]
+	path = soqt-feedstock
+	url = https://github.com/conda-forge/soqt-feedstock
+	branch = master
+[submodule "occt-feedstock"]
+	path = occt-feedstock
+	url = https://github.com/conda-forge/occt-feedstock
+	branch = master
+[submodule "netgen-feedstock"]
+	path = netgen-feedstock
+	url = https://github.com/conda-forge/netgen-feedstock
+	branch = master
+[submodule "freecad-feedstock"]
+	path = freecad-feedstock
+	url = https://github.com/conda-forge/freecad-feedstock
+	branch = master
+[submodule "libmed-feedstock"]
+	path = libmed-feedstock
+	url = https://github.com/conda-forge/libmed-feedstock
+	branch = master
+[submodule "smesh-feedstock"]
+	path = smesh-feedstock
+	url = https://github.com/conda-forge/smesh-feedstock
+	branch = master

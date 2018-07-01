@@ -14,7 +14,7 @@ source:
         - no_gui.patch
 
 build:
-    number: 0
+    number: 1
     skip: true  # [py<36]
 
 requirements:
@@ -32,12 +32,6 @@ requirements:
         - libglu
     run:
         - python
-        - libpng
-        - zlib
-        - fontconfig
-        - json-c
-        - libglu
-
 test:
     imports:
         - _slvs

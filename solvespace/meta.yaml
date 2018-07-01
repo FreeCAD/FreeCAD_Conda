@@ -39,5 +39,5 @@ requirements:
         - libglu
 
 test:
-    import:
-        - solvespace
+    imports:
+        - _slvs

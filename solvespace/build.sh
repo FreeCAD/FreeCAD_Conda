@@ -7,4 +7,5 @@ cmake \
       -D BUILD_PYTHON=ON \
       ..
 
-make _slvs install
+make _slvs
+cp src/swig/python/_slvs.so $SP_DIR

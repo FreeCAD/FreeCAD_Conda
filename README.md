@@ -7,7 +7,7 @@ libmed | 3.3.1 | [![Circle CI](https://circleci.com/gh/conda-forge/libmed-feedst
 netgen |6.2.0 | [![Circle CI](https://circleci.com/gh/conda-forge/netgen-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/netgen-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/netgen-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/netgen-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/netgen-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/netgen-feedstock/branch/master) | ![update](https://anaconda.org/conda-forge/netgen/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/netgen/badges/downloads.svg)
 occt |7.2.0 | [![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/occt-feedstock) |[![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/occt-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/occt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/occt-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/occt/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/occt/badges/downloads.svg)
 pivy |6.4 (beta)| [![Circle CI](https://circleci.com/gh/conda-forge/pivy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pivy-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/pivy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pivy-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pivy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pivy-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/pivy/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/pivy/badges/downloads.svg)
-simage | 1.7.0| [![Circle CI](https://circleci.com/gh/conda-forge/simage-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/simage-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/simage-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/simage-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/simage-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/simage-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/simage/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/simage/badges/downloads.svg)
+simage | 1.7.0| [![Circle CI](https://circleci.com/gh/conda-forge/simage-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/simage-feedstock) |[![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/occt-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/simage-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/simage-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/simage/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/simage/badges/downloads.svg)
 smesh | 8.3.0 | [![Circle CI](https://circleci.com/gh/conda-forge/smesh-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/smesh-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/smesh-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/smesh-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/smesh-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/smesh-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/smesh/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/smesh/badges/downloads.svg)
 soqt | 1.6.0a | [![Circle CI](https://circleci.com/gh/conda-forge/soqt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/soqt-feedstock) |[![TravisCI](https://travis-ci.org/conda-forge/soqt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/soqt-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/soqt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/soqt-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/soqt/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/soqt/badges/downloads.svg)
 calculix | 2.12 | freecad-channel | --- | ---| |
@@ -18,7 +18,7 @@ pyocct | 7.2.0 | cad-channel | --- | cad-channel | |
 
 
 # CONDA-PACKAGES for FreeCAD
-The idea behind the usage of conda for FreeCAD is the wish for a consistend package-manager for linux (all distros), windows and mac. Furthermore conda gives FreeCAD the ability to install 3rd-party modules with dependencies easily.
+Conda gives the oppurtunity to distribute FreeCAD in a consistent way for multiple plattforms. This is the biggest advantage of conda: A package-manaer wich works in the same way for different platforms.
 
 For more information about conda, you can follow this link:
 https://conda.io/docs/intro.html
@@ -40,7 +40,7 @@ Such environments are not a new idea. This is also available through the python-
 conda-build is a python-package to create packages for the conda-package-manager. conda-build provides some simple commands to package any kind of programms. Mainly this is done by a `meta.yaml` file where all dependencies and build-commands are specified. For more complex packages there are scripts (`build.sh`, `build.bat`) used to do the installation. Maintainer have to simple build and install some sources in a conda-build-environment and conda-build takes care of creating the package.
 
 ## What is conda-forge?
-conda-forge is the community channel for conda-packages. It provides a really big set of packages. Many opf the dependencies FreeCAD uses are already provided by conda-forge. One goal of FreeCAD_Conda is to get all the dependencies applied to conda-forge.
+conda-forge is the community channel for conda-packages. It provides a really big set of packages. All major dependencies of  FreeCAD are available from the conda-forge-channel.
 
 
 # HOW TO INSTALL FreeCAD WITH CONDA
@@ -62,24 +62,9 @@ conda-forge is the community channel for conda-packages. It provides a really bi
 
 ## INSTALL FREECAD
 
-- first we have to add some channels to get all the necesarry packages:
-  - you can add them one by one with: `conda config --add channels <name>`
-  - or you can open the ~/.condarc and add them directly to this file
-at the end this file have to look like this.
-__open ~.condarc with a editor and make the channels section look like this__
-
-```
-channels:
-  - freecad
-  - cad
-  - conda-forge
-  - defaults
-```
-
- - the channels hosting this libraries:
-    - freecad: freecad, coin, pivy, boost, occt, ...
-    - conda-forge: pyside, shiboken, ...
-
+### Adding conda-forge to the channels
+- first we have to add the `conda-forge` channel:
+`conda config --add channels conda-forge`
 
 ### create new environment
 #### windows:
@@ -105,11 +90,15 @@ to create an enviroment with secific versions of packages you can add these pack
 
 # ADDITIONAL INFORMATION
 
-- list all enviroments:
+- list all enviroments:  
 `conda env list`
+
+- remove environment:  
+`conda env remove -n <name>`
 
 - update:  
 `conda update --all`  
 `conda update conda`
+
 - list added channels:
 `conda config --show-sources`

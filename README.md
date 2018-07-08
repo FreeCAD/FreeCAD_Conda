@@ -18,7 +18,7 @@ pyocct | 7.2.0 | cad-channel | --- | cad-channel | |
 
 
 # CONDA-PACKAGES for FreeCAD
-Conda gives the oppurtunity to distribute FreeCAD in a consistent way for multiple plattforms. This is the biggest advantage of conda: A package-manaer wich works in the same way for different platforms.
+Conda gives the oppurtunity to distribute FreeCAD in a consistent way for multiple plattforms. This is the biggest advantage of conda: A package-manager wich works in the same way for different platforms.
 
 For more information about conda, you can follow this link:
 https://conda.io/docs/intro.html

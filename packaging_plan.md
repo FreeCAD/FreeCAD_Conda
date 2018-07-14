@@ -12,7 +12,7 @@
 ## update to python 3.7 (~ 10.18)
     -[ ] waiting for many dependencies (python)    
     -[ ] netgen  
-    -[ ] smesh  
+    -[ ] smesh   (update sources, remove patches)
     -[ ] pivy  
     -[ ] freecad  
 

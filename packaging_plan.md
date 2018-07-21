@@ -4,8 +4,8 @@
     -[x] occt7.3  
     -[x] netgen  
     -[x] smesh   
-    -[ ] coin3d (boost)                 -> update build number, remove boost-pinning  
-    -[ ] pivy (coin3d)                  -> update build number  
+    -[x] coin3d (boost)                 -> update build number, remove boost-pinning  
+    -[x] pivy (coin3d) [not necessary]  -> update build number  
     -[ ] freecad (boost, coin3d, occt)  -> remove pin_compatible (occt, vtk)  
     -[ ] gmsh (linux)  
 

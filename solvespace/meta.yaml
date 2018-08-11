@@ -1,20 +1,18 @@
 {% set name = "solvespace" %}
-{% set version = "2.3_fc" %}
-{% set sha256 = "d2e46e34265fa8f75617f500d25ae8e8bd468967e45fb8fb3e064ee53432911f" %}
+{% set version = "2.4" %}
+{% set sha256 = "2cb8598d629fc642a1768e3ccf6109e368ca6aa33312dbaf23f31a5fa82b3a42" %}
 
 package:
     name: {{ name }}
     version: {{ version }}
 
 source:
-    fn: {{ name }}_{{ version }}.tar.gz
-    url: https://github.com/realthunder/{{ name }}/archive/python.tar.gz
+    fn: {{ name }}_{{ version }}_fc.tar.gz
+    url: https://github.com/realthunder/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
-    patches:
-        - no_gui.patch
 
 build:
-    number: 1
+    number: 0
     skip: true  # [py<36]
 
 requirements:

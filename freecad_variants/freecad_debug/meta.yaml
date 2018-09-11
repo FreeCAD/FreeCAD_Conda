@@ -1,4 +1,4 @@
-{% set name = "freecad" %}
+{% set name = "freecad-debug" %}
 {% set version = "0.18" %}
 
 package:
@@ -8,14 +8,14 @@ package:
 build:
     number: 6
     skip: True  # [py < 36 or osx]
+    merge_build_host: True
 
 requirements:
     build:
         - {{ compiler("cxx") }}
-        - cmake 3.10
+        - cmake
         - ninja
         - git
-    host:
         - boost-cpp
         - python
         - qt
@@ -37,9 +37,9 @@ requirements:
         - mesalib  # [linux]
         - hdf5 1.10.1
     run:
-        - {{ pin_compatible("pyside2") }}
-        - {{ pin_compatible("occt", max_pin="x.x") }}
-        - {{ pin_compatible("vtk", max_pin='x.x.x') }}
+        - pyside2
+        - occt
+        - vtk
         - qt
         - xerces-c
         - zlib

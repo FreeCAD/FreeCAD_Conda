@@ -43,5 +43,4 @@ cmake -G "Ninja" \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ${FREECAD_SOURCE}
 
-make -j${CPU_COUNT} 2>&1 | tee output.txt
-exit 1
+ninja install

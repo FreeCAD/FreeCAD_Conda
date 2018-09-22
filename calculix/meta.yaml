@@ -1,32 +1,29 @@
+{% set name = "calculix" %}
+{% set version = "2.14" %}
+{% set sha256 = "59de9965d8f69141a34519101f7dd932c7d8d2be15480b31062b92512545fec4" %}
+
 package:
-    name: calculix
-    version: 2.12
+    name: {{ name }}
+    version: {{ version }}
 
 source:
-    git_url: https://github.com/easyw/ccx_prool
-    git_tag: master
-
+    fn: {{ name }}_{{ version }}.tar.bz2
+    url: http://www.dhondt.de/ccx_2.14.src.tar.bz2
+    sha256: {{ sha256 }}
     patches:
+        - deps.patch
 
 build:
     number: 0
-    skip: true  # [py<35]
-
-    features:
-        - vc14  # [win]
 
 requirements:
     build:
-        - gcc  # [unix]
-        - flang  # [win]
-        - vc 14  # [win]
-        - toolchain
+        - {{ compiler("c") }}
+        - {{ compiler("fortran") }}
         - perl
-    run:
-        - libgcc  # [unix]
-        - libgfortran # [unix]
-        - libflang  # [win]
-        - vc 14  # [win]
+    host:
+        - arpack
+        - spooles
 
 about:
     home: http://www.dhondt.de/

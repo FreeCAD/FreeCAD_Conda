@@ -34,3 +34,6 @@
 	path = smesh-feedstock
 	url = https://github.com/conda-forge/smesh-feedstock
 	branch = master
+[submodule "gmsh-feedstock"]
+	path = gmsh-feedstock
+	url = https://github.com/conda-forge/gmsh-feedstock

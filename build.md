@@ -35,6 +35,7 @@ service start docker
 ```
 sudo docker run -i -t -v ~/projects/:/home/conda/projects  --name conda-forge condaforge/linux-anvil
 /usr/bin/sudo -n yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
+conda install conda-forge-pinning
 ```
 
 > -v: mount a local path into the docker host
@@ -70,7 +71,7 @@ sudo docker cp <name of running docker>:<file> <local_file_path>
 
 ## building
 ```
-conda build .
+conda build . -m /opt/conda/conda_build_config.yaml
 ```
 
 ## uploading

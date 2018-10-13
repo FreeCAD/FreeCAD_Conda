@@ -33,7 +33,7 @@ about:
     summary: 3D Structural Finite Element Program
     description: A Free Software Three-Dimensional Structural
                  Finite Element Program
-    doc_url: http://www.dhondt.de/ccx_2.12.pdf
+    doc_url: http://www.dhondt.de/ccx_2.14.pdf
     dev_url: http://www.dhondt.de/
 
 extra:

@@ -1,5 +1,5 @@
 diff --git a/ccx_2.14/src/Makefile_MT b/ccx_2.14/src/Makefile_MT
-index 9b8c363..25e333c 100755
+index 9b8c363..2ccd1d2 100755
 --- a/ccx_2.14/src/Makefile_MT
 +++ b/ccx_2.14/src/Makefile_MT
 @@ -1,5 +1,5 @@
@@ -9,7 +9,7 @@ index 9b8c363..25e333c 100755
  FFLAGS = -Wall -O3 -fopenmp 
  
  CC=cc
-@@ -18,12 +18,10 @@ OCCXF = $(SCCXF:.f=.o)
+@@ -18,12 +18,12 @@ OCCXF = $(SCCXF:.f=.o)
  OCCXC = $(SCCXC:.c=.o)
  OCCXMAIN = $(SCCXMAIN:.c=.o)
  
@@ -20,7 +20,9 @@ index 9b8c363..25e333c 100755
 -       $(DIR)/spooles.a \
 -       ../../../ARPACK/libarpack_INTEL.a \
 +       $(PREFIX)/lib/spoolesMT.a \
++       $(PREFIX)/lib/spooles.a \
 +       $(PREFIX)/lib/libarpack.a \
++       $(PREFIX)/lib/liblapack.a \
         -lpthread -lm
  
  ccx_2.14_MT: $(OCCXMAIN) ccx_2.14_MT.a  $(LIBS)

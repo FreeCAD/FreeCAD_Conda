@@ -37,3 +37,6 @@
 [submodule "gmsh-feedstock"]
 	path = gmsh-feedstock
 	url = https://github.com/conda-forge/gmsh-feedstock
+[submodule "calculix-feedstock"]
+	path = calculix-feedstock
+	url = https://github.com/conda-forge/calculix-feedstock

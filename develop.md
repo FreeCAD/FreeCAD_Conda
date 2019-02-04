@@ -1,5 +1,7 @@
 # TESTING AND DEBUGGING FreeCAD with dependencies from conda
 
+# OUTDATED -> needs to be updated
+
 This section is for testing new branches, or your own implementations/additions of Freecad with conda. This is interesting, because conda gives us a nice way to gather all the sources we need to build FreeCAD. No need to download all the necessary libraries which have conflicts all over. Simple use the develop branch of this repo and follow this instruction.
 
 - ```git clone https://github.com/looooo/FreeCAD_Conda # this branch```

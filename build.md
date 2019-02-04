@@ -15,27 +15,13 @@ Conda-Forge is a github-organization containing many dependencies of FreeCAD. Wi
 ## linux
 - [install Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) for ubuntu. But there also installation-guides for other distros available.
 
-### ubuntu reminder:
-as all conda packages are build in centos6 we have to create some soft-links to mimic a centos6:
-```
-mkdir -p /opt/graphics/OpenGL/lib
-ln -s /usr/lib/x86_64-linux-gnu/libGLU.so /opt/graphics/OpenGL/lib
-ln -s /usr/lib/x86_64-linux-gnu/ /usr/lib64
-```
-
-### cent-os-6 reminder:
-```
-yum install epel-release
-yum install docker
-service start docker
-```
 
 - conda-forge docker image:
 
 ```
 sudo docker run -i -t -v ~/projects/:/home/conda/projects  --name conda-forge condaforge/linux-anvil-comp7
-/usr/bin/sudo -n yum install -y libXt-devel libXmu-devel libXi-devel mesa-libGLU-devel rsync
-conda install conda-forge-pinning
+/usr/bin/sudo yum install -y mesa-libGL-devel
+conda update --all
 ```
 
 > -v: mount a local path into the docker host
@@ -60,7 +46,10 @@ sudo docker rm $(sudo docker ps -a -q)
 sudo docker cp <name of running docker>:<file> <local_file_path>
 ```
 
-- there is also the option to use a newer linux version. see fc_conda_docker/debian_based.
+# Build conda packages with windows
+
+https://conda-forge.org/docs/buildwin.html
+
 
 # create a new recipe
 
@@ -69,14 +58,12 @@ sudo docker cp <name of running docker>:<file> <local_file_path>
 - build.sh (linux, mac)
 - build.bat (windows)
 
-## building
+# building
 ```
-conda build . -m /opt/conda/conda_build_config.yaml
+conda build . -m .ci_support/<target_plattform>.yaml
 ```
 
-## uploading
-at the end of the build process the upload command is printed.
-with -u a specific user/organization can be specified
+# uploading
 ```
 anaconda upload <file> -u <user_name>
 ```
@@ -111,12 +98,6 @@ We host packages on https://anaconda.org/freecad.
 ```
 conda update --all
 conda update conda
-```
-
-- autocomplete:
-```
-conda install argcomplete
-eval "$(register-python-argcomplete conda)"
 ```
 
 - [enviroment variables](http://conda.pydata.org/docs/building/environment-vars.html)

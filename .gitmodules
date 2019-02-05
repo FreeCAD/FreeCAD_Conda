@@ -40,3 +40,9 @@
 [submodule "calculix-feedstock"]
 	path = calculix-feedstock
 	url = https://github.com/conda-forge/calculix-feedstock
+[submodule "vtk-feedstock"]
+	path = vtk-feedstock
+	url = https://github.com/conda-forge/vtk-feedstock
+[submodule "graphviz-feedstock"]
+	path = graphviz-feedstock
+	url = https://github.com/conda-forge/graphviz-feedstock

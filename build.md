@@ -1,20 +1,34 @@
 # Building FreeCAD and dependencies with conda
 
 With conda only the most general dependencies are used from the system. Therefor nearly all dependencies of FreeCAD have to be build.
-Conda-Forge is a github-organization containing many dependencies of FreeCAD. With this channel added to the condarc channels section the number of packages we have to maintain for freecad is not that high. Packages which are not part of conda-forge are:
+conda-forge is a github-organization containing many dependencies of FreeCAD. With this channel added to the condarc-channels-section the number of packages we have to maintain for freecad is not that high.
 
-- coin3d
-- netgen
-- pivy
-- libMed
-- ...
+Most of the freecad-relevant packages are now __conda-forge-feedstocks__ and listed as subrepos of [FreeCAD_Conda](https://github.com/FreeCAD/FreeCAD_Conda).
 
+All conda-forge-feedstocks are build automatically by ci's for osx, linux and windows. This way it's easy to collaborate and fix build-problems. So if you encounter any problem which can be fixed by build-instructions, or if you want a newer version of a library please navigate to the corresponding feedstock, fork this feedstock on github and add changes. Once done create a pullrequenst and see if the build succeeds on all plattforms.
 
-# Build packages for FreeCAD with docker
+Conda-forge uses build-tools from anaconda. These tools (compiler, build-environments, ...) are also changing. To keep a feedstock updated __conda-smithy__ should be used. This can be easily done in a PR by following the instructions listed here: https://github.com/FreeCAD/FreeCAD_Conda
 
-## linux
+To build packages locally (not with ci's) we use __conda-build__. conda-build is the tool to create a package from a __conda-recipe__. A conda-recipe is part of a conda-forge feedstock and includes all the instructions to create a conda-package. A recipe is a simple directory containing a `meta.yaml` file which includes all the specifications of a library like name, version, dependencies, test-specifications, license. More difficult libraries (like most of the FreeeCAD-dependencies) will also contain a `build.sh`-file for unix and `bld.bat`-file for windows. Both are scripts which contain instructions for the compilation (like calling cmake, make, ...)
+To build a conda-recipe, simple call `conda build . -m .ci_support/<plattform_and_version_specific_file>.yaml`. If no such _plattform_and_version_specific_file_ is available, you can also call `conda build` without this option. (But then conda build will try to build all the supported dependency-trees. For example this will result in packages which are dependent on different python versions. (This can be prevente by using eg.: `conda build . --python=3.7`
+
+To setup a system to work correctly with conda-build some installations are mandatory:
+
+## OSX:
+
+1. Download the MacOSX10.9.sdk https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.9.sdk.tar.xz
+2. Extract files to /opt/MacOSX10.9.sdk
+3. add a file in the user-home-directory named `conda-build-config.yaml` containing these lines:
+```
+CONDA_BUILD_SYSROOT:  
+      - /opt/MacOSX10.9.sdk        # [osx]
+```
+
+## Linux:
+
+For linux the simplest way to create a conda-package locally is docker.
+
 - [install Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) for ubuntu. But there also installation-guides for other distros available.
-
 
 - conda-forge docker image:
 
@@ -58,19 +72,7 @@ https://conda-forge.org/docs/buildwin.html
 - build.sh (linux, mac)
 - build.bat (windows)
 
-# building
-```
-conda build . -m .ci_support/<target_plattform>.yaml
-```
 
-# uploading
-```
-anaconda upload <file> -u <user_name>
-```
-to use anaconda the anaconda-client has to be installed:
-```
-conda install anaconda-client
-```
 
 # additional informations
 

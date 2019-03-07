@@ -102,3 +102,8 @@ to create an enviroment with secific versions of packages you can add these pack
 
 - list added channels:
 `conda config --show-sources`
+
+# freecad-channel label definition
+- main: releases
+- dev: development snapshots eg.: weekly builds of latests sources
+- testing: testing for new dependencies, additional stuff

@@ -18,7 +18,7 @@ To setup a system to work correctly with conda-build some installations are mand
 
 1. Download the MacOSX10.9.sdk https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.9.sdk.tar.xz
 2. Extract files to /opt/MacOSX10.9.sdk
-3. add a file in the user-home-directory named `conda-build-config.yaml` containing these lines:
+3. add a file in the user-home-directory named `conda_build_config.yaml` containing these lines:
 ```
 CONDA_BUILD_SYSROOT:  
       - /opt/MacOSX10.9.sdk        # [osx]

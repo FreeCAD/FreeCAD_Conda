@@ -14,6 +14,9 @@ calculix | 2.15 |  [![Circle CI](https://circleci.com/gh/conda-forge/calculix-fe
 gmsh | 3.0.6 |  [![Circle CI](https://circleci.com/gh/conda-forge/gmsh-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/gmsh-feedstock) |[![Circle CI](https://circleci.com/gh/conda-forge/occt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/occt-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/gmsh-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/gmsh-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/simage/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/simage/badges/downloads.svg)
 freecad | 0.18b0 | [![Circle CI](https://circleci.com/gh/conda-forge/freecad-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/freecad-feedstock) |[![Circle CI](https://circleci.com/gh/conda-forge/freecad-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/freecad-feedstock) | [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/freecad-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/freecad-feedstock/branch/master)| ![update](https://anaconda.org/conda-forge/freecad/badges/latest_release_relative_date.svg)| ![update](https://anaconda.org/conda-forge/freecad/badges/downloads.svg)
 pyocct | 7.2.0 | cad-channel | --- | cad-channel | |
+ifcopenshell |  | TODO | TODO | TODO | |
+libredwg  |  | TODO | TODO | TODO | |
+ocl  |  | TODO | TODO | TODO | |
 
 
 

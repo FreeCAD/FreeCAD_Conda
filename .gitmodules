@@ -49,3 +49,12 @@
 [submodule "ifcopenshell-feedstock"]
 	path = ifcopenshell-feedstock
 	url = https://github.com/conda-forge/ifcopenshell-feedstock
+[submodule "boost-cpp-feedstock"]
+	path = boost-cpp-feedstock
+	url = https://github.com/conda-forge/boost-cpp-feedstock
+[submodule "qt-feedstock"]
+	path = qt-feedstock
+	url = https://github.com/conda-forge/qt-feedstock
+[submodule "pyside2-feedstock"]
+	path = pyside2-feedstock
+	url = https://github.com/conda-forge/pyside2-feedstock

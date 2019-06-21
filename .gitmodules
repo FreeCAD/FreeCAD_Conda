@@ -46,3 +46,6 @@
 [submodule "graphviz-feedstock"]
 	path = graphviz-feedstock
 	url = https://github.com/conda-forge/graphviz-feedstock
+[submodule "ifcopenshell-feedstock"]
+	path = ifcopenshell-feedstock
+	url = https://github.com/conda-forge/ifcopenshell-feedstock

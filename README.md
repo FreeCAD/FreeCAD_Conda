@@ -114,3 +114,13 @@ to create an enviroment with secific versions of packages you can add these pack
 - main: releases
 - dev: development snapshots eg.: weekly builds of latests sources
 - testing: testing for new dependencies, additional stuff
+
+# Maintainer info:
+fork and run on ci's
+- fork repo (github)
+- add specific channels in recipe/conda_build_config.yaml
+- create or view BINSTAR_TOKEN @ anaconda.org
+- encrypte or add BINSTAR_TOKEN @ ci (circle, appveyor)
+- add encrypted key to conda-forge.yaml
+- `conda smithy rerender` and commit
+- change source (eg. your FreeCAD fork)

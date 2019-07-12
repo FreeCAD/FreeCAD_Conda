@@ -58,3 +58,6 @@
 [submodule "pyside2-feedstock"]
 	path = pyside2-feedstock
 	url = https://github.com/conda-forge/pyside2-feedstock
+[submodule "libspnav-feedstock"]
+	path = libspnav-feedstock
+	url = https://github.com/conda-forge/libspnav-feedstock

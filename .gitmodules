@@ -61,3 +61,6 @@
 [submodule "libspnav-feedstock"]
 	path = libspnav-feedstock
 	url = https://github.com/conda-forge/libspnav-feedstock
+[submodule "opencamlib-feedstock"]
+	path = opencamlib-feedstock
+	url = https://github.com/conda-forge/opencamlib-feedstock

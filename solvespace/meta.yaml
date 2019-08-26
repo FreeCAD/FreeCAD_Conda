@@ -8,6 +8,8 @@ package:
 source:
     url: https://github.com/realthunder/solvespace/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
+    patches:
+        - osx_python_linking.patch  # [osx]
 
 build:
     number: 0

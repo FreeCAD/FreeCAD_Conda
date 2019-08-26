@@ -1,0 +1,25 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 19968e4..d0d16ee 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -78,6 +78,7 @@ endif()
+ 
+ if(APPLE)
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
++    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-undefined,dynamic_lookup")
+ endif()
+ 
+ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+diff --git a/src/swig/python/CMakeLists.txt b/src/swig/python/CMakeLists.txt
+index 56a1132..579865a 100644
+--- a/src/swig/python/CMakeLists.txt
++++ b/src/swig/python/CMakeLists.txt
+@@ -36,7 +36,7 @@ if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
+ else()
+     swig_add_library(slvs LANGUAGE python SOURCES ../slvs.i)
+ endif()
+-swig_link_libraries(slvs slvs_static_excp ${PYTHON_LIBRARIES})
++swig_link_libraries(slvs slvs_static_excp)
+ set_target_properties(slvs PROPERTIES COMPILE_DEFINITIONS BUILDER_STATIC_DEFINE)
+ 
+ # set_target_properties(_slvs PROPERTIES

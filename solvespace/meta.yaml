@@ -1,14 +1,12 @@
-{% set name = "solvespace" %}
-{% set version = "2.4" %}
-{% set sha256 = "2cb8598d629fc642a1768e3ccf6109e368ca6aa33312dbaf23f31a5fa82b3a42" %}
+{% set version = "2.4.1" %}
+{% set sha256 = "f07464b752e9005dd31c990bcccec46d07411a94da767bd61cbd600a190088e6" %}
 
 package:
-    name: {{ name }}
+    name: solvespace
     version: {{ version }}
 
 source:
-    fn: {{ name }}_{{ version }}_fc.tar.gz
-    url: https://github.com/realthunder/{{ name }}/archive/v{{ version }}.tar.gz
+    url: https://github.com/realthunder/solvespace/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
 
 build:
@@ -27,9 +25,13 @@ requirements:
         - zlib
         - fontconfig
         - json-c
-        - libglu
+        - libglu  # [linux]
     run:
         - python
 test:
     imports:
         - _slvs
+
+extra:
+    recipe-maintainers:
+        - looooo

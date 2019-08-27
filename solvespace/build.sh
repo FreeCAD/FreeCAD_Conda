@@ -9,3 +9,4 @@ cmake -G "Ninja" \
 
 ninja _slvs -v
 cp src/swig/python/_slvs.so ${SP_DIR}
+cp src/swig/python/slvs.py ${SP_DIR}

@@ -1,11 +1,11 @@
 mkdir -p build
 cd build
 
-cmake \
+cmake -G "Ninja" \
       -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_BUILD_TYPE=Release \
       -D BUILD_PYTHON=ON \
       ..
 
-make _slvs
-cp src/swig/python/_slvs.so $SP_DIR
+ninja _slvs -v
+cp src/swig/python/_slvs.so ${SP_DIR}

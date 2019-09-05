@@ -21,7 +21,12 @@ pyocct | --- | 7.2.0 | Linux / osx cad-channel| ---|
 libredwg  |  | TODO | TODO | TODO | |
 
 
-
+# Clone this repo:
+```
+git clone https://github.com/FreeCAD/FreeCAD_Conda
+cd FreeCAD_Conda
+git submmodule update --init
+```
 
 # CONDA-PACKAGES for FreeCAD
 Conda gives the oppurtunity to distribute FreeCAD in a consistent way for multiple plattforms. This is the biggest advantage of conda: A package-manager wich works in the same way for different platforms.

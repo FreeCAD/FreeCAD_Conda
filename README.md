@@ -25,7 +25,7 @@ libredwg  |  | TODO | TODO | TODO | |
 ```
 git clone https://github.com/FreeCAD/FreeCAD_Conda
 cd FreeCAD_Conda
-git submmodule update --init
+git submodule update --init
 ```
 
 # CONDA-PACKAGES for FreeCAD

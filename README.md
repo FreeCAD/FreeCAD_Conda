@@ -33,8 +33,10 @@ git submodule update --init
 # CONDA-PACKAGES for FreeCAD
 Conda gives the opportunity to distribute FreeCAD in a consistent way for multiple platforms. This is the biggest advantage of conda: A package-manager which works in the same way for different platforms.
 
-For more information about conda, you can follow this link:
-https://conda.io/docs/intro.html
+<details>
+  <summary>Read more about conda...</summary>
+
+**Note: find more indepth info about conda on their [website](https://conda.io/docs/intro.html).**
 
 ## What is conda?
 conda is a cross-plattform package-manager written in python similar to pip. The main advantage over pip is a very simple way to create packages for more difficult libraries which are not written in python and often need some special dependencies to get build. So conda fits in somewhere between system-package-managers like apt and yum and pip. But conda is not only usable for python. There are also a lot of packages for other interpreters available (eg.: R)
@@ -54,9 +56,9 @@ conda-build is a python-package to create packages for the conda-package-manager
 
 ## What is conda-forge?
 conda-forge is the community channel for conda-packages. It provides a really big set of packages. All major dependencies of  FreeCAD are available from the conda-forge-channel.
+</details>
 
-
-## HOW TO INSTALL FreeCAD WITH CONDA
+## How to Install FreeCAD WITH CONDA
 
 ## Install Miniconda:
 

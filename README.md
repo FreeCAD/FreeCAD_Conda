@@ -125,36 +125,20 @@ To create an environment with specific versions of packages you can add these pa
 conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...
 ```
 
-
 ## Additional Information
 
-#### List all environments
+#### Some important commands:
 
 ```bash
-conda env list
-```
-
-#### Remove environment
-
-```bash
-conda env remove -n <name>
-```
-
-#### Update  
-
-```bash
-conda update --all  
-conda update conda
-```
-
-#### List added channels:
-
-```bash
-conda config --show-sources`
+conda env list               # list all environments
+conda list                   # list all packages in current env
+conda env remove -n <name>   # Remove environment
+conda update --all           # update all
+conda config --show-sources  # show channels
 ```
 
 ### Label definitions for freecad-channel
-**main**: releases  
+**main**: releases
 **dev**: development snapshots eg.: weekly builds of latests sources  
 **testing**: testing for new dependencies, additional stuff
 
@@ -165,6 +149,19 @@ How to fork and run on CI's
 - Add specific channels in `recipe/conda_build_config.yaml`
 - Create or view `BINSTAR_TOKEN` @ anaconda.org
 - Encrypt or add `BINSTAR_TOKEN` @ ci (circleci, appveyor)
-- Add encrypted key to `conda-forge.yaml`
+- Add encrypted key to `conda-forge.yaml` (appveyor)
 - `conda smithy rerender` and commit
 - Change source (eg. your FreeCAD fork)
+
+#### For azure:
+- enable azure on github (marketplace, azure)
+- azure login and search (google) for secret variables
+- create a BINSTAR_TOKEN and copy the value from anaconda.org (settings, access)
+- to use azure for all platforms add the following to conda-forge.yaml in the feedstock:
+```yaml
+provider:
+  win: azure
+  osx: azure
+  linux: azure
+
+```

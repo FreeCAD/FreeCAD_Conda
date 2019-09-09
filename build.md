@@ -15,7 +15,7 @@ All **conda-forge-feedstocks** are built automatically by Continuous Integration
 ### Building Packages Locally (sans CI's)
 To build packages locally (without CI's) we use **conda-build**. conda-build is the tool to create a package from a **conda-recipe**. A conda-recipe is part of a *conda-forge feedstock* and includes all the instructions to create a *conda-package*. A recipe is a simple directory containing a `meta.yaml` file which includes all the specifications of a library like: *name*, *version*, *dependencies*, *test-specifications*, and *license*. 
 
-More complex libraries (like most of FreeCAD's dependencies) will also contain a `build.sh` file for Linux and `bld.bat` file for Windows. Both are scripts which contain instructions for the compilation (like calling cmake, make, etc...)
+More complex libraries (like most of FreeCAD's dependencies) will also contain a `build.sh` file for Linux / Osx and `bld.bat` file for Windows. Both are scripts which contain instructions for the compilation (like calling cmake, make, etc...)
 
 **To build a conda-recipe, simply call**:  
 

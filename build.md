@@ -15,7 +15,7 @@ All **conda-forge-feedstocks** are built automatically by Continuous Integration
 ### Building Packages Locally (sans CI's)
 To build packages locally (without CI's) we use **conda-build**. conda-build is the tool to create a package from a **conda-recipe**. A conda-recipe is part of a *conda-forge feedstock* and includes all the instructions to create a *conda-package*. A recipe is a simple directory containing a `meta.yaml` file which includes all the specifications of a library like: *name*, *version*, *dependencies*, *test-specifications*, and *license*. 
 
-More complex libraries (like most of FreeCAD's dependencies) will also contain a `build.sh` file for Linux / Osx and `bld.bat` file for Windows. Both are scripts which contain instructions for the compilation (like calling cmake, make, etc...)
+More complex libraries (like most of FreeCAD's dependencies) will also contain a `build.sh` file for Linux/OSX and `bld.bat` file for Windows. Both are scripts which contain instructions for the compilation (like calling cmake, make, etc...)
 
 **To build a conda-recipe, simply call**:  
 
@@ -149,14 +149,16 @@ How to fork and run on CI's
 - Change source (eg. your FreeCAD fork)
 
 #### For azure:
-- enable azure on github (marketplace, azure)
+- Wnable azure on github (marketplace, azure)
 - azure login and search (google) for secret variables
-- create a BINSTAR_TOKEN and copy the value from anaconda.org (settings, access)
-- to use azure for all platforms add the following to conda-forge.yaml in the feedstock:
+- Create a `BINSTAR_TOKEN` and copy the value from anaconda.org (settings, access)
+- To use azure for all platforms add the following to conda-forge.yaml in the feedstock:
 ```yaml
 provider:
   win: azure
   osx: azure
   linux: azure
-
 ```
+
+# TODO
+* Run this by the FC community for testing and further refinments

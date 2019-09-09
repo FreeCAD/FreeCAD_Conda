@@ -141,27 +141,3 @@ conda config --show-sources  # show channels
 **main**: releases
 **dev**: development snapshots eg.: weekly builds of latests sources  
 **testing**: testing for new dependencies, additional stuff
-
-
-### Maintainer info:
-How to fork and run on CI's
-- Fork repo (github)
-- Add specific channels in `recipe/conda_build_config.yaml`
-- Create or view `BINSTAR_TOKEN` @ anaconda.org
-- Encrypt or add `BINSTAR_TOKEN` @ ci (circleci, appveyor)
-- Add encrypted key to `conda-forge.yaml` (appveyor)
-- `conda smithy rerender` and commit
-- Change source (eg. your FreeCAD fork)
-
-#### For azure:
-- enable azure on github (marketplace, azure)
-- azure login and search (google) for secret variables
-- create a BINSTAR_TOKEN and copy the value from anaconda.org (settings, access)
-- to use azure for all platforms add the following to conda-forge.yaml in the feedstock:
-```yaml
-provider:
-  win: azure
-  osx: azure
-  linux: azure
-
-```

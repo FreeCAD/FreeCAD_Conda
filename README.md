@@ -62,21 +62,23 @@ conda-forge is the community channel for conda-packages. It provides a really bi
 
 ## Install Miniconda:
 
-### Linux
+### Linux and osx
 1. Download miniconda: http://conda.pydata.org/miniconda.html (choose 64-bit)
 2. Install miniconda: `bash miniconda-file.sh` (**Not as root!!!**)
 3. Before the installation is complete it will ask you if you want to add the `anaconda-dir` to your `$PATH`? Answer affirmatively. (explanation of what this does to follow)
   
 **Important Note:**  
-If you do not want anaconda to be your default python executable open the `~/.bashrc` and edit the following line:  
+If you do not want anaconda to be your default python executable, open the `~/.bashrc` and add a function around the initialization of conda:
+
 ```bash
-export PATH="path_to_anaconda/bin:$PATH"
+function initconda {
+# >>> conda initialize >>>
+...
+# >>> conda initialize >>>
+}
 ```
-becomes:  
-```bash
-alias initConda='export PATH="path_to_anaconda/bin:$PATH"'
-```
- This way conda isn't prepended to the beginning of your system `$PATH` permanently. It is only placed there when invoked using thie alias `initConda` on the comamnd lone. Then the python version used will be the anaconda version. When the computer restarts the $PATH will have been reset by default and the anaconda version of python removed. 
+
+ This way conda isn't prepended to the system `$PATH` permanently. It is only placed there when invoked using the alias `initconda` on the comamnd line. Then the python version used will be the anaconda version. When restart the termal the $PATH will have been reset and the default python will be the one from the system. 
  
 **TODO**: create an alias that removes anaconda from $PATH so no restart is required.
 
@@ -101,7 +103,7 @@ This depends on your platform.
 - `activate <env-name>`
 - start FreeCAD by entering: `FreeCAD`
 
-#### Linux
+#### Linux and osx
 - In the terminal, type our alias `initConda` (which we created in the previous section) to add anaconda python to our $PATH. The `conda` command should now  be available.
 - Create an `env`: 
 ```bash

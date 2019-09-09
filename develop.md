@@ -79,7 +79,7 @@ Win is always a bit more promblematic. But with some hacks it's possible to setu
 
 ### Get the source for building FreeCAD with conda
 - `git clone https://github.com/FreeCAD/FreeCAD_Conda`
-- The location where the FreeCAD conda install scripts were cloned to willl be called `%FC_CONDA_SCRIPTS%`
+- The location where the FreeCAD conda install scripts were cloned to will be called `%FC_CONDA_SCRIPTS%`
 
 ### Creating a development build
 - `cd %FC_CONDA_SCRIPTS%\freecad_debug`

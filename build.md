@@ -7,7 +7,7 @@ With conda only the most general dependencies are used from the system. Because 
 
 Most of the FreeCAD-relevant packages are now **conda-forge-feedstocks** and listed as subrepos of [FreeCAD_Conda](https://github.com/FreeCAD/FreeCAD_Conda).
 
-All **conda-forge-feedstocks** are built automatically by Continuous Integration (CI's) for MacOSX, Linux and Windows. This way it's easy to collaborate and fix build-problems. So for example, if you encounter any problem which can be fixed by build-instructions, or if you want a newer version of a library please navigate to the corresponding feedstock, **fork** this feedstock on github and add changes. Once done create a *Pull Request** or PR (which will trigger the CI's to build) and see if the build succeeds on all platforms.
+All **conda-forge-feedstocks** are built automatically by Continuous Integration (CI's) for MacOSX, Linux and Windows. This way it's easy to collaborate and fix build-problems. So for example, if you encounter any problem which can be fixed by build-instructions, or if you want a newer version of a library please navigate to the corresponding feedstock, **fork** this feedstock on github and add changes. Once done create a **Pull Request** or PR (which will trigger the CI's to build) and see if the build succeeds on all platforms.
 
 ### Building Packages Remotely (with CI's)
 **Conda-forge** uses build-tools from **anaconda**. These tools (such as: a compiler, build-environments, etc...) are also changing and in-flux. To keep a feedstock updated, the **conda-smithy** utility should be used. This can be easily done in a PR by following the instructions listed here: https://conda-forge.org/docs/maintainer/infrastructure.html#admin-web-services

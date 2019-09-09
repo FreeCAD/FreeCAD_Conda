@@ -31,13 +31,13 @@ git submodule update --init
 ```
 
 # CONDA-PACKAGES for FreeCAD
-Conda gives the oppurtunity to distribute FreeCAD in a consistent way for multiple plattforms. This is the biggest advantage of conda: A package-manager wich works in the same way for different platforms.
+Conda gives the opportunity to distribute FreeCAD in a consistent way for multiple platforms. This is the biggest advantage of conda: A package-manager which works in the same way for different platforms.
 
 For more information about conda, you can follow this link:
 https://conda.io/docs/intro.html
 
 ## What is conda?
-conda is a cross-plattform package-manager written in python similar to pip. The main advantage over pip is a very simple way to create packages for more difficult libraries which are not written in python and often need some special dependencies to get build. So conda fits in somewhere between system-package-managers like apt and yum and pip. But conda is not only useable for python. There are also a lot of packages for other interpreters available (eg.: R)
+conda is a cross-plattform package-manager written in python similar to pip. The main advantage over pip is a very simple way to create packages for more difficult libraries which are not written in python and often need some special dependencies to get build. So conda fits in somewhere between system-package-managers like apt and yum and pip. But conda is not only usable for python. There are also a lot of packages for other interpreters available (eg.: R)
 
 ## What is anaconda?
 anaconda is a distribution of common conda-packages bundled in one installable archive. Installing anaconda is a very simple way to get many of the scintific python-packages. Anaconda is available in version 2 and 3. The version number refers to the python version of the root-environment. But there is always the option to create an environment with python2 /python3 from any of those two. So my suggestion is to always use Anaconda3!
@@ -50,83 +50,117 @@ An environment has it's own environment-variables and an own directory structure
 Such environments are not a new idea. This is also available through the python-package `virtual-env`.
 
 ## What is conda-build?
-conda-build is a python-package to create packages for the conda-package-manager. conda-build provides some simple commands to package any kind of programms. Mainly this is done by a `meta.yaml` file where all dependencies and build-commands are specified. For more complex packages there are scripts (`build.sh`, `build.bat`) used to do the installation. Maintainer have to simple build and install some sources in a conda-build-environment and conda-build takes care of creating the package.
+conda-build is a python-package to create packages for the conda-package-manager. conda-build provides some simple commands to package any kind of programs. Mainly this is done by a `meta.yaml` file where all dependencies and build-commands are specified. For more complex packages there are scripts (`build.sh`, `build.bat`) used to do the installation. Maintainer have to simple build and install some sources in a conda-build-environment and conda-build takes care of creating the package.
 
 ## What is conda-forge?
 conda-forge is the community channel for conda-packages. It provides a really big set of packages. All major dependencies of  FreeCAD are available from the conda-forge-channel.
 
 
-# HOW TO INSTALL FreeCAD WITH CONDA
-## INSTALL MINICONDA:
+## HOW TO INSTALL FreeCAD WITH CONDA
 
-### unix
-- first get miniconda: http://conda.pydata.org/miniconda.html choose 64-bit
-- install miniconda: bash <miniconda-file>.sh (not as root!!!)
-- at the end of the install it will ask you if you want to add the anaconda-dir to the $PATH, say yes.
-- if you do not want anaconda to be the default python open the ~/.bashrc and edit the new line:
-    -from this: __export PATH="path_to_anaconda/bin:$PATH"__
-    -to this: __alias initConda='export PATH="path_to_anaconda/bin:$PATH" '__
-    this way conda isn't perpended by default. As soon as you call "initConda" python will be the anaconda version.
+## Install Miniconda:
 
-### windows
-- first get miniconda: http://conda.pydata.org/miniconda.html choose 64-bit
-- install by double-clicking the downloaded file
-- follow the instruction and install for user.
+### Linux
+1. Download miniconda: http://conda.pydata.org/miniconda.html (choose 64-bit)
+2. Install miniconda: `bash miniconda-file.sh` (**Not as root!!!**)
+3. Before the installation is complete it will ask you if you want to add the `anaconda-dir` to your `$PATH`? Answer affirmatively. (explanation of what this does to follow)
+  
+**Important Note:**  
+If you do not want anaconda to be your default python executable open the `~/.bashrc` and edit the following line:  
+```bash
+export PATH="path_to_anaconda/bin:$PATH"
+```
+becomes:  
+```bash
+alias initConda='export PATH="path_to_anaconda/bin:$PATH"'
+```
+ This way conda isn't prepended to the beginning of your system `$PATH` permanently. It is only placed there when invoked using thie alias `initConda` on the comamnd lone. Then the python version used will be the anaconda version. When the computer restarts the $PATH will have been reset by default and the anaconda version of python removed. 
+ 
+**TODO**: create an alias that removes anaconda from $PATH so no restart is required.
 
-## INSTALL FREECAD
+### Windows
+- Download miniconda: http://conda.pydata.org/miniconda.html (choose 64-bit)
+- Install by double-clicking the downloaded file
+- Follow the instruction and install for user.
+
+## Installing FreeCAD
 
 ### Adding conda-forge to the channels
-- first we have to add the `conda-forge` channel:
+First we have to add the `conda-forge` channel:  
 `conda config --add channels conda-forge`
 
-### create new environment
-#### windows:
-- open the anaconda prompt/terminal
-- create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
+### Create new environment
+This depends on your platform.
+
+#### Windows:
+- Open the anaconda prompt/terminal
+- Create an `env` by invoking: `conda create -n env-name freecad` > # with <env-name> is the name of the env, eg. fc_test
     (this will install all necessary packages needed to run FreeCAD)
 - `activate <env-name>`
 - start FreeCAD by entering: `FreeCAD`
 
-#### unix
-- type in terminal: `initConda` (now the "conda" command should be available)
-- create an env: `conda create -n env-name freecad` # with <env-name> is the name of the env, eg. fc_test
-    (this will install all necessary packages needed to run FreeCAD)
-- at the end of this process a short statement is printed how to activate the new env.: ```source activate <env-name>```
-- start FreeCAD by entering: `FreeCAD`
+#### Linux
+- In the terminal, type our alias `initConda` (which we created in the previous section) to add anaconda python to our $PATH. The `conda` command should now  be available.
+- Create an `env`: 
+```bash
+conda create -n env-name freecad 
+# with <env-name> is the name of the env, eg. fc_test
+# (this will install all necessary packages needed to run FreeCAD)
+```
+- At the end of this process a short statement is printed how to activate the new env: 
+```bash
+source activate <env-name>
+```
+- Start FreeCAD by typing: `FreeCAD`
 
 
-### use specific dependency versions
-to create an enviroment with secific versions of packages you can add these packages with versions to the create command. This will give you the oppertunity to reproduce a enviroment. eg.: in case some newer dependencies are broken.
+### Use specific dependency versions
+To create an environment with specific versions of packages you can add these packages with versions to the create command. This will give you the opportunity to reproduce an environment. eg.: in case some newer dependencies are broken.
 
-```conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...```
+```bash
+conda create -n freecad freecad=0.17=py35_0 netgen=6.1=5 ...
+```
 
 
-# ADDITIONAL INFORMATION
+## Additional Information
 
-- list all enviroments:  
-`conda env list`
+#### List all environments
 
-- remove environment:  
-`conda env remove -n <name>`
+```bash
+conda env list
+```
 
-- update:  
-`conda update --all`  
-`conda update conda`
+#### Remove environment
 
-- list added channels:
-`conda config --show-sources`
+```bash
+conda env remove -n <name>
+```
 
-# freecad-channel label definition
-- main: releases
-- dev: development snapshots eg.: weekly builds of latests sources
-- testing: testing for new dependencies, additional stuff
+#### Update  
 
-# Maintainer info:
-fork and run on ci's
-- fork repo (github)
-- add specific channels in recipe/conda_build_config.yaml
-- create or view BINSTAR_TOKEN @ anaconda.org
-- encrypte or add BINSTAR_TOKEN @ ci (circle, appveyor)
-- add encrypted key to conda-forge.yaml
+```bash
+conda update --all  
+conda update conda
+```
+
+#### List added channels:
+
+```bash
+conda config --show-sources`
+```
+
+### Label definitions for freecad-channel
+**main**: releases  
+**dev**: development snapshots eg.: weekly builds of latests sources  
+**testing**: testing for new dependencies, additional stuff
+
+
+### Maintainer info:
+How to fork and run on CI's
+- Fork repo (github)
+- Add specific channels in `recipe/conda_build_config.yaml`
+- Create or view `BINSTAR_TOKEN` @ anaconda.org
+- Encrypt or add `BINSTAR_TOKEN` @ ci (circleci, appveyor)
+- Add encrypted key to `conda-forge.yaml`
 - `conda smithy rerender` and commit
-- change source (eg. your FreeCAD fork)
+- Change source (eg. your FreeCAD fork)

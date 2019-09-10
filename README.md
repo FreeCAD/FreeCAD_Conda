@@ -63,27 +63,21 @@ git submodule update --init
 
 ## 1. Install Miniconda:
 
-### Linux and OSX
+### Linux and OSX (install script)
 1. Download miniconda: http://conda.pydata.org/miniconda.html (choose 64-bit)
 2. Install miniconda: `bash miniconda-file.sh` (**Not as root!!!**)
-3. Before the installation is complete it will ask you if you want to add the `anaconda-dir` to your `$PATH`? Answer affirmatively. (explanation of what this does to follow)
-  
-**Important Note:**  
-If you do not want anaconda to be your default python executable, open the `~/.bashrc` and add a function around the initialization of conda:
-
+3. Before the installation is complete it will ask you if you want to always initialize the base environment:
 ```bash
-function initconda {
-# >>> conda initialize >>>
-...
-# >>> conda initialize >>>
-}
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
 ```
+4. If the answer is *yes* (recommended), the installer will append a section for initializing conda by default at the end of .bashrc. To avoid any system-errors to due different python-versions it's best to set the autoactivation of the base environment to false:
+`conda config --set auto_activate_base false`
 
- This way conda isn't prepended to the system `$PATH` permanently. It is only placed there when invoked using the alias `initconda` on the comamnd line. Then the python version used will be the anaconda version. When restart the termal the $PATH will have been reset and the default python will be the one from the system. 
- 
-**TODO**: create an alias that removes anaconda from $PATH so no restart is required.
+To activate the base-environment simple type:
+`conda activate base`
 
-### Windows
+### Windows (graphical installer)
 - Download miniconda: http://conda.pydata.org/miniconda.html (choose 64-bit)
 - Install by double-clicking the downloaded file
 - Follow the instruction and install for user.
@@ -114,7 +108,7 @@ conda create -n env-name freecad
 ```
 - At the end of this process a short statement is printed how to activate the new env: 
 ```bash
-source activate <env-name>
+conda activate <env-name>
 ```
 - Start FreeCAD by typing: `FreeCAD`
 

@@ -1,4 +1,8 @@
 # CONDA-PACKAGES for FreeCAD
+
+feel free to support this project:  
+[![Liberapay](http://img.shields.io/liberapay/patrons/looooo.svg?logo=liberapay)](https://liberapay.com/looooo/donate)
+
 Conda gives the opportunity to distribute FreeCAD in a consistent way for multiple platforms. This is the biggest advantage of conda: A package-manager which works in the same way for different platforms.
 
 <details>

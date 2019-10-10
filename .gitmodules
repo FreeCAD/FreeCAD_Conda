@@ -64,3 +64,6 @@
 [submodule "opencamlib-feedstock"]
 	path = opencamlib-feedstock
 	url = https://github.com/conda-forge/opencamlib-feedstock
+[submodule "libredwg-feedstock"]
+	path = libredwg-feedstock
+	url = https://github.com/conda-forge/libredwg-feedstock

@@ -67,3 +67,6 @@
 [submodule "libredwg-feedstock"]
 	path = libredwg-feedstock
 	url = https://github.com/conda-forge/libredwg-feedstock
+[submodule "pyflow-feedstock"]
+	path = pyflow-feedstock
+	url = https://github.com/conda-forge/pyflow-feedstock

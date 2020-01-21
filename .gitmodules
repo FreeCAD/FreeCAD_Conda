@@ -70,3 +70,9 @@
 [submodule "pyflow-feedstock"]
 	path = pyflow-feedstock
 	url = https://github.com/conda-forge/pyflow-feedstock
+[submodule "libxfoil-feedstock"]
+	path = libxfoil-feedstock
+	url = https://github.com/conda-forge/libxfoil-feedstock
+[submodule "solvespace-feedstock"]
+	path = solvespace-feedstock
+	url = https://github.com/looooo/solvespace-feedstock

@@ -1,0 +1,8 @@
+diff --git a/freecad/__init__.py b/freecad/__init__.py
+deleted file mode 100644
+index 0260537..0000000
+--- a/freecad/__init__.py
++++ /dev/null
+@@ -1 +0,0 @@
+-__path__ = __import__('pkgutil').extend_path(__path__, __name__)
+\ No newline at end of file

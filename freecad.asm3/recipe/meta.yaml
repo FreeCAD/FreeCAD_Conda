@@ -1,0 +1,38 @@
+{% set name = "freecad.asm3" %}
+{% set version = "0.10.2" %}
+{% set commit = "3b6ba266c474de14241031f7c4824ac4b7b3dd51" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/realthunder/FreeCAD_assembly3/archive/{{ commit }}.tar.gz
+  sha256: a5683d2a44c68439e814188b1124ea3e32e18c8cba86f0f62c54694bb0fd2082
+  patches:
+    - asm3_setup.py.patch
+    - asm3_py3_diff.patch
+
+build:
+  number: 2
+  script: python -m pip install --no-deps --ignore-installed .
+  noarch: python
+
+requirements:
+  build:
+    - pip
+    - python
+  run:
+    - six
+    - freecad
+    - solvespace
+
+about:
+  license: GPL-3
+  license_family: GPL
+  license_file: LICENSE
+  summary: Experimental attempt for the next generation assembly workbench for FreeCAD 
+
+extra:
+  recipe-maintainers:
+    - looooo

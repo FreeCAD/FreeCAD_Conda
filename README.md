@@ -93,6 +93,10 @@ To activate the base-environment simple type:
 First we have to add the `conda-forge` channel:  
 `conda config --add channels conda-forge`
 
+### Optional: Add freecad development channel:
+If you want to use builds from recent master-branch of freecad you can add the channel `freecad/label/dev`:
+`conda config --add channels freecad/label/dev`
+
 ### Create new environment
 This depends on your platform.
 

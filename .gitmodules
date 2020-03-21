@@ -76,3 +76,6 @@
 [submodule "solvespace-feedstock"]
 	path = solvespace-feedstock
 	url = https://github.com/looooo/solvespace-feedstock
+[submodule "freecad.asm3-feedstock"]
+	path = freecad.asm3-feedstock
+	url = https://github.com/looooo/freecad.asm3-feedstock

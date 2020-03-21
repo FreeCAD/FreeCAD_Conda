@@ -1,0 +1,46 @@
+{% set name = "appimage-updater-bridge" %}
+{% set version = "1.1.6" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/antony-jr/AppImageUpdaterBridge/archive/v{{ version }}.tar.gz
+  sha256: a54713011ab004335235326aa45beb20444e75d27a16c03db317fd89449b3ce6
+        
+
+build:
+  number: 0
+  skip: true  # [win or osx]
+
+requirements:
+  build:
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libselinux') }}  # [linux]
+    - {{ cdt('libxdamage') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libxext') }}     # [linux]
+    - cmake
+    - ninja
+  host:
+    - qt
+  run:
+    - qt
+
+about:
+  home: https://github.com/antony-jr/AppImageUpdaterBridge
+  license: BSD-3
+  license_file: LICENSE
+  summary: 'AppImage Updater Bridge is a delta updater based on the zsync algorithm'
+  description: |
+    AppImage Updater Bridge is a delta updater based on the zsync algorithm for the AppImage format , 
+    Using this library you can delta update any AppImage file , That is , 
+    Only download the binary data which you need to get the latest version , Therefore saving your time and internet.
+  doc_url: https://github.com/antony-jr/AppImageUpdaterBridge
+  dev_url: https://github.com/antony-jr/AppImageUpdaterBridge
+
+extra:
+  recipe-maintainers:
+    - looooo

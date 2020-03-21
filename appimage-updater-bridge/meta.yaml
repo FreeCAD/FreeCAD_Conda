@@ -8,10 +8,12 @@ package:
 source:
   url: https://github.com/antony-jr/AppImageUpdaterBridge/archive/v{{ version }}.tar.gz
   sha256: a54713011ab004335235326aa45beb20444e75d27a16c03db317fd89449b3ce6
+  patches:
+    - shared_lib.patch
         
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or osx]
 
 requirements:

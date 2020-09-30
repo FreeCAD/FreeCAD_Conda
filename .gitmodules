@@ -82,3 +82,6 @@
 [submodule "appimage-updater-bridge-feedstock"]
 	path = appimage-updater-bridge-feedstock
 	url = https://github.com/conda-forge/appimage-updater-bridge-feedstock
+[submodule "pythonocc-core-feedstock"]
+	path = pythonocc-core-feedstock
+	url = https://github.com/conda-forge/pythonocc-core-feedstock

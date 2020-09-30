@@ -79,3 +79,6 @@
 [submodule "freecad.asm3-feedstock"]
 	path = freecad.asm3-feedstock
 	url = https://github.com/looooo/freecad.asm3-feedstock
+[submodule "appimage-updater-bridge-feedstock"]
+	path = appimage-updater-bridge-feedstock
+	url = https://github.com/conda-forge/appimage-updater-bridge-feedstock

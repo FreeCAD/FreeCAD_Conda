@@ -17,7 +17,7 @@ conda is a cross-plattform package-manager written in python similar to pip. The
 anaconda is a distribution of common conda-packages bundled in one installable archive. Installing anaconda is a very simple way to get many of the scintific python-packages. Anaconda is available in version 2 and 3. The version number refers to the python version of the root-environment. But there is always the option to create an environment with python2 /python3 from any of those two. So my suggestion is to always use Anaconda3!
 
 ## What is miniconda?
-minoconda is similar to anaconda, but only bundles a little subset of packages. Miniconda aims to be a minimalistic installation for the conda-package-manager. With the conda-package-manager you are able to install any package which is provided by Anaconda, and many more.
+miniconda is similar to anaconda, but only bundles a little subset of packages. Miniconda aims to be a minimalistic installation for the conda-package-manager. With the conda-package-manager you are able to install any package which is provided by Anaconda, and many more.
 
 ## What are environments?
 An environment has it's own environment-variables and an own directory structure. With environments it's possible to use different dependency-structures which is very useful for development and staying up to date with some of the latest packages while still having stable versions. Maybe the most important advantage of development in environments is the fact that you don't have to make any changes to your system and therefore can ran the latest packages on a very stable (old) system.

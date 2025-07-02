@@ -100,7 +100,7 @@ and then append
 `--croot /tmp/fcbuild` to your conda build command.
 >   sources:  
 >   https://github.com/conda/conda-build/issues/1331  
->   https://forum.freecadweb.org/viewtopic.php?f=10&t=12534&start=280#p155440
+>   https://forum.freecad.org/viewtopic.php?f=10&t=12534&start=280#p155440
 
 ### Hosting FreeCAD packages
 
